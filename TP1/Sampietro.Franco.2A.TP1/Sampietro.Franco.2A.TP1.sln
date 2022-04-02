@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sampietro.Franco.2A.TP1", "Sampietro.Franco.2A.TP1\Sampietro.Franco.2A.TP1.csproj", "{201255C6-62D1-4921-849E-41888426FFF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{2CC51C62-0723-4496-AAB5-4405AECC3EB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{201255C6-62D1-4921-849E-41888426FFF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{201255C6-62D1-4921-849E-41888426FFF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{201255C6-62D1-4921-849E-41888426FFF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{201255C6-62D1-4921-849E-41888426FFF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CC51C62-0723-4496-AAB5-4405AECC3EB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CC51C62-0723-4496-AAB5-4405AECC3EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CC51C62-0723-4496-AAB5-4405AECC3EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CC51C62-0723-4496-AAB5-4405AECC3EB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
