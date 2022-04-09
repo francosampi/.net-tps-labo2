@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Calculadora
+    static class Calculadora
     {
         static private char ValidarOperador(char operador)
         {
@@ -17,9 +17,21 @@ namespace Entidades
             return '+';
         }
 
-        double Operar(Operando num1, Operando num2, char operador)
+        static double Operar(Operando num1, Operando num2, char operador)
         {
-            return 0;
+            switch(operador)
+            {
+                case '+':
+                    return num1 + num2;
+                case '-':
+                    return num1 - num2;
+                case '*':
+                    return num1 * num2;
+                case '/':
+                    return num1 / num2;
+                default:
+                    return 0;
+            }
         }
     }
 }

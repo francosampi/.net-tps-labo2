@@ -10,6 +10,18 @@ namespace Entidades
     {
         private double numero;
 
+        public string Numero
+        {
+            get
+            {
+                return this.numero.ToString();
+            }
+            set
+            {
+                this.numero = ValidarOperando(value);
+            }
+        }
+
         public Operando()
         {
             this.numero = 0;
@@ -20,9 +32,33 @@ namespace Entidades
             this.numero = numero;
         }
 
-        public Operando(string numero)
+        public Operando(string strNumero)
         {
-            this.numero = ValidarOperando(numero);
+            Numero = strNumero;
+        }
+
+        public static double operator +(Operando n1, Operando n2)
+        {
+            return n1.numero + n2.numero;
+        }
+
+        public static double operator -(Operando n1, Operando n2)
+        {
+            return n1.numero - n2.numero;
+        }
+
+        public static double operator *(Operando n1, Operando n2)
+        {
+            return n1.numero * n2.numero;
+        }
+
+        public static double operator /(Operando n1, Operando n2)
+        {
+            if (n2.numero != 0)
+            {
+                return n1.numero / n2.numero;
+            }
+            return double.MinValue;
         }
 
         private double ValidarOperando(string strNumero)
@@ -30,15 +66,6 @@ namespace Entidades
             double operando;
 
             return double.TryParse(strNumero, out operando) ? operando : 0;
-        }
-
-        public string Numero(string set)
-        {
-            double numeroValidado = ValidarOperando(set);
-
-            this.numero = numeroValidado;
-
-            return numero.ToString();
         }
 
         private bool EsBinario(string binario)
@@ -64,17 +91,17 @@ namespace Entidades
                 {
                     numeroInvertido += binario[i];
                 }
-            }
-
-            for (int i = 0; i < numeroInvertido.Length - 1; i++)
-            {
-                if (String.Equals(numeroInvertido[i], "1"))
+            
+                for (int i = 0; i < numeroInvertido.Length - 1; i++)
                 {
-                    resultadoDecimal += (int)(Math.Pow(Int32.Parse(Char.ToString(numeroInvertido[i])), 2));
+                    if (String.Equals(numeroInvertido[i], "1"))
+                    {
+                        resultadoDecimal += (int)(Math.Pow(Int32.Parse(Char.ToString(numeroInvertido[i])), 2));
+                    }
                 }
+                return resultadoDecimal.ToString();
             }
-
-            return resultadoDecimal.ToString();
+            return "Valor inválido";
         }
 
         public string DecimalBinario(double numero)
@@ -82,21 +109,25 @@ namespace Entidades
             string resultado = "";
             string resultadoInvertido = "";
 
-            while (numero > 0)
+            if (numero > 0)
             {
-                resultado += numero % 2;
+                while (numero > 0)
+                {
+                    resultado += numero % 2;
 
-                numero /= 2;
+                    numero/=2;
 
-                Console.WriteLine(numero);
+                    Console.WriteLine(numero);
+                }
+
+                for (int i = resultado.Length - 1; i > 0; i--)
+                {
+                    resultadoInvertido += resultado[i];
+                }
+
+                return resultadoInvertido.ToString();
             }
-
-            for (int i = resultado.Length - 1; i > 0; i--)
-            {
-                resultadoInvertido += resultado[i];
-            }
-
-            return resultadoInvertido.ToString();
+            return "Valor inválido";
         }
     }
 }
