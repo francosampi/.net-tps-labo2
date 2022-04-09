@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class Operando
+    public class Operando
     {
         private double numero;
 
@@ -70,9 +70,9 @@ namespace Entidades
 
         private bool EsBinario(string binario)
         {
-            for(int i=0; i<binario.Length; i++)
+            for (int i = 0; i < binario.Length; i++)
             {
-                if(!i.Equals('0') || !i.Equals('1'))
+                if (!i.Equals('0') || !i.Equals('1'))
                 {
                     return false;
                 }
@@ -91,7 +91,7 @@ namespace Entidades
                 {
                     numeroInvertido += binario[i];
                 }
-            
+
                 for (int i = 0; i < numeroInvertido.Length - 1; i++)
                 {
                     if (String.Equals(numeroInvertido[i], "1"))
@@ -115,7 +115,7 @@ namespace Entidades
                 {
                     resultado += numero % 2;
 
-                    numero/=2;
+                    numero /= 2;
 
                     Console.WriteLine(numero);
                 }

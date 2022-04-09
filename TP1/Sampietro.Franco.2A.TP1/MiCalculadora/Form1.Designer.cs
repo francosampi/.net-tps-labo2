@@ -43,6 +43,7 @@ namespace MiCalculadora
             // 
             // cmbOperador
             // 
+            this.cmbOperador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOperador.FormattingEnabled = true;
             this.cmbOperador.Location = new System.Drawing.Point(143, 46);
             this.cmbOperador.Name = "cmbOperador";
@@ -65,66 +66,75 @@ namespace MiCalculadora
             // 
             // lstOperaciones
             // 
+            this.lstOperaciones.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lstOperaciones.FormattingEnabled = true;
-            this.lstOperaciones.ItemHeight = 15;
-            this.lstOperaciones.Location = new System.Drawing.Point(393, 12);
+            this.lstOperaciones.ItemHeight = 17;
+            this.lstOperaciones.Location = new System.Drawing.Point(404, 12);
             this.lstOperaciones.Name = "lstOperaciones";
-            this.lstOperaciones.Size = new System.Drawing.Size(140, 199);
+            this.lstOperaciones.Size = new System.Drawing.Size(219, 208);
             this.lstOperaciones.TabIndex = 3;
             // 
             // btnCerrar
             // 
+            this.btnCerrar.BackColor = System.Drawing.SystemColors.Info;
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCerrar.Location = new System.Drawing.Point(273, 105);
+            this.btnCerrar.Location = new System.Drawing.Point(273, 115);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(114, 37);
             this.btnCerrar.TabIndex = 4;
             this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // btnLimpiar
             // 
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Info;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLimpiar.Location = new System.Drawing.Point(143, 105);
+            this.btnLimpiar.Location = new System.Drawing.Point(143, 115);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(112, 37);
             this.btnLimpiar.TabIndex = 5;
             this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnOperar
             // 
+            this.btnOperar.BackColor = System.Drawing.SystemColors.Info;
             this.btnOperar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnOperar.Location = new System.Drawing.Point(14, 105);
+            this.btnOperar.Location = new System.Drawing.Point(14, 115);
             this.btnOperar.Name = "btnOperar";
             this.btnOperar.Size = new System.Drawing.Size(112, 37);
             this.btnOperar.TabIndex = 6;
             this.btnOperar.Text = "Operar";
-            this.btnOperar.UseVisualStyleBackColor = true;
+            this.btnOperar.UseVisualStyleBackColor = false;
+            this.btnOperar.Click += new System.EventHandler(this.btnOperar_Click);
             // 
             // lblResultado
             // 
-            this.lblResultado.AutoSize = true;
-            this.lblResultado.Location = new System.Drawing.Point(273, 9);
+            this.lblResultado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblResultado.Location = new System.Drawing.Point(273, 12);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.Size = new System.Drawing.Size(38, 15);
+            this.lblResultado.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblResultado.Size = new System.Drawing.Size(114, 19);
             this.lblResultado.TabIndex = 7;
-            this.lblResultado.Text = "label1";
+            this.lblResultado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btnConvertirABinario
             // 
+            this.btnConvertirABinario.BackColor = System.Drawing.SystemColors.Control;
             this.btnConvertirABinario.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConvertirABinario.Location = new System.Drawing.Point(14, 172);
+            this.btnConvertirABinario.Location = new System.Drawing.Point(14, 183);
             this.btnConvertirABinario.Name = "btnConvertirABinario";
             this.btnConvertirABinario.Size = new System.Drawing.Size(186, 37);
             this.btnConvertirABinario.TabIndex = 8;
             this.btnConvertirABinario.Text = "Convertir a Binario";
-            this.btnConvertirABinario.UseVisualStyleBackColor = true;
+            this.btnConvertirABinario.UseVisualStyleBackColor = false;
             // 
             // btnConvertirADecimal
             // 
             this.btnConvertirADecimal.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnConvertirADecimal.Location = new System.Drawing.Point(201, 172);
+            this.btnConvertirADecimal.Location = new System.Drawing.Point(201, 183);
             this.btnConvertirADecimal.Name = "btnConvertirADecimal";
             this.btnConvertirADecimal.Size = new System.Drawing.Size(186, 37);
             this.btnConvertirADecimal.TabIndex = 9;
@@ -135,7 +145,8 @@ namespace MiCalculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 221);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(635, 232);
             this.Controls.Add(this.btnConvertirADecimal);
             this.Controls.Add(this.btnConvertirABinario);
             this.Controls.Add(this.lblResultado);
@@ -150,6 +161,7 @@ namespace MiCalculadora
             this.Name = "FormCalculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora de Franco Sampietro del curso 2A";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCalculadora_Closing);
             this.Load += new System.EventHandler(this.FormCalculadora_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

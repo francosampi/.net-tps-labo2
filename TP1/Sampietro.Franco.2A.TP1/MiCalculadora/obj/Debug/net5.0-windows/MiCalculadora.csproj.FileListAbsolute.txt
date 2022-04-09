@@ -6,8 +6,6 @@ C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\bin\De
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\bin\Debug\net5.0-windows\ref\MiCalculadora.dll
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\bin\Debug\net5.0-windows\MiCalculadora.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.csproj.AssemblyReference.cache
-C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.FormCalculadora.resources
-C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.csproj.GenerateResource.cache
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.AssemblyInfoInputs.cache
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.AssemblyInfo.cs
@@ -16,3 +14,8 @@ C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\De
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\ref\MiCalculadora.dll
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.genruntimeconfig.cache
+C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\bin\Debug\net5.0-windows\Entidades.dll
+C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\bin\Debug\net5.0-windows\Entidades.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.csproj.CopyComplete
+C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.FormCalculadora.resources
+C:\Users\franc\Desktop\PROG\TPS\TP1\Sampietro.Franco.2A.TP1\MiCalculadora\obj\Debug\net5.0-windows\MiCalculadora.csproj.GenerateResource.cache

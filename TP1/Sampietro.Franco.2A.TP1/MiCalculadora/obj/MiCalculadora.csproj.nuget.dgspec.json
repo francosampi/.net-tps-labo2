@@ -4,6 +4,21 @@
     "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP1\\Sampietro.Franco.2A.TP1\\MiCalculadora\\MiCalculadora.csproj": {}
   },
   "projects": {
+    "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP1\\Sampietro.Franco.2A.TP1\\Entidades\\Entidades.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP1\\Sampietro.Franco.2A.TP1\\Entidades\\Entidades.csproj",
+        "projectName": "Entidades",
+        "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP1\\Sampietro.Franco.2A.TP1\\Entidades\\Entidades.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
     "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP1\\Sampietro.Franco.2A.TP1\\MiCalculadora\\MiCalculadora.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -27,7 +42,11 @@
         "frameworks": {
           "net5.0-windows7.0": {
             "targetAlias": "net5.0-windows",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP1\\Sampietro.Franco.2A.TP1\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP1\\Sampietro.Franco.2A.TP1\\Entidades\\Entidades.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
