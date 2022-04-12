@@ -112,11 +112,14 @@ namespace MiCalculadora
             // 
             // lblResultado
             // 
+            this.lblResultado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblResultado.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblResultado.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblResultado.Location = new System.Drawing.Point(273, 12);
+            this.lblResultado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblResultado.Location = new System.Drawing.Point(14, 12);
             this.lblResultado.Name = "lblResultado";
-            this.lblResultado.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblResultado.Size = new System.Drawing.Size(114, 19);
+            this.lblResultado.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblResultado.Size = new System.Drawing.Size(373, 19);
             this.lblResultado.TabIndex = 7;
             this.lblResultado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -130,6 +133,7 @@ namespace MiCalculadora
             this.btnConvertirABinario.TabIndex = 8;
             this.btnConvertirABinario.Text = "Convertir a Binario";
             this.btnConvertirABinario.UseVisualStyleBackColor = false;
+            this.btnConvertirABinario.Click += new System.EventHandler(this.btnConvertirABinario_Click);
             // 
             // btnConvertirADecimal
             // 
@@ -140,6 +144,7 @@ namespace MiCalculadora
             this.btnConvertirADecimal.TabIndex = 9;
             this.btnConvertirADecimal.Text = "Convertir a Decimal";
             this.btnConvertirADecimal.UseVisualStyleBackColor = true;
+            this.btnConvertirADecimal.Click += new System.EventHandler(this.btnConvertirADecimal_Click);
             // 
             // FormCalculadora
             // 
@@ -158,6 +163,8 @@ namespace MiCalculadora
             this.Controls.Add(this.txtNumero1);
             this.Controls.Add(this.cmbOperador);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormCalculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora de Franco Sampietro del curso 2A";

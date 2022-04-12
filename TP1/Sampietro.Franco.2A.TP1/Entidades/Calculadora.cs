@@ -31,7 +31,7 @@ namespace Entidades
                         return num1 / num2;
                     default:
                         return 0;
-            }
+                }
         }
     }
 }

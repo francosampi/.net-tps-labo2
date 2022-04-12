@@ -72,7 +72,9 @@ namespace Entidades
         {
             for (int i = 0; i < binario.Length; i++)
             {
-                if (!i.Equals('0') || !i.Equals('1'))
+                char binChar=binario[i];
+
+                if (!binChar.Equals('0') && !binChar.Equals('1'))
                 {
                     return false;
                 }
@@ -82,52 +84,51 @@ namespace Entidades
 
         public string BinarioDecimal(string binario)
         {
-            string numeroInvertido = "";
-            int resultadoDecimal = 0;
+            double resultado = 0;
+            int cantidadCaracteres = binario.Length;
 
             if (EsBinario(binario))
             {
-                for (int i = binario.Length - 1; i > 0; i--)
+                foreach (char caracter in binario)
                 {
-                    numeroInvertido += binario[i];
-                }
-
-                for (int i = 0; i < numeroInvertido.Length - 1; i++)
-                {
-                    if (String.Equals(numeroInvertido[i], "1"))
+                    cantidadCaracteres--;
+                    if (caracter == '1')
                     {
-                        resultadoDecimal += (int)(Math.Pow(Int32.Parse(Char.ToString(numeroInvertido[i])), 2));
+                        resultado += (int)Math.Pow(2, cantidadCaracteres);
                     }
                 }
-                return resultadoDecimal.ToString();
+                return resultado.ToString();
             }
             return "Valor inválido";
         }
 
         public string DecimalBinario(double numero)
         {
-            string resultado = "";
-            string resultadoInvertido = "";
+            int resultado = (int)numero;
+            int restoDiv;
+            string valorBinario = string.Empty;
 
-            if (numero > 0)
+            if (resultado > -1)
             {
-                while (numero > 0)
+                do
                 {
-                    resultado += numero % 2;
+                    restoDiv = resultado % 2;
 
-                    numero /= 2;
+                    resultado/=2;
 
-                    Console.WriteLine(numero);
-                }
+                    valorBinario = restoDiv.ToString() + valorBinario;
+                } while (resultado > 0);
 
-                for (int i = resultado.Length - 1; i > 0; i--)
-                {
-                    resultadoInvertido += resultado[i];
-                }
-
-                return resultadoInvertido.ToString();
+                return valorBinario;
             }
             return "Valor inválido";
+        }
+
+        public string DecimalBinario(string numero)
+        {
+            double res;
+
+            return Double.TryParse(numero, out res) ? DecimalBinario(res) : "Valor inválido";
         }
     }
 }
