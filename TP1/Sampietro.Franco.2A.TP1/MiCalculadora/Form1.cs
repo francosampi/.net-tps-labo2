@@ -13,6 +13,9 @@ namespace MiCalculadora
 {
     public partial class FormCalculadora : Form
     {
+        /// <summary>
+        /// Iniciar aplicación, agregar opciones de operadores al combo box.
+        /// </summary>
         public FormCalculadora()
         {
             InitializeComponent();
@@ -36,6 +39,10 @@ namespace MiCalculadora
             lstOperaciones.Items.Clear();
         }
 
+        /// <summary>
+        /// Tomar la informacion de una caja de texto y borrarla. Reemplazar puntos por comas en los números.
+        /// </summary>
+        /// <param name="textbox"></param>
         private void reemplazarTextoVacio(TextBox textbox)
         {
             textbox.Text = textbox.Text.Replace('.', ',');
@@ -48,10 +55,28 @@ namespace MiCalculadora
         }
 
         /// <summary>
+        /// Aplicar conversion de decimal a binario o viceversa dependiendo el entero pasado (0 o 1) si el label resultado no está vacío
+        /// </summary>
+        /// <param name="operacion"></param>
+        private void aplicarConversion(int operacion)
+        {
+            if (!String.IsNullOrEmpty(lblResultado.Text))
+            {
+                Operando res = new Operando(lblResultado.Text);
+
+                lblResultado.Text = operacion == 0 ? res.BinarioDecimal(res.Numero) : res.DecimalBinario(res.Numero);
+            }
+            else
+            {
+                MessageBox.Show("Resultado no encontrado", "Error en la conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /// <summary>
         /// Lanza una ventana emergente preguntando si desea salir o no, valido para apretar ctrl+Z, cerrar desde barra superior, o con el boton de cerrar
         /// </summary>
         /// <returns>false si cancela, true si se cierra</returns>
-        private bool ConfirmarSalir()
+        private bool ventanaConfirmarSalir()
         {
             DialogResult res = MessageBox.Show("¿Seguro de querer salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res != DialogResult.Yes)
@@ -61,19 +86,34 @@ namespace MiCalculadora
             return true;
         }
 
+        /// <summary>
+        /// Aplicar limpieza de la informacion al iniciar la aplicación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
             this.Limpiar();
         }
 
+        /// <summary>
+        /// Limpiar toda la informacion impresa en pantalla, cajas de texto, lista de resultados, label del resultado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             this.Limpiar();
         }
 
+        /// <summary>
+        /// Confirmar motivo de cierre y cerrar la aplicacion
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (this.ConfirmarSalir())
+            if (this.ventanaConfirmarSalir())
             {
                 Application.Exit();
             }
@@ -88,13 +128,19 @@ namespace MiCalculadora
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                if (!this.ConfirmarSalir())
+                if (!this.ventanaConfirmarSalir())
                 {
                     e.Cancel = true;
                 }
             }
         }
 
+        /// <summary>
+        /// Se limpian los espacios en blanco de las cajas de texto, se aplica el operador suma si no tiene ninguno
+        /// Se realiza la operacion y la imprime en el label de arriba
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             char operador;
@@ -122,20 +168,30 @@ namespace MiCalculadora
 
                 lstOperaciones.Items.Insert(0, sb.ToString());
             }
+            else
+            {
+                MessageBox.Show("No fue posible operar", "Error en la operación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
+        /// <summary>
+        /// Convierte el resultado del label en Binario si es posible
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
-            Operando res = new Operando(lblResultado.Text);
-
-            lblResultado.Text = res.BinarioDecimal(res.Numero);
+            aplicarConversion(1);
         }
 
+        /// <summary>
+        /// Convierte el resultado del label en Decimal si es un resultado convertido en Binario previamente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            Operando res = new Operando(lblResultado.Text);
-
-            lblResultado.Text = res.DecimalBinario(res.Numero);
+            aplicarConversion(0);
         }
     }
 }
