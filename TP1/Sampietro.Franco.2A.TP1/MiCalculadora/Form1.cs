@@ -63,12 +63,11 @@ namespace MiCalculadora
             if (!String.IsNullOrEmpty(lblResultado.Text))
             {
                 Operando res = new Operando(lblResultado.Text);
+                StringBuilder sb = new StringBuilder();
 
                 lblResultado.Text = operacion == 0 ? res.BinarioDecimal(res.Numero) : res.DecimalBinario(res.Numero);
-            }
-            else
-            {
-                MessageBox.Show("Resultado no encontrado", "Error en la conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                lstOperaciones.Items.Insert(0, lblResultado.Text);
             }
         }
 
@@ -167,10 +166,6 @@ namespace MiCalculadora
                 sb.Append(n1.Numero + operador + n2.Numero + " = " + resultado);
 
                 lstOperaciones.Items.Insert(0, sb.ToString());
-            }
-            else
-            {
-                MessageBox.Show("No fue posible operar", "Error en la operación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

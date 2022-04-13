@@ -76,7 +76,7 @@ namespace MiCalculadora
             // 
             // btnCerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.SystemColors.Info;
+            this.btnCerrar.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrar.Location = new System.Drawing.Point(273, 115);
             this.btnCerrar.Name = "btnCerrar";
@@ -88,7 +88,7 @@ namespace MiCalculadora
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Info;
+            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLimpiar.Location = new System.Drawing.Point(143, 115);
             this.btnLimpiar.Name = "btnLimpiar";
@@ -100,7 +100,7 @@ namespace MiCalculadora
             // 
             // btnOperar
             // 
-            this.btnOperar.BackColor = System.Drawing.SystemColors.Info;
+            this.btnOperar.BackColor = System.Drawing.SystemColors.Control;
             this.btnOperar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOperar.Location = new System.Drawing.Point(14, 115);
             this.btnOperar.Name = "btnOperar";

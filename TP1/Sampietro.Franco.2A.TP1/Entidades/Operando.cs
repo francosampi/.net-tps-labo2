@@ -72,11 +72,14 @@ namespace Entidades
         {
             for (int i = 0; i < binario.Length; i++)
             {
-                char binChar=binario[i];
+                char binChar = binario[i];
 
-                if (!binChar.Equals('0') && !binChar.Equals('1'))
+                foreach(char caracter in binario)
                 {
-                    return false;
+                    if(caracter!='1' && caracter!='0')
+                    {
+                        return false;
+                    }
                 }
             }
             return true;
@@ -104,7 +107,7 @@ namespace Entidades
 
         public string DecimalBinario(double numero)
         {
-            int resultado = (int)numero;
+            int resultado = (int)(Math.Abs(numero));
             int restoDiv;
             string valorBinario = string.Empty;
 
