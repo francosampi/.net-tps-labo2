@@ -18,11 +18,6 @@ namespace Entidades
             }
         }
 
-        public Operando()
-        {
-            this.numero = 0;
-        }
-
         public Operando(double numero)
         {
             this.numero = numero;
@@ -30,7 +25,11 @@ namespace Entidades
 
         public Operando(string strNumero)
         {
-            Numero = strNumero;
+            this.Numero = strNumero;
+        }
+
+        public Operando() : this(0)
+        {
         }
 
         public static double operator +(Operando n1, Operando n2)
