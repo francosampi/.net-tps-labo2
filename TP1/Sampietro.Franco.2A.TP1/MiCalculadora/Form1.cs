@@ -63,9 +63,8 @@ namespace MiCalculadora
             if (!String.IsNullOrEmpty(lblResultado.Text))
             {
                 Operando res = new Operando(lblResultado.Text);
-                StringBuilder sb = new StringBuilder();
 
-                lblResultado.Text = operacion == 0 ? res.BinarioDecimal(res.Numero) : res.DecimalBinario(res.Numero);
+                lblResultado.Text = operacion == 0 ? res.BinarioDecimal(lblResultado.Text) : res.DecimalBinario(lblResultado.Text);
 
                 lstOperaciones.Items.Insert(0, lblResultado.Text);
             }
@@ -163,7 +162,7 @@ namespace MiCalculadora
 
                 lblResultado.Text = resultado;
                 
-                sb.Append(n1.Numero + operador + n2.Numero + " = " + resultado);
+                sb.Append(txtNumero1.Text + operador + txtNumero2.Text + " = " + resultado);
 
                 lstOperaciones.Items.Insert(0, sb.ToString());
             }

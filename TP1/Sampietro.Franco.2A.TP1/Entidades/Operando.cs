@@ -12,10 +12,6 @@ namespace Entidades
 
         public string Numero
         {
-            get
-            {
-                return this.numero.ToString();
-            }
             set
             {
                 this.numero = ValidarOperando(value);
