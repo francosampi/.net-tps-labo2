@@ -55,7 +55,7 @@ namespace MiCalculadora
         }
 
         /// <summary>
-        /// Aplicar conversion de decimal a binario o viceversa dependiendo el entero pasado (0 o 1) si el label resultado no está vacío
+        /// Aplicar conversion de decimal a binario o viceversa dependiendo el entero recibido (0 o 1) y si el label resultado no está vacío
         /// </summary>
         /// <param name="operacion"></param>
         private void aplicarConversion(int operacion)
