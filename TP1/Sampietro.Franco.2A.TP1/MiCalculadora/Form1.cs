@@ -62,7 +62,7 @@ namespace MiCalculadora
         {
             if (!String.IsNullOrEmpty(lblResultado.Text))
             {
-                Operando res = new Operando(lblResultado.Text);
+                Operando res = new Operando();
 
                 lblResultado.Text = operacion == 0 ? res.BinarioDecimal(lblResultado.Text) : res.DecimalBinario(lblResultado.Text);
 
@@ -77,6 +77,7 @@ namespace MiCalculadora
         private bool ventanaConfirmarSalir()
         {
             DialogResult res = MessageBox.Show("¿Seguro de querer salir?", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
             if (res != DialogResult.Yes)
             {
                 return false;

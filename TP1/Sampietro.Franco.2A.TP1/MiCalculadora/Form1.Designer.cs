@@ -76,7 +76,7 @@ namespace MiCalculadora
             // 
             // btnCerrar
             // 
-            this.btnCerrar.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnCerrar.BackColor = System.Drawing.Color.Salmon;
             this.btnCerrar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCerrar.Location = new System.Drawing.Point(273, 115);
             this.btnCerrar.Name = "btnCerrar";
@@ -88,7 +88,7 @@ namespace MiCalculadora
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnLimpiar.BackColor = System.Drawing.Color.LemonChiffon;
             this.btnLimpiar.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLimpiar.Location = new System.Drawing.Point(143, 115);
             this.btnLimpiar.Name = "btnLimpiar";
@@ -125,7 +125,7 @@ namespace MiCalculadora
             // 
             // btnConvertirABinario
             // 
-            this.btnConvertirABinario.BackColor = System.Drawing.SystemColors.Control;
+            this.btnConvertirABinario.BackColor = System.Drawing.Color.LightSkyBlue;
             this.btnConvertirABinario.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConvertirABinario.Location = new System.Drawing.Point(14, 183);
             this.btnConvertirABinario.Name = "btnConvertirABinario";
@@ -137,13 +137,14 @@ namespace MiCalculadora
             // 
             // btnConvertirADecimal
             // 
+            this.btnConvertirADecimal.BackColor = System.Drawing.Color.PaleGreen;
             this.btnConvertirADecimal.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConvertirADecimal.Location = new System.Drawing.Point(201, 183);
             this.btnConvertirADecimal.Name = "btnConvertirADecimal";
             this.btnConvertirADecimal.Size = new System.Drawing.Size(186, 37);
             this.btnConvertirADecimal.TabIndex = 9;
             this.btnConvertirADecimal.Text = "Convertir a Decimal";
-            this.btnConvertirADecimal.UseVisualStyleBackColor = true;
+            this.btnConvertirADecimal.UseVisualStyleBackColor = false;
             this.btnConvertirADecimal.Click += new System.EventHandler(this.btnConvertirADecimal_Click);
             // 
             // FormCalculadora
