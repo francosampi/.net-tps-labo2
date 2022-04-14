@@ -162,7 +162,7 @@ namespace MiCalculadora
 
                 lblResultado.Text = resultado;
                 
-                sb.Append(txtNumero1.Text + operador + txtNumero2.Text + " = " + resultado);
+                sb.Append(txtNumero1.Text + " " + operador + " " + txtNumero2.Text + " = " + resultado);
 
                 lstOperaciones.Items.Insert(0, sb.ToString());
             }
