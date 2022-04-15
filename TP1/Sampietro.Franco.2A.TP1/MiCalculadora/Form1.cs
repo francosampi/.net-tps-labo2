@@ -56,6 +56,7 @@ namespace MiCalculadora
 
         /// <summary>
         /// Aplicar conversion de decimal a binario o viceversa dependiendo el entero recibido (0 o 1) y si el label resultado no está vacío
+        /// En caso de no ser un valor invalido, agregarlo a la lista
         /// </summary>
         /// <param name="operacion"></param>
         private void aplicarConversion(int operacion)
@@ -66,7 +67,10 @@ namespace MiCalculadora
 
                 lblResultado.Text = operacion == 0 ? res.BinarioDecimal(lblResultado.Text) : res.DecimalBinario(lblResultado.Text);
 
-                lstOperaciones.Items.Insert(0, lblResultado.Text);
+                if (lblResultado.Text!="Valor inválido")
+                {
+                    lstOperaciones.Items.Insert(0, lblResultado.Text);
+                }
             }
         }
 
@@ -136,14 +140,15 @@ namespace MiCalculadora
 
         /// <summary>
         /// Se limpian los espacios en blanco de las cajas de texto, se aplica el operador suma si no tiene ninguno
-        /// Se realiza la operacion y la imprime en el label de arriba
+        /// Se realiza la operacion y la imprime en el label de arriba, en caso de no ser division por cero, sino se emite un mensaje de error
+        /// Luego de imprimir en el label de arriba, se guarda el resultado en la lista
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             char operador;
-            string resultado;
+            double resultado;
 
             reemplazarTextoVacio(txtNumero1);
             reemplazarTextoVacio(txtNumero2);
@@ -158,14 +163,23 @@ namespace MiCalculadora
 
             if (char.TryParse(cmbOperador.Text, out operador))
             {
-                resultado = Calculadora.Operar(n1, n2, operador).ToString();
-                StringBuilder sb = new StringBuilder();
+                resultado = Calculadora.Operar(n1, n2, operador);
 
-                lblResultado.Text = resultado;
-                
-                sb.Append(txtNumero1.Text + " " + operador + " " + txtNumero2.Text + " = " + resultado);
+                if(resultado!=double.MinValue)
+                {
+                    StringBuilder sb = new StringBuilder();
 
-                lstOperaciones.Items.Insert(0, sb.ToString());
+                    lblResultado.Text = resultado.ToString();
+
+                    sb.Append(txtNumero1.Text + " " + operador + " " + txtNumero2.Text + " = " + resultado);
+
+                    lstOperaciones.Items.Insert(0, sb.ToString());
+                }
+                else
+                {
+                    MessageBox.Show("Error! No se puede dividir por 0.", "Error matemático", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lblResultado.Text = "Valor inválido";
+                }
             }
         }
 
