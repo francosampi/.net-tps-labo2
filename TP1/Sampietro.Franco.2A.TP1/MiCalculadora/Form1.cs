@@ -42,7 +42,6 @@ namespace MiCalculadora
 
         /// <summary>
         /// Generar una nueva string que tomara los chars que sean digitos o puntos o comas del textbox recibido, y lo escribe en la caja de texto
-        /// de tener muchos ceros consecutivos al inicio del string, tambien los borrará, asi como los espacios en blanco.
         /// si el textbox está vacio, queda en 0.
         /// </summary>
         /// <param name="textbox"></param>
@@ -58,7 +57,6 @@ namespace MiCalculadora
                 }
             }
             txtboxIdentado = txtboxIdentado.Replace('.', ',');
-            txtboxIdentado = txtboxIdentado.TrimStart('0');
 
             textbox.Text = txtboxIdentado.Length > 0 ? txtboxIdentado : '0'.ToString();
         }
