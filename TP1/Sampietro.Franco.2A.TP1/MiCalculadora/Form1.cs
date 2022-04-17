@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using Entidades;
 
 namespace MiCalculadora
@@ -40,25 +41,33 @@ namespace MiCalculadora
         }
 
         /// <summary>
-        /// Tomar la informacion de una caja de texto y borrarla. Reemplazar puntos por comas en los números.
+        /// Generar una nueva string que tomara los chars que sean digitos o puntos o comas del textbox recibido, y lo escribe en la caja de texto
+        /// de tener muchos ceros consecutivos al inicio del string, tambien los borrará, asi como los espacios en blanco.
+        /// si el textbox está vacio, queda en 0.
         /// </summary>
         /// <param name="textbox"></param>
-        private void reemplazarTextoVacio(TextBox textbox)
+        private void corregirTextbox(TextBox textbox)
         {
-            textbox.Text = textbox.Text.Replace('.', ',');
-            textbox.Text = textbox.Text.Trim();
+            string txtboxIdentado="";
 
-            if (String.IsNullOrEmpty(textbox.Text))
+            for (int i = 0; i < textbox.Text.Length; i++)
             {
-                textbox.Text = "0";
+                if ((Char.IsDigit(textbox.Text[i]) || textbox.Text[i]=='.' || textbox.Text[i] == ','))
+                {
+                    txtboxIdentado += textbox.Text[i];
+                }
             }
+            txtboxIdentado = txtboxIdentado.Replace('.', ',');
+            txtboxIdentado = txtboxIdentado.TrimStart('0');
+
+            textbox.Text = txtboxIdentado.Length > 0 ? txtboxIdentado : '0'.ToString();
         }
 
         /// <summary>
         /// Aplicar conversion de decimal a binario o viceversa dependiendo el entero recibido (0 o 1) y si el label resultado no está vacío
         /// En caso de no ser un valor invalido, agregarlo a la lista
         /// </summary>
-        /// <param name="operacion"></param>
+        /// <param name="operacion"></param> tipo de operacion recibida, (1 de decimal a binario, 0 viceversa)
         private void aplicarConversion(int operacion)
         {
             if (!String.IsNullOrEmpty(lblResultado.Text))
@@ -150,8 +159,8 @@ namespace MiCalculadora
             char operador;
             double resultado;
 
-            reemplazarTextoVacio(txtNumero1);
-            reemplazarTextoVacio(txtNumero2);
+            corregirTextbox(txtNumero1);
+            corregirTextbox(txtNumero2);
 
             Operando n1 = new Operando(txtNumero1.Text);
             Operando n2 = new Operando(txtNumero2.Text);
