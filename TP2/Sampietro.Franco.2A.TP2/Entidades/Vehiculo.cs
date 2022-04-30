@@ -50,19 +50,19 @@ namespace Entidades
         /// <returns></returns>
         public virtual string Mostrar()
         {
-            return (string)this;
+            StringBuilder sb = new StringBuilder();
+
+            sb.AppendFormat("CHASIS: {0}\r\n", this.chasis.ToString());
+            sb.AppendFormat("MARCA : {0}\r\n", this.marca.ToString());
+            sb.AppendFormat("COLOR : {0}\r\n", this.color.ToString());
+            sb.AppendLine("---------------------");
+
+            return sb.ToString();
         }
 
         public static explicit operator string(Vehiculo p)
         {
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendFormat("CHASIS: {0}\r\n", p.chasis);
-            sb.AppendFormat("MARCA : {0}\r\n", p.marca);
-            sb.AppendFormat("COLOR : {0}\r\n", p.color);
-            sb.AppendLine("---------------------");
-
-            return sb.ToString();
+            return p.Mostrar();
         }
 
         /// <summary>
