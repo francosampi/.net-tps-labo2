@@ -60,6 +60,10 @@ namespace Entidades
             return sb.ToString();
         }
 
+        /// <summary>
+        /// el casteo a string del vehiculo retornara el string que devuelve el mostrar, es decir, los datos del vehiculo
+        /// </summary>
+        /// <param name="p"></param>
         public static explicit operator string(Vehiculo p)
         {
             return p.Mostrar();

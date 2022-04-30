@@ -23,6 +23,10 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// retornara los datos del Suv
+        /// </summary>
+        /// <returns></returns>
         public override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
