@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Heladeria.cs" />
+    <Compile Include="IAptoTacc.cs" />
     <Compile Include="PaletaHelado.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

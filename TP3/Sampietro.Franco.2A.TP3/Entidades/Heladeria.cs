@@ -8,21 +8,16 @@ namespace Entidades
 {
     public sealed class Heladeria
     {
-        public static string nombre;
-        public static List<Producto> productos;
+        public string nombre;
+        public List<Producto> productos;
 
-        static Heladeria()
+        public Heladeria(string nombre)
         {
-            Heladeria.productos = new List<Producto>();  
+            this.productos = new List<Producto>();
+            this.nombre = nombre;
         }
 
-        public List<Producto> AgregarProducto(Producto producto)
-        {
-            Heladeria.productos.Add(producto);
-            return productos;
-        }
-
-        public string MostrarProductos()
+        private string MostrarProductos()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -31,6 +26,48 @@ namespace Entidades
                 sb.Append(producto.mostrarInformacion());
             }
             return sb.ToString();
+        }
+
+        public override string ToString()
+        {
+            return this.MostrarProductos();
+        }
+
+        public static explicit operator List<Producto>(Heladeria h)
+        {
+            return h.productos;
+        }
+
+        public static Heladeria operator +(Heladeria h, Producto p)
+        {
+            if(!(h is null) && !(p is null))
+            {
+                if (h!=p)
+                {
+                    h.productos.Add(p);
+                }     
+            }
+            return h;
+        }
+
+        public static bool operator ==(Heladeria h, Producto p)
+        {
+            if (!(h is null) && !(p is null))
+            {
+                foreach(Producto producto in h.productos)
+                {
+                    if (producto.Equals(p))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public static bool operator !=(Heladeria h, Producto p)
+        {
+            return !(h == p);
         }
     }
 }

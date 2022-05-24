@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public sealed class PaletaHelado : Producto
+    public sealed class PaletaHelado : Producto, IAptoTacc
     {
         public enum Tamaño { 
             Mediano,
@@ -15,10 +15,23 @@ namespace Entidades
 
         private string sabor;
         private Tamaño tamaño;
+        private string aptoTacc="No disponible para celíacos.";
 
         public string Sabor
         {
             get { return this.sabor; }
+        }
+
+        public string AptoTacc
+        {
+            get
+            {
+                return this.aptoTacc;
+            }
+            set
+            {
+                this.aptoTacc = value;
+            }
         }
 
         public PaletaHelado(string sabor, Tamaño tamaño, double precio, int stock, string informacion)
@@ -30,12 +43,12 @@ namespace Entidades
 
         public override string mostrarInformacion()
         {
-            return "Paleta sabor: " + sabor + "\nTamaño" + tamaño;
+            return "'" + sabor + "'\n (" + tamaño.ToString()+")";
         }
 
         public override string mostrarInformacionDetallada()
         {
-           return this.mostrarInformacion()+"\n"+base.ToString();
+           return this.mostrarInformacion()+"\n"+base.ToString()+"\n"+this.aptoTacc;
         }
     }
 }

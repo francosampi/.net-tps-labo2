@@ -17,7 +17,7 @@ namespace Entidades
             this.precio = precio;
             this.stock = stock;
             this.informacion = informacion;
-        } 
+        }
 
         public virtual string mostrarInformacion()
         {
