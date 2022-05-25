@@ -8,19 +8,8 @@ namespace Entidades
 {
     public sealed class PaletaHelado : Producto, IAptoTacc
     {
-        public enum Tamaño { 
-            Mediano,
-            Grande
-        }
-
         private string sabor;
-        private Tamaño tamaño;
-        private string aptoTacc="No disponible para celíacos.";
-
-        public string Sabor
-        {
-            get { return this.sabor; }
-        }
+        private string aptoTacc;
 
         public string AptoTacc
         {
@@ -34,21 +23,37 @@ namespace Entidades
             }
         }
 
-        public PaletaHelado(string sabor, Tamaño tamaño, double precio, int stock, string informacion)
+        public ETamaño Tamaño
+        {
+            get; set;
+        }
+
+        public PaletaHelado(string sabor, double precio, int stock, string informacion)
             : base(precio, stock, informacion)
         {
             this.sabor = sabor;
-            this.tamaño = tamaño;
+            this.Tamaño = ETamaño.Mediano;
+            this.AptoTacc = "";
         }
 
         public override string mostrarInformacion()
         {
-            return "'" + sabor + "'\n (" + tamaño.ToString()+")";
+            return "'" + sabor + "'";
         }
 
         public override string mostrarInformacionDetallada()
         {
-           return this.mostrarInformacion()+"\n"+base.ToString()+"\n"+this.aptoTacc;
+           return base.mostrarInformacion()+ Environment.NewLine + Environment.NewLine + this.aptoTacc;
+        }
+
+        public override string ToString()
+        {
+            return mostrarInformacion();
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is PaletaHelado ph && this == ph;
         }
     }
 }

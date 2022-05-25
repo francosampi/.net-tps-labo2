@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enumerados.cs" />
     <Compile Include="Heladeria.cs" />
     <Compile Include="IAptoTacc.cs" />
     <Compile Include="PaletaHelado.cs" />

@@ -12,6 +12,16 @@ namespace Entidades
         private int stock;
         private string informacion;
 
+        public double Precio
+        {
+            get
+            {
+                if (precio > 0)
+                    return precio;
+                return 0;
+            }
+        }
+
         protected Producto(double precio, int stock, string informacion)
         {
             this.precio = precio;
@@ -21,7 +31,7 @@ namespace Entidades
 
         public virtual string mostrarInformacion()
         {
-            return "\n----------\nPrecio: " + precio + "\nStock: x" + stock + "\n" + informacion + "\n----------\n";
+            return "Precio: " + precio + "$ARS" + Environment.NewLine + "Stock: x" + stock + Environment.NewLine + informacion;
         }
         public abstract string mostrarInformacionDetallada();
     }

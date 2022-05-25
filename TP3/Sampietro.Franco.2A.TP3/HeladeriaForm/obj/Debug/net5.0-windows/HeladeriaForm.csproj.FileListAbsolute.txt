@@ -19,3 +19,9 @@ C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\obj\De
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\obj\Debug\net5.0-windows\ref\HeladeriaForm.dll
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\obj\Debug\net5.0-windows\HeladeriaForm.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\obj\Debug\net5.0-windows\HeladeriaForm.genruntimeconfig.cache
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\bin\Debug\net5.0-windows\PaletaForm.deps.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\bin\Debug\net5.0-windows\PaletaForm.runtimeconfig.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\bin\Debug\net5.0-windows\PaletaForm.runtimeconfig.dev.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\bin\Debug\net5.0-windows\PaletaForm.exe
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\bin\Debug\net5.0-windows\PaletaForm.dll
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\HeladeriaForm\bin\Debug\net5.0-windows\PaletaForm.pdb

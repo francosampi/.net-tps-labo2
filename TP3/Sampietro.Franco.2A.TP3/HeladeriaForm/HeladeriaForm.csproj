@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
+    <ProjectReference Include="..\PaletaForm\PaletaForm.csproj" />
   </ItemGroup>
 
 </Project>
