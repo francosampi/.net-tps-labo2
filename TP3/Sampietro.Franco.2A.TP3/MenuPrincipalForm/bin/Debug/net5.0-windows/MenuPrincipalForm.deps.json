@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v5.0": {
       "MenuPrincipalForm/1.0.0": {
         "dependencies": {
-          "Entidades": "1.0.0"
+          "Entidades": "1.0.0",
+          "MenuAgregarAlumnoForm": "1.0.0"
         },
         "runtime": {
           "MenuPrincipalForm.dll": {}
@@ -17,6 +18,14 @@
       "Entidades/1.0.0": {
         "runtime": {
           "Entidades.dll": {}
+        }
+      },
+      "MenuAgregarAlumnoForm/1.0.0": {
+        "dependencies": {
+          "Entidades": "1.0.0"
+        },
+        "runtime": {
+          "MenuAgregarAlumnoForm.dll": {}
         }
       }
     }
@@ -28,6 +37,11 @@
       "sha512": ""
     },
     "Entidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MenuAgregarAlumnoForm/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

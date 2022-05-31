@@ -19,3 +19,9 @@ C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\ob
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\obj\Debug\net5.0-windows\ref\MenuPrincipalForm.dll
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\obj\Debug\net5.0-windows\MenuPrincipalForm.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\obj\Debug\net5.0-windows\MenuPrincipalForm.genruntimeconfig.cache
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarAlumnoForm.deps.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarAlumnoForm.runtimeconfig.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarAlumnoForm.runtimeconfig.dev.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarAlumnoForm.exe
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarAlumnoForm.dll
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarAlumnoForm.pdb

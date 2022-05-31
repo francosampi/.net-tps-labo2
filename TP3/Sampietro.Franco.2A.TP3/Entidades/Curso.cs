@@ -8,10 +8,10 @@ namespace Entidades
 {
     public class Curso
     {
-        private string nombre;
-        private double precio;
-        private Modalidad modalidad;
-        private Nivel nivel;
+        public string nombre;
+        public double precio;
+        public Modalidad modalidad;
+        public Nivel nivel;
 
         public Curso()
         {
@@ -31,8 +31,12 @@ namespace Entidades
         /// <returns></returns>
         public string Ficha()
         {
-            return "\nNombre: " + this.nombre + "\nPrecio: " + this.precio + "\nModalidad: " + this.modalidad.ToString() + "\nNivel: " + this.nivel;
+            return "Nombre: " + Environment.NewLine + this.nombre + 
+                Environment.NewLine + "Precio: " + this.precio + 
+                Environment.NewLine + "Modalidad: " + this.modalidad.ToString() + 
+                Environment.NewLine + "Nivel: " + this.nivel;
         }
+
         public override string ToString()
         {
             return this.nombre;

@@ -8,11 +8,11 @@ namespace Entidades
 {
     public class Clase
     {
-        private Profesor profesor;
-        private Curso curso;
+        public Profesor profesor;
+        public Curso curso;
         public List<Alumno> alumnos;
-        private Dias dias;
-        private Horario horario;
+        public Dias dias;
+        public Horario horario;
 
         public Clase()
         {
@@ -34,7 +34,10 @@ namespace Entidades
 
         public string Ficha()
         {
-            return "Materia dada: " + this.curso.ToString() + "\nProfesor: " + this.profesor.ToString() + "\nDias: " + this.dias.ToString() + "\nHorario: " + this.horario + "\nAlumnos: ";
+            return "Materia dada: " + this.curso.ToString() + Environment.NewLine +
+                "Profesor: " + this.profesor.ToString() + Environment.NewLine +
+                "Dias: " + this.dias.ToString() + Environment.NewLine +
+                "Horario: " + this.horario;
         }
 
         public string FichaCompleta()

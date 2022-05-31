@@ -8,8 +8,8 @@ namespace Entidades
 {
     public class Profesor
     {
-        private string nombre;
-        private string mail;
+        public string nombre;
+        public string mail;
         public List<Clase> clases;
 
         public Profesor()
@@ -25,12 +25,12 @@ namespace Entidades
 
         public string Ficha()
         {
-            return "\nNombre: "+this.nombre+"\nMail:"+this.mail;
+            return "\nNombre: "+this.nombre+Environment.NewLine+"Mail:"+this.mail;
         }
 
         public override string ToString()
         {
-            return Environment.NewLine + "Nombre: " + this.nombre + Environment.NewLine + "Mail:" + this.mail;
+            return this.nombre;
         }
     }
 }

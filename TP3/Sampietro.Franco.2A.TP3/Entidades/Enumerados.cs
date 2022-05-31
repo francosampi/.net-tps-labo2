@@ -18,7 +18,7 @@ public enum Nacionalidad
 
 public enum TipoDePago
 {
-    TransferenciaBancaria,
+    Transferencia,
     Tarjeta
 }
 

@@ -8,37 +8,34 @@ namespace Entidades
 {
     public class Alumno
     {
-        private string nombre;
-        private string mail;
-        private double totalAbonado;
-        public List<Curso> cursos;
-        private Nacionalidad nacionalidad;
-        private TipoDePago tipoDePago;
+        public string nombre;
+        public string mail;
+        public double totalAbonado;
+        public Curso curso;
+        public Nacionalidad nacionalidad;
+        public TipoDePago tipoDePago;
 
         public Alumno()
         {
         }
 
-        public Alumno(string nombre, string mail, Nacionalidad nacionalidad, TipoDePago tipoDePago)
+        public Alumno(string nombre, string mail, double totalAbonado, Nacionalidad nacionalidad, TipoDePago tipoDePago)
         {
             this.nombre = nombre;
             this.mail = mail;
+            this.totalAbonado = totalAbonado;
             this.nacionalidad = nacionalidad;
             this.tipoDePago = tipoDePago;
-            this.cursos = new List<Curso>();
         }
 
         public string Ficha()
         {
-            return "\nNombre: " + this.nombre + "\nMail: " + this.mail + "\nTotal abonado: " + this.totalAbonado + " (" + this.tipoDePago.ToString() + ")\nNacionalidad: " + this.nacionalidad;
+            return "Nombre: " + this.nombre +Environment.NewLine+ "Mail: " + this.mail +Environment.NewLine + "Total abonado: " + this.totalAbonado + " (" + this.tipoDePago.ToString() + ")" + Environment.NewLine + "Nacionalidad: " + this.nacionalidad;
         }
 
         public override string ToString()
         {
-            return "Nombre: " + this.nombre + Environment.NewLine +
-                "Mail: " + this.mail + Environment.NewLine +
-                "Total abonado: " + this.totalAbonado + " (" + this.tipoDePago.ToString() + ")"+ Environment.NewLine +
-                "Nacionalidad: " + this.nacionalidad;
+            return this.nombre;
         }
     }
 }

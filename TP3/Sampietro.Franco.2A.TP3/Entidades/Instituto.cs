@@ -8,7 +8,10 @@ namespace Entidades
 {
     public class Instituto
     {
-        private string nombre;
+        public string nombre;
+        public List<Profesor> profesores;
+        public List<Alumno> alumnos;
+        public List<Curso> cursos;
         public List<Clase> clases;
 
         public Instituto()
@@ -18,6 +21,9 @@ namespace Entidades
         public Instituto(string nombre)
         {
             this.nombre = nombre;
+            this.profesores = new List<Profesor>();
+            this.alumnos = new List<Alumno>();
+            this.cursos = new List<Curso>();
             this.clases = new List<Clase>();
         }
 
