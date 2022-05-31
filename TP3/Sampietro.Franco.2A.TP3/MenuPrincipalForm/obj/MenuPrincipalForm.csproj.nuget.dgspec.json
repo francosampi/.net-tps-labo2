@@ -109,6 +109,9 @@
               },
               "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarForm\\MenuAgregarAlumnoForm.csproj": {
                 "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarForm\\MenuAgregarAlumnoForm.csproj"
+              },
+              "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj": {
+                "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj"
               }
             }
           }
@@ -142,6 +145,21 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj",
+        "projectName": "SerializadorXML",
+        "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
       }
     }
   }

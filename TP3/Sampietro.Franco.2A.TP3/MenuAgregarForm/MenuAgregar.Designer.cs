@@ -64,6 +64,7 @@ namespace MenuAgregarForm
             this.btnCancelar.TabIndex = 10;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tbNombre
             // 
@@ -101,6 +102,7 @@ namespace MenuAgregarForm
             this.nupAbonado.Name = "nupAbonado";
             this.nupAbonado.Size = new System.Drawing.Size(120, 23);
             this.nupAbonado.TabIndex = 14;
+            this.nupAbonado.ValueChanged += new System.EventHandler(this.nupAbonado_ValueChanged);
             // 
             // lblTotalAbonado
             // 

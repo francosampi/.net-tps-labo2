@@ -25,7 +25,7 @@ namespace Entidades
 
         public string Ficha()
         {
-            return "\nNombre: "+this.nombre+Environment.NewLine+"Mail:"+this.mail;
+            return "\nNombre: "+this.nombre+Environment.NewLine+"Mail: "+this.mail;
         }
 
         public override string ToString()

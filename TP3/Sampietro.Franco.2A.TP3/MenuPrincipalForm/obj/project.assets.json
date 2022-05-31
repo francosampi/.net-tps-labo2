@@ -26,6 +26,15 @@
         "frameworkReferences": [
           "Microsoft.WindowsDesktop.App.WindowsForms"
         ]
+      },
+      "SerializadorXML/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/SerializadorXML.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SerializadorXML.dll": {}
+        }
       }
     }
   },
@@ -39,12 +48,18 @@
       "type": "project",
       "path": "../MenuAgregarForm/MenuAgregarAlumnoForm.csproj",
       "msbuildProject": "../MenuAgregarForm/MenuAgregarAlumnoForm.csproj"
+    },
+    "SerializadorXML/1.0.0": {
+      "type": "project",
+      "path": "../SerializadorXML/SerializadorXML.csproj",
+      "msbuildProject": "../SerializadorXML/SerializadorXML.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
       "Entidades >= 1.0.0",
-      "MenuAgregarAlumnoForm >= 1.0.0"
+      "MenuAgregarAlumnoForm >= 1.0.0",
+      "SerializadorXML >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -79,6 +94,9 @@
             },
             "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarForm\\MenuAgregarAlumnoForm.csproj": {
               "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarForm\\MenuAgregarAlumnoForm.csproj"
+            },
+            "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj"
             }
           }
         }

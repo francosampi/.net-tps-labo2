@@ -1,0 +1,6 @@
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\bin\Debug\SerializadorXML.dll
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\bin\Debug\SerializadorXML.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\Debug\SerializadorXML.csproj.AssemblyReference.cache
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\Debug\SerializadorXML.csproj.CoreCompileInputs.cache
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\Debug\SerializadorXML.dll
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\Debug\SerializadorXML.pdb

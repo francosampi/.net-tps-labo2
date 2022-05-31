@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
     <ProjectReference Include="..\MenuAgregarForm\MenuAgregarAlumnoForm.csproj" />
+    <ProjectReference Include="..\SerializadorXML\SerializadorXML.csproj" />
   </ItemGroup>
 
 </Project>

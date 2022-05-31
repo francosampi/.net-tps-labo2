@@ -9,7 +9,8 @@
       "MenuPrincipalForm/1.0.0": {
         "dependencies": {
           "Entidades": "1.0.0",
-          "MenuAgregarAlumnoForm": "1.0.0"
+          "MenuAgregarAlumnoForm": "1.0.0",
+          "SerializadorXML": "1.0.0"
         },
         "runtime": {
           "MenuPrincipalForm.dll": {}
@@ -27,6 +28,11 @@
         "runtime": {
           "MenuAgregarAlumnoForm.dll": {}
         }
+      },
+      "SerializadorXML/1.0.0": {
+        "runtime": {
+          "SerializadorXML.dll": {}
+        }
       }
     }
   },
@@ -42,6 +48,11 @@
       "sha512": ""
     },
     "MenuAgregarAlumnoForm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SerializadorXML/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
