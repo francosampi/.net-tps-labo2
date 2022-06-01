@@ -22,48 +22,56 @@ namespace MenuPrincipalForm
         string nombreArchivoListaProfesores = "ListaDeProfesores";
         string nombreArchivoListaClases = "ListaDeClases";
 
+        /// <summary>
+        /// Inicializar instituto con nombre, cargar cursos que da, y traer de los xml alumnos, profesores y clases que se dan
+        /// </summary>
         public MenuPrincipal()
         {
             InitializeComponent();
             this.instituto = new Instituto("Escuelita de Artes Multimediales");
+
             Curso cr1 = new Curso("Programacion de Videojuegos", 6000, Modalidad.Virtual, Nivel.Basico);
             Curso cr2 = new Curso("Dibujo de Cómics", 4500, Modalidad.Presencial, Nivel.Basico);
-            Profesor p1 = new Profesor("Manuel A.", "cptnmanu@gmail.com");
-            Profesor p2 = new Profesor("Miguel S.", "elsantaarte@hotmail.com");
-            //Alumno a1 = new Alumno("Franco Sampietro", "francosampi@hotmail.com", 6000, Nacionalidad.Argentina, TipoDePago.Transferencia);
-            //Alumno a2 = new Alumno("Kinoto Rodríguez", "kinotito@hotmail.com", 4500, Nacionalidad.Extranjera, TipoDePago.Tarjeta);
-            Clase c1 = new Clase(p1,cr1,Dias.Lunes,Horario.Tarde);
-            Clase c2 = new Clase(p2,cr2,Dias.Martes,Horario.Mañana);
+            Curso cr3 = new Curso("Diseño 3D en Blender", 7500, Modalidad.Virtual, Nivel.Avanzado);
+            Curso cr4 = new Curso("Diseño Gráfico", 7000, Modalidad.Virtual, Nivel.Basico);
+            Curso cr5 = new Curso("Programacion Web", 8000, Modalidad.Virtual, Nivel.Avanzado);
 
-            this.instituto.alumnos = ClaseSerializadoraXML.deserializarXML<Alumno>("ListaDeAlumnos");
-
-            //c1 += a1;
-            //c2 += a2;
-            //a1.curso = cr1;
-            //a2.curso = cr2;
-            //this.instituto.alumnos.Add(a1);
-            //this.instituto.alumnos.Add(a2);
-
-            this.instituto.profesores.Add(p1);
-            this.instituto.profesores.Add(p2);
             this.instituto.cursos.Add(cr1);
             this.instituto.cursos.Add(cr2);
-            this.instituto += c1;
-            this.instituto += c2;
+            this.instituto.cursos.Add(cr3);
+            this.instituto.cursos.Add(cr4);
+            this.instituto.cursos.Add(cr5);
+
+            this.instituto.alumnos = ClaseSerializadoraXML.deserializarXML<Alumno>(nombreArchivoListaAlumnos);
+            this.instituto.profesores = ClaseSerializadoraXML.deserializarXML<Profesor>(nombreArchivoListaProfesores);
+            this.instituto.clases = ClaseSerializadoraXML.deserializarXML<Clase>(nombreArchivoListaClases);
         }
 
+        /// <summary>
+        /// Por defecto el formulario cargará la lista de alumnos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             this.listadoIndex = 0;
             cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
         }
 
+        /// <summary>
+        /// nullear el datasource de la listbox para asignarsela a otra lista de entidades (alumnos, profesores o clases)
+        /// mostrar detalles de la entidad seleccionada por defecto (si la listbox posee al menos una)
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="lb"></param>
+        /// <param name="list"></param>
         private void cargarEnListBox<T>(ListBox lb, List<T> list) where T : class
         {
             lb.DataSource = null;
             lb.Items.Clear();
             lb.DataSource = list;
             lb.ClearSelected();
+
             try
             {
                 foreach (T item in list)
@@ -78,12 +86,18 @@ namespace MenuPrincipalForm
             {
                 tbDetalles.Text = ex.Message;
             }
+
             if (lbListado.Items.Count!=0)
             {
                 lbListado.SelectedIndex = 0;
             }
         }
 
+        /// <summary>
+        /// click en los botones de arriba para cargar su lista en la listbox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAlumnos_Click(object sender, EventArgs e)
         {
             this.listadoIndex = 0;
@@ -102,6 +116,11 @@ namespace MenuPrincipalForm
             cargarEnListBox<Clase>(lbListado, this.instituto.clases);
         }
 
+        /// <summary>
+        /// Al cambiar de item seleccionado de cada una de las listas, mostrar su detalle a la derecha
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void lbListado_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -125,6 +144,10 @@ namespace MenuPrincipalForm
             }
         }
 
+        /// <summary>
+        /// Detalles de cada entidad
+        /// </summary>
+        /// <param name="tb"></param>
         private void escribirDetalleAlumno(TextBox tb)
         {
             Alumno alumnoSeleccionado;
@@ -241,7 +264,7 @@ namespace MenuPrincipalForm
                         {
                             lista.Remove(entidadSeleccionada);
                             cargarEnListBox<T>(lbListado, lista);
-                            MessageBox.Show("Se ha removido al/la "+entidadString+"correctamente", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Se ha removido al/la "+entidadString+" correctamente", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                 }

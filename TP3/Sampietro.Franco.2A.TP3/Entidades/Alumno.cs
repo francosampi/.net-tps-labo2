@@ -30,7 +30,10 @@ namespace Entidades
 
         public string Ficha()
         {
-            return "Nombre: " + this.nombre +Environment.NewLine+ "Mail: " + this.mail +Environment.NewLine + "Total abonado: " + this.totalAbonado + " (" + this.tipoDePago.ToString() + ")" + Environment.NewLine + "Nacionalidad: " + this.nacionalidad;
+            return "Nombre: " + this.nombre + Environment.NewLine + "Mail: " + this.mail +
+                Environment.NewLine + "Nacionalidad: " + this.nacionalidad +
+                Environment.NewLine + "Curso que da: " + this.curso +
+                Environment.NewLine + "Total abonado: " + this.totalAbonado + " (" + this.tipoDePago.ToString() + ")";
         }
 
         public override string ToString()

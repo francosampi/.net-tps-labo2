@@ -51,7 +51,7 @@ namespace MenuAgregarForm
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(125, 37);
             this.btnAgregar.TabIndex = 9;
-            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.Text = "Guardar";
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -95,7 +95,7 @@ namespace MenuAgregarForm
             0});
             this.nupAbonado.Location = new System.Drawing.Point(381, 36);
             this.nupAbonado.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});

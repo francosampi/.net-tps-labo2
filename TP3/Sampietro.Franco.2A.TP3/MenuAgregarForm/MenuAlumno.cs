@@ -19,6 +19,8 @@ namespace MenuAgregarForm
         private bool nombreValidado = false;
         private bool mailValidado = false;
         private bool abonadoValidado = false;
+        Color colorDefault = SystemColors.Window;
+        Color colorError = Color.Red;
 
         public frmAgregar()
         {
@@ -53,10 +55,19 @@ namespace MenuAgregarForm
         {
             if (nombreValidado && mailValidado && abonadoValidado)
             {
-                this.alumno.nombre = tbNombre.Text;
-                this.alumno.mail = tbMail.Text;
-                this.alumno.totalAbonado = Decimal.ToDouble(nupAbonado.Value);
-                this.DialogResult = DialogResult.OK;
+                try
+                {
+                    this.alumno.nombre = tbNombre.Text;
+                    this.alumno.mail = tbMail.Text;
+                    this.alumno.totalAbonado = Decimal.ToDouble(nupAbonado.Value);
+                    this.alumno.curso = cursos[cbCurso.SelectedIndex];
+
+                    this.DialogResult = DialogResult.OK;
+                }
+                catch(Exception ex)
+                {
+                    this.DialogResult = DialogResult.Abort;
+                }
             }
             else
             {
@@ -68,28 +79,28 @@ namespace MenuAgregarForm
         {
             Regex regex = new Regex(@"^[a-zA-Z ]*$");
 
-            if (!regex.IsMatch(tbNombre.Text) || this.tbNombre.Text == string.Empty)
+            if (!regex.IsMatch(tbNombre.Text) || this.tbNombre.Text == string.Empty || this.tbNombre.Text.Length > 60)
             {
-                tbNombre.BackColor = Color.Red;
+                tbNombre.BackColor = colorError;
                 nombreValidado = false;
             }
             else
             {
-                tbNombre.BackColor = SystemColors.Window;
+                tbNombre.BackColor = colorDefault;
                 nombreValidado = true;
             }
         }
 
         private void tbMail_TextChanged(object sender, EventArgs e)
         {
-            if (!this.tbMail.Text.Contains('@') || !this.tbMail.Text.Contains('.') || this.tbMail.Text==string.Empty)
+            if (!this.tbMail.Text.Contains('@') || !this.tbMail.Text.Contains('.') || this.tbMail.Text==string.Empty || this.tbMail.Text.Length>60)
             {
-                tbMail.BackColor = Color.Red;
+                tbMail.BackColor = colorError;
                 mailValidado = false;
             }
             else
             {
-                tbMail.BackColor = SystemColors.Window;
+                tbMail.BackColor = colorDefault;
                 mailValidado = true;
             }
         }
@@ -105,12 +116,12 @@ namespace MenuAgregarForm
 
             if (abonado<1000)
             {
-                nupAbonado.BackColor = Color.Red;
+                nupAbonado.BackColor = colorError;
                 abonadoValidado = false;
             }
             else
             {
-                nupAbonado.BackColor = SystemColors.Window;
+                nupAbonado.BackColor = colorDefault;
                 abonadoValidado = true;
             }
         }
