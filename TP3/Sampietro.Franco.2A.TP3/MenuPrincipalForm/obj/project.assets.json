@@ -27,6 +27,22 @@
           "Microsoft.WindowsDesktop.App.WindowsForms"
         ]
       },
+      "MenuAgregarProfesorForm/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Entidades": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/MenuAgregarProfesorForm.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MenuAgregarProfesorForm.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
+      },
       "SerializadorXML/1.0.0": {
         "type": "project",
         "compile": {
@@ -49,6 +65,11 @@
       "path": "../MenuAgregarForm/MenuAgregarAlumnoForm.csproj",
       "msbuildProject": "../MenuAgregarForm/MenuAgregarAlumnoForm.csproj"
     },
+    "MenuAgregarProfesorForm/1.0.0": {
+      "type": "project",
+      "path": "../MenuAgregarProfesorForm/MenuAgregarProfesorForm.csproj",
+      "msbuildProject": "../MenuAgregarProfesorForm/MenuAgregarProfesorForm.csproj"
+    },
     "SerializadorXML/1.0.0": {
       "type": "project",
       "path": "../SerializadorXML/SerializadorXML.csproj",
@@ -59,6 +80,7 @@
     "net5.0-windows7.0": [
       "Entidades >= 1.0.0",
       "MenuAgregarAlumnoForm >= 1.0.0",
+      "MenuAgregarProfesorForm >= 1.0.0",
       "SerializadorXML >= 1.0.0"
     ]
   },
@@ -94,6 +116,9 @@
             },
             "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarForm\\MenuAgregarAlumnoForm.csproj": {
               "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarForm\\MenuAgregarAlumnoForm.csproj"
+            },
+            "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarProfesorForm\\MenuAgregarProfesorForm.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarProfesorForm\\MenuAgregarProfesorForm.csproj"
             },
             "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj": {
               "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj"

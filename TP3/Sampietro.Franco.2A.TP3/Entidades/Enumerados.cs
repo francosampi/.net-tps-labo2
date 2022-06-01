@@ -1,4 +1,10 @@
-﻿public enum Modalidad
+﻿public enum FormAccion
+{
+    Agregar,
+    Modificar
+}
+
+public enum Modalidad
 {
     Presencial,
     Virtual

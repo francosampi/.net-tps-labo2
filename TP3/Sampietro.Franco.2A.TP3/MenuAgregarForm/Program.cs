@@ -17,7 +17,7 @@ namespace MenuAgregarForm
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmAgregar());
+            Application.Run(new frmMenuAlumno());
         }
     }
 }

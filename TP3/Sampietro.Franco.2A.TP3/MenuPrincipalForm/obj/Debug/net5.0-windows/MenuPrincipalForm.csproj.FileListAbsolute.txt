@@ -27,3 +27,9 @@ C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bi
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarAlumnoForm.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\SerializadorXML.dll
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\SerializadorXML.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarProfesorForm.deps.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarProfesorForm.runtimeconfig.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarProfesorForm.runtimeconfig.dev.json
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarProfesorForm.exe
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarProfesorForm.dll
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarProfesorForm.pdb

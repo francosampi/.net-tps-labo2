@@ -21,7 +21,7 @@ namespace SerializadorXML
                 }
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
             }
@@ -40,7 +40,7 @@ namespace SerializadorXML
                 }
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

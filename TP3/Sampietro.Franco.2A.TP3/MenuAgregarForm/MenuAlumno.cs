@@ -12,26 +12,29 @@ using System.Windows.Forms;
 
 namespace MenuAgregarForm
 {
-    public partial class frmAgregar : Form
+    public partial class frmMenuAlumno : Form
     {
         Alumno alumno;
         List<Curso> cursos;
+        FormAccion formAccion;
+
         private bool nombreValidado = false;
         private bool mailValidado = false;
         private bool abonadoValidado = false;
         Color colorDefault = SystemColors.Window;
         Color colorError = Color.Red;
 
-        public frmAgregar()
+        public frmMenuAlumno()
         {
             InitializeComponent();
             cursos = new List<Curso>();
         }
 
-        public frmAgregar(Alumno alumno, List<Curso> cursos) : this()
+        public frmMenuAlumno(Alumno alumno, List<Curso> cursos, FormAccion formAccion) : this()
         {
             this.alumno = alumno;
             this.cursos = cursos;
+            this.formAccion = formAccion;
         }
 
         private void frmAgregar_Load(object sender, EventArgs e)
@@ -49,6 +52,23 @@ namespace MenuAgregarForm
                 cbCurso.Items.Add(curso.ToString());
             }
             cbCurso.SelectedIndex = 0;
+
+            if(formAccion==FormAccion.Modificar)
+            {
+                try
+                {
+                    tbNombre.Text = this.alumno.nombre;
+                    tbMail.Text = this.alumno.mail;
+                    cbNacionalidad.SelectedItem = this.alumno.nacionalidad.ToString();
+                    nupAbonado.Value = (decimal)(this.alumno.totalAbonado);
+                    cbTipoDePago.SelectedItem = this.alumno.tipoDePago.ToString();
+                    cbCurso.SelectedItem = this.alumno.curso.ToString();
+                }
+                catch(Exception)
+                {
+                    this.DialogResult = DialogResult.Abort;
+                }
+            }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -64,7 +84,7 @@ namespace MenuAgregarForm
 
                     this.DialogResult = DialogResult.OK;
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     this.DialogResult = DialogResult.Abort;
                 }

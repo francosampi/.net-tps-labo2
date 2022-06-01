@@ -1,7 +1,7 @@
 ﻿
 namespace MenuAgregarForm
 {
-    partial class frmAgregar
+    partial class frmMenuAlumno
     {
         /// <summary>
         ///  Required designer variable.
@@ -167,7 +167,7 @@ namespace MenuAgregarForm
             this.lblCurso.TabIndex = 20;
             this.lblCurso.Text = "Curso";
             // 
-            // frmAgregar
+            // frmMenuAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,7 +186,8 @@ namespace MenuAgregarForm
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "frmAgregar";
+            this.Name = "frmMenuAlumno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sampietro Franco TP3 (Agregar)";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupAbonado)).EndInit();
