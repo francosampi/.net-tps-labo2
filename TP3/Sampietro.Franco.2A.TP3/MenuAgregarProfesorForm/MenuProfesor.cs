@@ -12,7 +12,7 @@ using Entidades;
 
 namespace MenuAgregarProfesorForm
 {
-    public partial class frmMenuProfesor : Form
+    public partial class frmMenuProfesor : Form, IAutenticacion
     {
         Profesor profesor;
         FormAccion formAccion;
@@ -32,6 +32,11 @@ namespace MenuAgregarProfesorForm
             this.formAccion = formAccion;
         }
 
+        /// <summary>
+        /// Si se trata de un formulario de modificacion, traer los atributos del objeto a modificar y pasarlos al objeto manejador
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmMenuProfesor_Load(object sender, EventArgs e)
         {
             if (formAccion == FormAccion.Modificar)
@@ -48,11 +53,14 @@ namespace MenuAgregarProfesorForm
             }
         }
 
+        /// <summary>
+        /// si alguno de los campos cambian (apretando una tecla o borrando un caracter), validar que lo que quede en ese campo sea valido para ser asignado
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^[a-zA-Z ]*$");
-
-            if (!regex.IsMatch(tbNombre.Text) || this.tbNombre.Text == string.Empty || this.tbNombre.Text.Length > 60)
+            if (this.validarNombre(@"^[a-zA-Z ]*$"))
             {
                 tbNombre.BackColor = colorError;
                 nombreValidado = false;
@@ -66,7 +74,7 @@ namespace MenuAgregarProfesorForm
 
         private void tbMail_TextChanged(object sender, EventArgs e)
         {
-            if (!this.tbMail.Text.Contains('@') || !this.tbMail.Text.Contains('.') || this.tbMail.Text == string.Empty || this.tbMail.Text.Length > 60)
+            if (this.validarMail())
             {
                 tbMail.BackColor = colorError;
                 mailValidado = false;
@@ -78,6 +86,11 @@ namespace MenuAgregarProfesorForm
             }
         }
 
+        /// <summary>
+        /// Si se encuentran los campos validados, se asignan los atributos al objeto del profesor
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (nombreValidado && mailValidado)
@@ -100,9 +113,30 @@ namespace MenuAgregarProfesorForm
             }
         }
 
+        /// <summary>
+        /// Se cancela la modificacion del formulario y se cierra
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
+        }
+
+        /// <summary>
+        /// Definimos los metodos declarados en la interfaz
+        /// </summary>
+        /// <returns></returns>
+        public bool validarNombre(string patron)
+        {
+            Regex regex = new Regex(patron);
+
+            return !regex.IsMatch(tbNombre.Text) || this.tbNombre.Text == string.Empty || this.tbNombre.Text.Length > 60;
+        }
+
+        public bool validarMail()
+        {
+            return !this.tbMail.Text.Contains('@') || !this.tbMail.Text.Contains('.') || this.tbMail.Text == string.Empty || this.tbMail.Text.Length > 60;
         }
     }
 }

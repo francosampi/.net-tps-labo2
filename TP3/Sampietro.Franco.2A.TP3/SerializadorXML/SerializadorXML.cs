@@ -38,7 +38,6 @@ namespace SerializadorXML
                     XmlSerializer serializador = new XmlSerializer(typeof(List<T>));
                     listaDatosXML = (List<T>)serializador.Deserialize(reader);
                 }
-                
             }
             catch (Exception)
             {

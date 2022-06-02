@@ -117,7 +117,7 @@ namespace MenuAgregarForm
             // 
             this.cbNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbNacionalidad.FormattingEnabled = true;
-            this.cbNacionalidad.Location = new System.Drawing.Point(380, 75);
+            this.cbNacionalidad.Location = new System.Drawing.Point(379, 118);
             this.cbNacionalidad.Name = "cbNacionalidad";
             this.cbNacionalidad.Size = new System.Drawing.Size(254, 23);
             this.cbNacionalidad.TabIndex = 16;
@@ -125,7 +125,7 @@ namespace MenuAgregarForm
             // lblNacionalidad
             // 
             this.lblNacionalidad.AutoSize = true;
-            this.lblNacionalidad.Location = new System.Drawing.Point(293, 78);
+            this.lblNacionalidad.Location = new System.Drawing.Point(292, 121);
             this.lblNacionalidad.Name = "lblNacionalidad";
             this.lblNacionalidad.Size = new System.Drawing.Size(77, 15);
             this.lblNacionalidad.TabIndex = 17;
@@ -134,7 +134,7 @@ namespace MenuAgregarForm
             // lblTipoDePago
             // 
             this.lblTipoDePago.AutoSize = true;
-            this.lblTipoDePago.Location = new System.Drawing.Point(293, 121);
+            this.lblTipoDePago.Location = new System.Drawing.Point(293, 81);
             this.lblTipoDePago.Name = "lblTipoDePago";
             this.lblTipoDePago.Size = new System.Drawing.Size(76, 15);
             this.lblTipoDePago.TabIndex = 18;
@@ -144,7 +144,7 @@ namespace MenuAgregarForm
             // 
             this.cbTipoDePago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipoDePago.FormattingEnabled = true;
-            this.cbTipoDePago.Location = new System.Drawing.Point(380, 118);
+            this.cbTipoDePago.Location = new System.Drawing.Point(380, 78);
             this.cbTipoDePago.Name = "cbTipoDePago";
             this.cbTipoDePago.Size = new System.Drawing.Size(254, 23);
             this.cbTipoDePago.TabIndex = 19;
@@ -171,7 +171,7 @@ namespace MenuAgregarForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.SystemColors.Info;
             this.ClientSize = new System.Drawing.Size(646, 310);
             this.Controls.Add(this.cbCurso);
             this.Controls.Add(this.lblCurso);

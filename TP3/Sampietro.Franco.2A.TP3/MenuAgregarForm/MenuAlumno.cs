@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace MenuAgregarForm
 {
-    public partial class frmMenuAlumno : Form
+    public partial class frmMenuAlumno : Form, IAutenticacion
     {
         Alumno alumno;
         List<Curso> cursos;
@@ -97,9 +97,7 @@ namespace MenuAgregarForm
 
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
-            Regex regex = new Regex(@"^[a-zA-Z ]*$");
-
-            if (!regex.IsMatch(tbNombre.Text) || this.tbNombre.Text == string.Empty || this.tbNombre.Text.Length > 60)
+            if (this.validarNombre(@"^[a-zA-Z ]*$"))
             {
                 tbNombre.BackColor = colorError;
                 nombreValidado = false;
@@ -113,7 +111,7 @@ namespace MenuAgregarForm
 
         private void tbMail_TextChanged(object sender, EventArgs e)
         {
-            if (!this.tbMail.Text.Contains('@') || !this.tbMail.Text.Contains('.') || this.tbMail.Text==string.Empty || this.tbMail.Text.Length>60)
+            if (this.validarMail())
             {
                 tbMail.BackColor = colorError;
                 mailValidado = false;
@@ -144,6 +142,22 @@ namespace MenuAgregarForm
                 nupAbonado.BackColor = colorDefault;
                 abonadoValidado = true;
             }
+        }
+
+        /// <summary>
+        /// Definimos los metodos declarados en la interfaz
+        /// </summary>
+        /// <returns></returns>
+        public bool validarNombre(string patron)
+        {
+            Regex regex = new Regex(patron);
+
+            return !regex.IsMatch(tbNombre.Text) || this.tbNombre.Text == string.Empty || this.tbNombre.Text.Length > 60;
+        }
+
+        public bool validarMail()
+        {
+            return !this.tbMail.Text.Contains('@') || !this.tbMail.Text.Contains('.') || this.tbMail.Text == string.Empty || this.tbMail.Text.Length > 60;
         }
     }
 }

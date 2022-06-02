@@ -198,6 +198,11 @@ namespace MenuPrincipalForm
         }
 
 
+        /// <summary>
+        /// Segun sea la lista que se muestra, llamar al menu de agregar correspondiente, de ser un registro correcto, agregar entidad
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             switch (this.listadoIndex)

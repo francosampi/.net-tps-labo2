@@ -45,6 +45,7 @@
     <Compile Include="Clase.cs" />
     <Compile Include="Curso.cs" />
     <Compile Include="Enumerados.cs" />
+    <Compile Include="IAutenticacion.cs" />
     <Compile Include="Instituto.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
