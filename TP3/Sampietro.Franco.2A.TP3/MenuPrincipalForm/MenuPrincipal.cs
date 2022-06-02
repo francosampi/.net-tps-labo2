@@ -19,17 +19,18 @@ namespace MenuPrincipalForm
     {
         private Instituto instituto;
         private int listadoIndex;
+        bool huboCambios;
         string nombreArchivoListaAlumnos = "ListaDeAlumnos";
         string nombreArchivoListaProfesores = "ListaDeProfesores";
         string nombreArchivoListaClases = "ListaDeClases";
 
         /// <summary>
-        /// Inicializar instituto con nombre, cargar cursos que da, y traer de los xml alumnos, profesores y clases que se dan
+        /// Inicializar instituto con nombre, cargar cursos que da, y traer de los xml alumnos, profesores y clases que se dan.
         /// </summary>
         public MenuPrincipal()
         {
             InitializeComponent();
-            this.instituto = new Instituto("Escuelita de Artes Multimediales");
+            this.instituto = new Instituto("Da Vinci");
 
             Curso cr1 = new Curso("Programacion de Videojuegos", 6000, Modalidad.Virtual, Nivel.Basico);
             Curso cr2 = new Curso("Dibujo de Cómics", 4500, Modalidad.Presencial, Nivel.Basico);
@@ -49,13 +50,14 @@ namespace MenuPrincipalForm
         }
 
         /// <summary>
-        /// Por defecto el formulario cargará la lista de alumnos
+        /// Por defecto el formulario cargará la lista de alumnos.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             this.listadoIndex = 0;
+            huboCambios = false;
             cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
         }
 
@@ -95,7 +97,7 @@ namespace MenuPrincipalForm
         }
 
         /// <summary>
-        /// click en los botones de arriba para cargar su lista en la listbox
+        /// click en los botones de arriba para cargar su lista en la listbox.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -118,7 +120,7 @@ namespace MenuPrincipalForm
         }
 
         /// <summary>
-        /// Al cambiar de item seleccionado de cada una de las listas, mostrar su detalle a la derecha
+        /// Al cambiar de item seleccionado de cada una de las listas, mostrar su detalle a la derecha.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -155,7 +157,7 @@ namespace MenuPrincipalForm
         }
 
         /// <summary>
-        /// Escribir en textbox los detalles de cada entidad
+        /// Escribir en textbox los detalles de cada entidad.
         /// </summary>
         /// <param name="tb"></param>
         private void escribirDetalleAlumno(TextBox tb)
@@ -199,7 +201,7 @@ namespace MenuPrincipalForm
 
 
         /// <summary>
-        /// Segun sea la lista que se muestra, llamar al menu de agregar correspondiente, de ser un registro correcto, agregar entidad
+        /// Segun sea la lista que se muestra, llamar al menu de agregar correspondiente, de ser un registro correcto, agregar entidad.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -220,6 +222,7 @@ namespace MenuPrincipalForm
                         {
                             this.instituto.alumnos.Add(alumnoNuevo);
                             cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
+                            huboCambios = true;
                             MessageBox.Show("Se ha cargado al alumno correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -242,6 +245,7 @@ namespace MenuPrincipalForm
                         {
                             this.instituto.profesores.Add(profesorNuevo);
                             cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
+                            huboCambios = true;
                             MessageBox.Show("Se ha cargado al profesor correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -266,6 +270,7 @@ namespace MenuPrincipalForm
             switch (this.listadoIndex)
             {
                 case 0:
+                    if (this.instituto.alumnos.Count > 0)
                     {
                         Alumno alumnoSeleccionado = (Alumno)this.lbListado.SelectedItem;
                         Alumno alumnoManejador = alumnoSeleccionado;
@@ -278,8 +283,9 @@ namespace MenuPrincipalForm
                             if (resultado == DialogResult.OK)
                             {
                                 alumnoSeleccionado = alumnoManejador;
+                                huboCambios = true;
                                 cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
-                                MessageBox.Show("Se ha modificado al alumno correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Se ha modificado al alumno correctamente\n(" + alumnoSeleccionado.nombre + ")", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                         catch (Exception)
@@ -287,8 +293,13 @@ namespace MenuPrincipalForm
                             MessageBox.Show("Ocurrió un error al modificar al alumno", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                     break;
                 case 1:
+                    if (this.instituto.profesores.Count > 0)
                     {
                         Profesor profesorSeleccionado = (Profesor)this.lbListado.SelectedItem;
                         Profesor profesorManejador = profesorSeleccionado;
@@ -301,8 +312,9 @@ namespace MenuPrincipalForm
                             if (resultado == DialogResult.OK)
                             {
                                 profesorSeleccionado = profesorManejador;
+                                huboCambios = true;
                                 cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
-                                MessageBox.Show("Se ha modificado al profesor correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Se ha modificado al profesor correctamente\n(" + profesorSeleccionado.nombre + ")", "Modificacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                         catch (Exception)
@@ -310,6 +322,31 @@ namespace MenuPrincipalForm
                             MessageBox.Show("Ocurrió un error al modificar al profesor", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
+                    else
+                    {
+                        MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Click en remover para, si hay una entidad seleccionada, removerla de su lista correspondiente.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            switch (this.listadoIndex)
+            {
+                case 0:
+                    removerElementoDeLista<Alumno>(this.instituto.alumnos, "alumno");
+                    break;
+                case 1:
+                    removerElementoDeLista<Profesor>(this.instituto.profesores, "profesor");
+                    break;
+                case 2:
+                    removerElementoDeLista<Clase>(this.instituto.clases, "clase");
                     break;
             }
         }
@@ -331,27 +368,6 @@ namespace MenuPrincipalForm
                     break;
                 case 2:
                     guardarListaEntidadesXML<Clase>(this.instituto.clases, nombreArchivoListaClases);
-                    break;
-            }
-        }
-
-        /// <summary>
-        /// Click en remover para, si hay una entidad seleccionada, removerla de su lista correspondiente
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnRemover_Click(object sender, EventArgs e)
-        {
-            switch (this.listadoIndex)
-            {
-                case 0:
-                    removerElementoDeLista<Alumno>(this.instituto.alumnos, "alumno");
-                    break;
-                case 1:
-                    removerElementoDeLista<Profesor>(this.instituto.profesores, "profesor");
-                    break;
-                case 2:
-                    removerElementoDeLista<Clase>(this.instituto.clases, "clase");
                     break;
             }
         }
@@ -393,7 +409,7 @@ namespace MenuPrincipalForm
             }
             else
             {
-                MessageBox.Show("No se encuentran " + entidadString + "s en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -413,6 +429,38 @@ namespace MenuPrincipalForm
             {
                 MessageBox.Show("Ocurrio un error guardando el archivo " + nombreArchivo + ".xml", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Al estar cerrandose, llamar funcion que verificara que el usuario quiera salir.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!cerrarForm())
+            {
+                e.Cancel = true;
+            }
+        }
+
+        /// <summary>
+        /// Si hubo cambios sin guardar en la aplicacion, saldra un warning, sino se cierra normalmente.
+        /// </summary>
+        /// <returns></returns>
+        private bool cerrarForm()
+        {
+            if (this.huboCambios)
+            {
+                DialogResult resultado = MessageBox.Show("Hay cambios sin guardar, ¿Salir igualmente?", "Cerrando aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    return true;
+                }
+                return false;
+            }
+            return true;
         }
     }
 }
