@@ -4,3 +4,6 @@ C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\Debug\SerializadorXML.csproj.CoreCompileInputs.cache
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\Debug\SerializadorXML.dll
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\Debug\SerializadorXML.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\bin\Debug\Excepciones.dll
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\bin\Debug\Excepciones.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\SerializadorXML\obj\Debug\SerializadorXML.csproj.CopyComplete

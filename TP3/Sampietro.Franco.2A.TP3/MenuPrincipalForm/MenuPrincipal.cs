@@ -424,6 +424,7 @@ namespace MenuPrincipalForm
             if (ClaseSerializadoraXML.serializarXML<T>(lista, nombreArchivo))
             {
                 MessageBox.Show("Se ha guardado el archivo "+nombreArchivo+".xml", "Guardado exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.huboCambios = false;
             }
             else
             {

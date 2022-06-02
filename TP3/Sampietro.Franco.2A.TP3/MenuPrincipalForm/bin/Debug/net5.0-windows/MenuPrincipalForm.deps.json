@@ -22,6 +22,11 @@
           "Entidades.dll": {}
         }
       },
+      "Excepciones/1.0.0": {
+        "runtime": {
+          "Excepciones.dll": {}
+        }
+      },
       "MenuAgregarAlumnoForm/1.0.0": {
         "dependencies": {
           "Entidades": "1.0.0"
@@ -39,6 +44,9 @@
         }
       },
       "SerializadorXML/1.0.0": {
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
         "runtime": {
           "SerializadorXML.dll": {}
         }
@@ -52,6 +60,11 @@
       "sha512": ""
     },
     "Entidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Excepciones/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

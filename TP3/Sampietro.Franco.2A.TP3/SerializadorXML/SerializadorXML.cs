@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +24,7 @@ namespace SerializadorXML
             }
             catch (Exception)
             {
-                return false;
+                throw new ArchivoException("No se pudo guardar el archivo");
             }
         }
 
@@ -41,7 +42,7 @@ namespace SerializadorXML
             }
             catch (Exception)
             {
-                return null;
+                throw new ArchivoException("No se pudo leer el archivo");
             }
             return listaDatosXML;
         }
