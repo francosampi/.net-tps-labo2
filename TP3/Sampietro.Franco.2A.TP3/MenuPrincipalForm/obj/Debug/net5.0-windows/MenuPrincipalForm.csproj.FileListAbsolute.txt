@@ -35,3 +35,4 @@ C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bi
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuAgregarProfesorForm.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\Excepciones.dll
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\Excepciones.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\obj\Debug\net5.0-windows\MenuPrincipalForm.Properties.Resources.resources

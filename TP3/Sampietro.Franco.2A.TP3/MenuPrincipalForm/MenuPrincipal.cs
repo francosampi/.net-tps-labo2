@@ -23,9 +23,11 @@ namespace MenuPrincipalForm
         string nombreArchivoListaAlumnos = "ListaDeAlumnos";
         string nombreArchivoListaProfesores = "ListaDeProfesores";
         string nombreArchivoListaClases = "ListaDeClases";
+        private int modoOscuro = 0;
+        private int[] configuracion = new int[2];
 
         /// <summary>
-        /// Inicializar instituto con nombre, cargar cursos que da, y traer de los xml alumnos, profesores y clases que se dan.
+        /// Inicializar instituto con nombre, cargar cursos disponibles, y traer de los archivos xml: alumnos, profesores y clases que se dan.
         /// </summary>
         public MenuPrincipal()
         {
@@ -57,7 +59,7 @@ namespace MenuPrincipalForm
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
             this.listadoIndex = 0;
-            huboCambios = false;
+            this.huboCambios = false;
             cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
         }
 
@@ -79,10 +81,7 @@ namespace MenuPrincipalForm
             {
                 foreach (T item in list)
                 {
-                    if (item is not null)
-                    {
-                        lb.Items.Add(item).ToString();
-                    }
+                    lb.Items.Add(item).ToString();
                 }
             }
             catch (Exception ex)
@@ -210,7 +209,6 @@ namespace MenuPrincipalForm
             switch (this.listadoIndex)
             {
                 case 0:
-                {
                     Alumno alumnoNuevo = new Alumno();
 
                     try
@@ -222,7 +220,7 @@ namespace MenuPrincipalForm
                         {
                             this.instituto.alumnos.Add(alumnoNuevo);
                             cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
-                            huboCambios = true;
+                            this.huboCambios = true;
                             MessageBox.Show("Se ha cargado al alumno correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -230,10 +228,8 @@ namespace MenuPrincipalForm
                     {
                         MessageBox.Show("Ocurrió un error al cargar al alumno", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
                 break;
                 case 1:
-                {
                     Profesor profesorNuevo = new Profesor();
 
                     try
@@ -245,15 +241,14 @@ namespace MenuPrincipalForm
                         {
                             this.instituto.profesores.Add(profesorNuevo);
                             cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
-                            huboCambios = true;
-                            MessageBox.Show("Se ha cargado al profesor correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.huboCambios = true;
+                            MessageBox.Show("Se ha cargado al profesor correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     catch (Exception)
                     {
-                        MessageBox.Show("Ocurrió un error al cargar al alumno", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ocurrió un error al cargar al profesor", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
                 break;
             }
         }
@@ -283,7 +278,7 @@ namespace MenuPrincipalForm
                             if (resultado == DialogResult.OK)
                             {
                                 alumnoSeleccionado = alumnoManejador;
-                                huboCambios = true;
+                                this.huboCambios = true;
                                 cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
                                 MessageBox.Show("Se ha modificado al alumno correctamente\n(" + alumnoSeleccionado.nombre + ")", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
@@ -312,7 +307,7 @@ namespace MenuPrincipalForm
                             if (resultado == DialogResult.OK)
                             {
                                 profesorSeleccionado = profesorManejador;
-                                huboCambios = true;
+                                this.huboCambios = true;
                                 cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
                                 MessageBox.Show("Se ha modificado al profesor correctamente\n(" + profesorSeleccionado.nombre + ")", "Modificacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
@@ -398,6 +393,7 @@ namespace MenuPrincipalForm
                         {
                             lista.Remove(entidadSeleccionada);
                             cargarEnListBox<T>(lbListado, lista);
+                            this.huboCambios = true;
                             MessageBox.Show("Se ha removido al/la "+entidadString+" correctamente", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
@@ -453,15 +449,58 @@ namespace MenuPrincipalForm
         {
             if (this.huboCambios)
             {
-                DialogResult resultado = MessageBox.Show("Hay cambios sin guardar, ¿Salir igualmente?", "Cerrando aplicación", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult resultado = MessageBox.Show("Hay cambios sin guardar, ¿Salir igualmente?", "Cerrando aplicación", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
 
-                if (resultado == DialogResult.Yes)
+                if (resultado != DialogResult.Yes)
                 {
-                    return true;
+                    return false;
                 }
-                return false;
             }
             return true;
+        }
+
+        private void btnModoOscuro_Click(object sender, EventArgs e)
+        {
+            this.modoOscuro=cambiarColorModo(this.modoOscuro);
+        }
+
+        private int cambiarColorModo(int modoActual)
+        {
+            if (modoActual==0)
+            {
+                this.BackColor = Color.Black;
+                foreach (var button in this.Controls.OfType<Button>())
+                {
+                    button.BackColor = Color.DarkBlue;
+                    button.ForeColor = Color.White;
+                }
+                tbDetalles.BackColor = Color.Blue;
+                tbDetalles.ForeColor = Color.White;
+                lbListado.BackColor = Color.DarkBlue;
+                lbListado.ForeColor = Color.White;
+                lblDetalles.ForeColor = Color.White;
+                btnModoOscuro.BackgroundImage = Properties.Resources.modoOscuro02;
+
+                return 1;
+            }
+            else
+            {
+                this.BackColor = SystemColors.ActiveBorder;
+                foreach (var button in this.Controls.OfType<Button>())
+                {
+                    button.BackColor = SystemColors.ControlLight;
+                    button.ForeColor = Color.Black;
+                }
+                btnRemover.BackColor = Color.LightCoral;
+                tbDetalles.BackColor = SystemColors.Window;
+                tbDetalles.ForeColor = Color.Black;
+                lbListado.BackColor = SystemColors.Window;
+                lbListado.ForeColor = Color.Black;
+                lblDetalles.ForeColor = Color.Black;
+                btnModoOscuro.BackgroundImage = Properties.Resources.modoOscuro01;
+
+                return 0;
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ namespace MenuPrincipalForm
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnGuardarXML = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.btnModoOscuro = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnClases
@@ -130,7 +131,7 @@ namespace MenuPrincipalForm
             this.btnGuardarXML.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnGuardarXML.Location = new System.Drawing.Point(13, 502);
             this.btnGuardarXML.Name = "btnGuardarXML";
-            this.btnGuardarXML.Size = new System.Drawing.Size(188, 37);
+            this.btnGuardarXML.Size = new System.Drawing.Size(384, 37);
             this.btnGuardarXML.TabIndex = 8;
             this.btnGuardarXML.Text = "Guardar XML";
             this.btnGuardarXML.UseVisualStyleBackColor = true;
@@ -147,12 +148,24 @@ namespace MenuPrincipalForm
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // btnModoOscuro
+            // 
+            this.btnModoOscuro.BackgroundImage = global::MenuPrincipalForm.Properties.Resources.modoOscuro01;
+            this.btnModoOscuro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnModoOscuro.Location = new System.Drawing.Point(756, 507);
+            this.btnModoOscuro.Name = "btnModoOscuro";
+            this.btnModoOscuro.Size = new System.Drawing.Size(32, 32);
+            this.btnModoOscuro.TabIndex = 10;
+            this.btnModoOscuro.UseVisualStyleBackColor = true;
+            this.btnModoOscuro.Click += new System.EventHandler(this.btnModoOscuro_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(800, 551);
+            this.Controls.Add(this.btnModoOscuro);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnGuardarXML);
             this.Controls.Add(this.btnRemover);
@@ -185,5 +198,6 @@ namespace MenuPrincipalForm
         private System.Windows.Forms.Button btnRemover;
         private System.Windows.Forms.Button btnGuardarXML;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnModoOscuro;
     }
 }
