@@ -7,13 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="6.0.4" />
+    <PackageReference Include="System.Text.Json" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
     <ProjectReference Include="..\MenuAgregarForm\MenuAgregarAlumnoForm.csproj" />
     <ProjectReference Include="..\MenuAgregarProfesorForm\MenuAgregarProfesorForm.csproj" />
+    <ProjectReference Include="..\SerializadorJSON\SerializadorJSON.csproj" />
     <ProjectReference Include="..\SerializadorXML\SerializadorXML.csproj" />
   </ItemGroup>
 

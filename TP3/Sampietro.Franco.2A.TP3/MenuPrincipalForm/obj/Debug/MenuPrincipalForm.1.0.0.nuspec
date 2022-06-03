@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MenuPrincipalForm</id>
+    <version>1.0.0</version>
+    <authors>MenuPrincipalForm</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0-windows7.0">
+        <dependency id="Entidades" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="MenuAgregarAlumnoForm" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="MenuAgregarProfesorForm" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="SerializadorJSON" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="SerializadorXML" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Text.Json" version="6.0.4" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkReferences>
+      <group targetFramework="net5.0-windows7.0">
+        <frameworkReference name="Microsoft.WindowsDesktop.App.WindowsForms" />
+      </group>
+    </frameworkReferences>
+  </metadata>
+  <files>
+    <file src="C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuPrincipalForm.runtimeconfig.json" target="lib\net5.0-windows7.0\MenuPrincipalForm.runtimeconfig.json" />
+    <file src="C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuPrincipalForm\bin\Debug\net5.0-windows\MenuPrincipalForm.dll" target="lib\net5.0-windows7.0\MenuPrincipalForm.dll" />
+  </files>
+</package>

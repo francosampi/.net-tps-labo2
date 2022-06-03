@@ -12,6 +12,7 @@ using Entidades;
 using MenuAgregarForm;
 using MenuAgregarProfesorForm;
 using SerializadorXML;
+using SerializadorJSON;
 
 namespace MenuPrincipalForm
 {
@@ -49,6 +50,11 @@ namespace MenuPrincipalForm
             this.instituto.alumnos = ClaseSerializadoraXML.deserializarXML<Alumno>(nombreArchivoListaAlumnos);
             this.instituto.profesores = ClaseSerializadoraXML.deserializarXML<Profesor>(nombreArchivoListaProfesores);
             this.instituto.clases = ClaseSerializadoraXML.deserializarXML<Clase>(nombreArchivoListaClases);
+
+            this.configuracion[0] = 0;
+            this.configuracion[1] = 0;
+            
+            ClaseSerializadoraJSON.serializarArregloJSON<int[]>(this.configuracion, "configuracion");
         }
 
         /// <summary>
@@ -464,6 +470,11 @@ namespace MenuPrincipalForm
             this.modoOscuro=cambiarColorModo(this.modoOscuro);
         }
 
+        /// <summary>
+        /// Colorear formulario segun modo, y cambiar el modo
+        /// </summary>
+        /// <param name="modoActual"></param>
+        /// <returns></returns>
         private int cambiarColorModo(int modoActual)
         {
             if (modoActual==0)

@@ -1,12 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wbgBgZhaggI9E1fDNGkE1JwEb2P/xaoUIODlYz/exI/sWtOtWvTFr5XiWtFRyXPyUTMtyThmBJnUBLVAzQKLyw==",
+  "dgSpecHash": "/I2J2dqfTyk6okizMFEykFYH0oYmXIHgYHEqZ6vmtHiSEMFwlA5PUfOMnSVJINC9qweSODQNgCvTqt9Q5rydDw==",
   "success": true,
   "projectFilePath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuPrincipalForm\\MenuPrincipalForm.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\franc\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\franc\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
-    "C:\\Users\\franc\\.nuget\\packages\\system.text.json\\6.0.4\\system.text.json.6.0.4.nupkg.sha512"
+    "C:\\Users\\franc\\.nuget\\packages\\system.text.json\\5.0.0\\system.text.json.5.0.0.nupkg.sha512"
   ],
   "logs": []
 }

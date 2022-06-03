@@ -3,25 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using JSON=System.Text.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Excepciones;
+using System.IO;
 
 namespace SerializadorJSON
 {
-    public class SerializadorJSON
+    public static class ClaseSerializadoraJSON
     {
-        public static bool serializarJSON<T>(int tamano, string nombreArchivo)
+        public static bool serializarArregloJSON<T>(T dato, string nombreArchivo)
         {
-            T[] arreglo = new T[tamano];
-
             try
             {
-                string objJson = JSON.JsonSerializer.Serialize(arreglo);
+                string path = "..\\..\\..\\..\\";
+                string nombreArchivoConFormato = path + nombreArchivo + ".json";
+                string datoAJSon = JsonSerializer.Serialize(dato);
+                File.WriteAllText(nombreArchivoConFormato, datoAJSon);
+
                 return true;
             }
-            catch (Exception)
+            catch(Exception)
             {
-                throw new ArchivoException("No se pudo guardar el archivo");
+                throw new ArchivoException("No se pudo serializar JSON");
             }
         }
     }

@@ -15,7 +15,7 @@ namespace SerializadorXML
         {
             try
             {
-                using (XmlTextWriter writer = new XmlTextWriter("..\\..\\..\\..\\" + nombreArchivo + ".xml", System.Text.Encoding.UTF8))
+                using (XmlTextWriter writer = new XmlTextWriter("..\\..\\..\\..\\" + nombreArchivo + ".xml", Encoding.UTF8))
                 {
                     XmlSerializer serializador = new XmlSerializer(typeof(List<T>));
                     serializador.Serialize(writer, lista);

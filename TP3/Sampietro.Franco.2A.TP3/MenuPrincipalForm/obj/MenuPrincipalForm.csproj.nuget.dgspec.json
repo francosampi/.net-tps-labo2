@@ -189,6 +189,9 @@
               "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarProfesorForm\\MenuAgregarProfesorForm.csproj": {
                 "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\MenuAgregarProfesorForm\\MenuAgregarProfesorForm.csproj"
               },
+              "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorJSON\\SerializadorJSON.csproj": {
+                "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorJSON\\SerializadorJSON.csproj"
+              },
               "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj": {
                 "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj"
               }
@@ -207,7 +210,7 @@
           "dependencies": {
             "System.Text.Json": {
               "target": "Package",
-              "version": "[6.0.4, )"
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -230,6 +233,25 @@
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
         }
+      }
+    },
+    "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorJSON\\SerializadorJSON.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorJSON\\SerializadorJSON.csproj",
+        "projectName": "SerializadorJSON",
+        "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorJSON\\SerializadorJSON.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\Excepciones\\Excepciones.csproj": {
+                "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\Excepciones\\Excepciones.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
       }
     },
     "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP3\\Sampietro.Franco.2A.TP3\\SerializadorXML\\SerializadorXML.csproj": {
