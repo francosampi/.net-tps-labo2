@@ -4,9 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using MenuAgregarForm;
@@ -24,7 +21,6 @@ namespace MenuPrincipalForm
         string nombreArchivoListaAlumnos = "ListaDeAlumnos";
         string nombreArchivoListaProfesores = "ListaDeProfesores";
         string nombreArchivoListaClases = "ListaDeClases";
-        private int modoOscuro = 0;
         private int[] configuracion = new int[2];
 
         /// <summary>
@@ -50,23 +46,35 @@ namespace MenuPrincipalForm
             this.instituto.alumnos = ClaseSerializadoraXML.deserializarXML<Alumno>(nombreArchivoListaAlumnos);
             this.instituto.profesores = ClaseSerializadoraXML.deserializarXML<Profesor>(nombreArchivoListaProfesores);
             this.instituto.clases = ClaseSerializadoraXML.deserializarXML<Clase>(nombreArchivoListaClases);
-
-            this.configuracion[0] = 0;
-            this.configuracion[1] = 0;
-            
-            ClaseSerializadoraJSON.serializarArregloJSON<int[]>(this.configuracion, "configuracion");
+            this.configuracion = ClaseSerializadoraJSON.deserializarJSON<int[]>("configuracion");
         }
 
         /// <summary>
-        /// Por defecto el formulario cargará la lista de alumnos.
+        /// Por defecto el formulario cargará la lista que estuvo cargada la ultima vez que saliste de la aplicación.
+        /// Si es la primera vez que se abre, aparece la pestaña Alumnos abierta.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            this.listadoIndex = 0;
+            this.listadoIndex = this.configuracion[0];
+            switch(this.listadoIndex)
+            {
+                case 0:
+                    btnAlumnos.Select();
+                    cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
+                    break;
+                case 1:
+                    btnProfesores.Select();
+                    cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
+                    break;
+                case 2:
+                    btnClases.Select();
+                    cargarEnListBox<Clase>(lbListado, this.instituto.clases);
+                    break;
+            }
             this.huboCambios = false;
-            cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
+            cambiarColorModo(this.configuracion[1]);
         }
 
         /// <summary>
@@ -154,6 +162,7 @@ namespace MenuPrincipalForm
                         btnRemover.Enabled = false;
                         break;
                 }
+                this.configuracion[0] = this.listadoIndex;
             }
             catch (Exception ex)
             {
@@ -224,10 +233,17 @@ namespace MenuPrincipalForm
 
                         if (resultado == DialogResult.OK)
                         {
-                            this.instituto.alumnos.Add(alumnoNuevo);
-                            cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
-                            this.huboCambios = true;
-                            MessageBox.Show("Se ha cargado al alumno correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (this.instituto!=alumnoNuevo)
+                            {
+                                this.instituto.alumnos.Add(alumnoNuevo);
+                                cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
+                                this.huboCambios = true;
+                                MessageBox.Show("Se ha cargado al alumno correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Ya existe ese alumno en la base de datos", "Alumno repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
                     }
                     catch (Exception)
@@ -245,10 +261,17 @@ namespace MenuPrincipalForm
 
                         if (resultado == DialogResult.OK)
                         {
-                            this.instituto.profesores.Add(profesorNuevo);
-                            cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
-                            this.huboCambios = true;
-                            MessageBox.Show("Se ha cargado al profesor correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            if (this.instituto != profesorNuevo)
+                            {
+                                this.instituto.profesores.Add(profesorNuevo);
+                                cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
+                                this.huboCambios = true;
+                                MessageBox.Show("Se ha cargado al profesor correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                MessageBox.Show("Ya existe ese profesor en la base de datos", "Profesor repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            }
                         }
                     }
                     catch (Exception)
@@ -436,6 +459,7 @@ namespace MenuPrincipalForm
 
         /// <summary>
         /// Al estar cerrandose, llamar funcion que verificara que el usuario quiera salir.
+        /// Si el usuario decide cerrar la aplicacion, se guardara la configuracion, que consta de la ultima lista mostrada, y el modo del color del form (oscuro o no)
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -444,6 +468,10 @@ namespace MenuPrincipalForm
             if (!cerrarForm())
             {
                 e.Cancel = true;
+            }
+            else
+            {
+                ClaseSerializadoraJSON.serializarArregloJSON<int[]>(this.configuracion, "configuracion");
             }
         }
 
@@ -467,7 +495,8 @@ namespace MenuPrincipalForm
 
         private void btnModoOscuro_Click(object sender, EventArgs e)
         {
-            this.modoOscuro=cambiarColorModo(this.modoOscuro);
+            this.configuracion[1] = -this.configuracion[1];
+            cambiarColorModo(this.configuracion[1]);
         }
 
         /// <summary>
@@ -475,9 +504,9 @@ namespace MenuPrincipalForm
         /// </summary>
         /// <param name="modoActual"></param>
         /// <returns></returns>
-        private int cambiarColorModo(int modoActual)
+        private void cambiarColorModo(int modoActual)
         {
-            if (modoActual==0)
+            if (modoActual==1)
             {
                 this.BackColor = Color.Black;
                 foreach (var button in this.Controls.OfType<Button>())
@@ -491,8 +520,6 @@ namespace MenuPrincipalForm
                 lbListado.ForeColor = Color.White;
                 lblDetalles.ForeColor = Color.White;
                 btnModoOscuro.BackgroundImage = Properties.Resources.modoOscuro02;
-
-                return 1;
             }
             else
             {
@@ -509,8 +536,6 @@ namespace MenuPrincipalForm
                 lbListado.ForeColor = Color.Black;
                 lblDetalles.ForeColor = Color.Black;
                 btnModoOscuro.BackgroundImage = Properties.Resources.modoOscuro01;
-
-                return 0;
             }
         }
     }

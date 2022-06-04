@@ -28,5 +28,24 @@ namespace SerializadorJSON
                 throw new ArchivoException("No se pudo serializar JSON");
             }
         }
+
+        public static T deserializarJSON<T>(string nombreArchivo)
+        {
+            try
+            {
+                string path = "..\\..\\..\\..\\";
+                string nombreArchivoConFormato = path + nombreArchivo + ".json";
+
+                using (StreamReader sr = new StreamReader(nombreArchivoConFormato))
+                {
+                    string JSONString = sr.ReadToEnd();
+                    return (T)JsonSerializer.Deserialize(JSONString, typeof(T));
+                }
+            }
+            catch(Exception)
+            {
+                throw new ArchivoException("No se pudo deserializar JSON");
+            }
+        }
     }
 }

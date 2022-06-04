@@ -32,5 +32,15 @@ namespace Entidades
         {
             return this.nombre;
         }
+
+        public static bool operator ==(Profesor p1, Profesor p2)
+        {
+            return (p1.nombre == p2.nombre && p1.mail == p2.mail);
+        }
+
+        public static bool operator !=(Profesor p1, Profesor p2)
+        {
+            return !(p1 == p2);
+        }
     }
 }

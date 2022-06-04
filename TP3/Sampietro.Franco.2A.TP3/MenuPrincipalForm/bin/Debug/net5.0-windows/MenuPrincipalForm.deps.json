@@ -12,14 +12,12 @@
           "MenuAgregarAlumnoForm": "1.0.0",
           "MenuAgregarProfesorForm": "1.0.0",
           "SerializadorJSON": "1.0.0",
-          "SerializadorXML": "1.0.0",
-          "System.Text.Json": "5.0.0"
+          "SerializadorXML": "1.0.0"
         },
         "runtime": {
           "MenuPrincipalForm.dll": {}
         }
       },
-      "System.Text.Json/5.0.0": {},
       "Entidades/1.0.0": {
         "runtime": {
           "Entidades.dll": {}
@@ -69,13 +67,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "System.Text.Json/5.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-+luxMQNZ2WqeffBU7Ml6njIvxc8169NW2oU+ygNudXQGZiarjE7DOtN7bILiQjTZjkmwwRZGTtLzmdrSI/Ustw==",
-      "path": "system.text.json/5.0.0",
-      "hashPath": "system.text.json.5.0.0.nupkg.sha512"
     },
     "Entidades/1.0.0": {
       "type": "project",

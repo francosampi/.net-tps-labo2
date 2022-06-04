@@ -43,8 +43,7 @@ namespace Entidades
 
         public static bool operator ==(Alumno a1, Alumno a2)
         {
-            return (a1.nombre == a2.nombre && a1.mail == a2.mail && a1.nacionalidad == a2.nacionalidad && 
-                a1.tipoDePago == a2.tipoDePago && a1.totalAbonado==a2.totalAbonado && a1.curso==a2.curso);
+            return (a1.nombre == a2.nombre && a1.mail == a2.mail && a1.nacionalidad == a2.nacionalidad);
         }
 
         public static bool operator !=(Alumno a1, Alumno a2)

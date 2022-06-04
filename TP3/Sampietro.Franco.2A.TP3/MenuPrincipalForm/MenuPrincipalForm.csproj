@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="System.Text.Json" Version="5.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
     <ProjectReference Include="..\MenuAgregarForm\MenuAgregarAlumnoForm.csproj" />
     <ProjectReference Include="..\MenuAgregarProfesorForm\MenuAgregarProfesorForm.csproj" />
