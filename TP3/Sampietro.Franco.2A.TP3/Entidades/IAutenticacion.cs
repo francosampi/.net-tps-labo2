@@ -8,7 +8,7 @@ namespace Entidades
 {
     public interface IAutenticacion
     {
-        bool validarNombre(string patron);
+        bool validarNombre();
         bool validarMail();
     }
 }

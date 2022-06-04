@@ -85,7 +85,7 @@ namespace MenuAgregarForm
 
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
-            if (this.validarNombre(@"^[a-zA-Zá-úÁ-Ú ]*$"))
+            if (this.validarNombre())
             {
                 tbNombre.BackColor = colorError;
                 nombreValidado = false;
@@ -116,6 +116,11 @@ namespace MenuAgregarForm
             this.DialogResult = DialogResult.Cancel;
         }
 
+        /// <summary>
+        /// El monto abonado por el alumno debe ser minimo 1000 pesos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nupAbonado_ValueChanged(object sender, EventArgs e)
         {
             double abonado = Decimal.ToDouble(nupAbonado.Value);
@@ -136,9 +141,9 @@ namespace MenuAgregarForm
         /// Definimos los metodos declarados en la interfaz
         /// </summary>
         /// <returns></returns>
-        public bool validarNombre(string patron)
+        public bool validarNombre()
         {
-            Regex regex = new Regex(patron);
+            Regex regex = new Regex(@"^[a-zA-Zá-úÁ-Ú ]*$");
 
             return !regex.IsMatch(tbNombre.Text) || this.tbNombre.Text == string.Empty || this.tbNombre.Text.Length > 60;
         }

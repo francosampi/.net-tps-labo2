@@ -54,7 +54,7 @@ namespace MenuAgregarProfesorForm
         /// <param name="e"></param>
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
-            if (this.validarNombre(@"^[a-zA-Zá-úÁ-Ú ]*$"))
+            if (this.validarNombre())
             {
                 tbNombre.BackColor = colorError;
                 nombreValidado = false;
@@ -114,9 +114,9 @@ namespace MenuAgregarProfesorForm
         /// Definimos los metodos declarados en la interfaz
         /// </summary>
         /// <returns></returns>
-        public bool validarNombre(string patron)
+        public bool validarNombre()
         {
-            Regex regex = new Regex(patron);
+            Regex regex = new Regex(@"^[a-zA-Zá-úÁ-Ú ]*$");
 
             return !regex.IsMatch(tbNombre.Text) || this.tbNombre.Text == string.Empty || this.tbNombre.Text.Length > 60;
         }

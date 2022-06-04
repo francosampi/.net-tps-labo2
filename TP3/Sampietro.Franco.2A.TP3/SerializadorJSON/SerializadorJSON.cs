@@ -9,14 +9,15 @@ namespace SerializadorJSON
     {
         public static void serializarArregloJSON<T>(T dato, string nombreArchivo)
         {
-            try
+            string path = "..\\..\\..\\..\\";
+            string nombreArchivoConFormato = path + nombreArchivo + ".json";
+
+            if (File.Exists(nombreArchivoConFormato))
             {
-                string path = "..\\..\\..\\..\\";
-                string nombreArchivoConFormato = path + nombreArchivo + ".json";
                 string datoAJSon = JsonSerializer.Serialize(dato);
                 File.WriteAllText(nombreArchivoConFormato, datoAJSon);
             }
-            catch(ArchivoException)
+            else
             {
                 throw new ArchivoException();
             }
@@ -24,18 +25,18 @@ namespace SerializadorJSON
 
         public static T deserializarJSON<T>(string nombreArchivo)
         {
-            try
-            {
-                string path = "..\\..\\..\\..\\";
-                string nombreArchivoConFormato = path + nombreArchivo + ".json";
+            string path = "..\\..\\..\\..\\";
+            string nombreArchivoConFormato = path + nombreArchivo + ".json";
 
+            if (File.Exists(nombreArchivoConFormato))
+            {
                 using (StreamReader sr = new StreamReader(nombreArchivoConFormato))
                 {
                     string JSONString = sr.ReadToEnd();
                     return (T)JsonSerializer.Deserialize(JSONString, typeof(T));
                 }
             }
-            catch(ArchivoException)
+            else
             {
                 throw new ArchivoException();
             }

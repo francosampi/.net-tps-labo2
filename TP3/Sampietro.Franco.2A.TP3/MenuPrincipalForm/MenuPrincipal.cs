@@ -25,6 +25,7 @@ namespace MenuPrincipalForm
 
         /// <summary>
         /// Inicializar instituto con nombre, cargar cursos disponibles, y traer de los archivos xml: alumnos, profesores y clases que se dan.
+        /// luego trae la configuracion de la sesión anterior (si estaba o no en modo oscuro, y la lista que se haya estado mostrando)
         /// </summary>
         public MenuPrincipal()
         {
@@ -43,10 +44,17 @@ namespace MenuPrincipalForm
             this.instituto.cursos.Add(cr4);
             this.instituto.cursos.Add(cr5);
 
-            this.instituto.alumnos = ClaseSerializadoraXML.deserializarXML<Alumno>(nombreArchivoListaAlumnos);
-            this.instituto.profesores = ClaseSerializadoraXML.deserializarXML<Profesor>(nombreArchivoListaProfesores);
-            this.instituto.clases = ClaseSerializadoraXML.deserializarXML<Clase>(nombreArchivoListaClases);
-            this.configuracion = ClaseSerializadoraJSON.deserializarJSON<int[]>("configuracion");
+            try
+            {
+                this.instituto.alumnos = ClaseSerializadoraXML.deserializarXML<Alumno>(nombreArchivoListaAlumnos);
+                this.instituto.profesores = ClaseSerializadoraXML.deserializarXML<Profesor>(nombreArchivoListaProfesores);
+                this.instituto.clases = ClaseSerializadoraXML.deserializarXML<Clase>(nombreArchivoListaClases);
+                this.configuracion = ClaseSerializadoraJSON.deserializarJSON<int[]>("configuracion");
+            }
+            catch(ArchivoException)
+            {
+                MessageBox.Show("Ocurrio un error abriendo el archivo", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -245,10 +253,6 @@ namespace MenuPrincipalForm
                             MessageBox.Show("Ya existe ese alumno en la base de datos", "Alumno repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
-                    else
-                    {
-                        MessageBox.Show("Ocurrió un error cargando al alumno", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
                     break;
                 case 1:
                     Profesor profesorNuevo = new Profesor();
@@ -269,10 +273,6 @@ namespace MenuPrincipalForm
                         {
                             MessageBox.Show("Ya existe ese profesor en la base de datos", "Profesor repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocurrió un error cargando al profesor", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
             }
@@ -352,9 +352,6 @@ namespace MenuPrincipalForm
                         break;
                     case 1:
                         removerElementoDeLista<Profesor>(this.instituto.profesores, "profesor");
-                        break;
-                    case 2:
-                        removerElementoDeLista<Clase>(this.instituto.clases, "clase");
                         break;
                 }
             }

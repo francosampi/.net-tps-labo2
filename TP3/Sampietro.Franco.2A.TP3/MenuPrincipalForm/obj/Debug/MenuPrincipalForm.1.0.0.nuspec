@@ -8,11 +8,11 @@
     <dependencies>
       <group targetFramework="net5.0-windows7.0">
         <dependency id="Entidades" version="1.0.0" exclude="Build,Analyzers" />
+        <dependency id="Excepciones" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="MenuAgregarAlumnoForm" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="MenuAgregarProfesorForm" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="SerializadorJSON" version="1.0.0" exclude="Build,Analyzers" />
         <dependency id="SerializadorXML" version="1.0.0" exclude="Build,Analyzers" />
-        <dependency id="System.Text.Json" version="6.0.4" exclude="Build,Analyzers" />
       </group>
     </dependencies>
     <frameworkReferences>
