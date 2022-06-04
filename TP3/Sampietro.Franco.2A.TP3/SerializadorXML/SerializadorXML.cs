@@ -1,9 +1,7 @@
 ﻿using Excepciones;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -22,7 +20,7 @@ namespace SerializadorXML
                 }
                 return true;
             }
-            catch (Exception)
+            catch (ArchivoException)
             {
                 throw new ArchivoException("No se pudo guardar el archivo");
             }
@@ -40,7 +38,7 @@ namespace SerializadorXML
                     listaDatosXML = (List<T>)serializador.Deserialize(reader);
                 }
             }
-            catch (Exception)
+            catch (ArchivoException)
             {
                 throw new ArchivoException("No se pudo leer el archivo");
             }

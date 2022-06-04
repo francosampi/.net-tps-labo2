@@ -19,3 +19,5 @@ C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuAgregarForm\obj\
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuAgregarForm\obj\Debug\net5.0-windows\MenuAgregarAlumnoForm.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuAgregarForm\obj\Debug\net5.0-windows\MenuAgregarAlumnoForm.genruntimeconfig.cache
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuAgregarForm\obj\Debug\net5.0-windows\MenuAgregarForm.frmMenuAlumno.resources
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuAgregarForm\bin\Debug\net5.0-windows\Excepciones.dll
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\MenuAgregarForm\bin\Debug\net5.0-windows\Excepciones.pdb

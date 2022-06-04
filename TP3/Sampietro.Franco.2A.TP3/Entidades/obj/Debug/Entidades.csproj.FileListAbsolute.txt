@@ -4,3 +4,6 @@ C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Entidades\bin\Debug\
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Entidades\bin\Debug\Entidades.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Entidades\obj\Debug\Entidades.dll
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Entidades\obj\Debug\Entidades.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Entidades\bin\Debug\Excepciones.dll
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Entidades\bin\Debug\Excepciones.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Entidades\obj\Debug\Entidades.csproj.CopyComplete

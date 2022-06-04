@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Text.Json;
-using System.Text.Json.Serialization;
 using Excepciones;
 using System.IO;
 
@@ -23,7 +18,7 @@ namespace SerializadorJSON
 
                 return true;
             }
-            catch(Exception)
+            catch(ArchivoException)
             {
                 throw new ArchivoException("No se pudo serializar JSON");
             }
@@ -42,7 +37,7 @@ namespace SerializadorJSON
                     return (T)JsonSerializer.Deserialize(JSONString, typeof(T));
                 }
             }
-            catch(Exception)
+            catch(ArchivoException)
             {
                 throw new ArchivoException("No se pudo deserializar JSON");
             }

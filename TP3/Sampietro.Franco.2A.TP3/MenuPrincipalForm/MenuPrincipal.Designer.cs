@@ -40,6 +40,8 @@ namespace MenuPrincipalForm
             this.btnGuardarXML = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnModoOscuro = new System.Windows.Forms.Button();
+            this.pbLogoInstituto = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoInstituto)).BeginInit();
             this.SuspendLayout();
             // 
             // btnClases
@@ -87,7 +89,7 @@ namespace MenuPrincipalForm
             // 
             // tbDetalles
             // 
-            this.tbDetalles.Location = new System.Drawing.Point(441, 68);
+            this.tbDetalles.Location = new System.Drawing.Point(437, 285);
             this.tbDetalles.Multiline = true;
             this.tbDetalles.Name = "tbDetalles";
             this.tbDetalles.Size = new System.Drawing.Size(324, 162);
@@ -97,7 +99,7 @@ namespace MenuPrincipalForm
             // 
             this.lblDetalles.AutoSize = true;
             this.lblDetalles.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDetalles.Location = new System.Drawing.Point(568, 31);
+            this.lblDetalles.Location = new System.Drawing.Point(564, 248);
             this.lblDetalles.Name = "lblDetalles";
             this.lblDetalles.Size = new System.Drawing.Size(81, 22);
             this.lblDetalles.TabIndex = 6;
@@ -159,12 +161,23 @@ namespace MenuPrincipalForm
             this.btnModoOscuro.UseVisualStyleBackColor = true;
             this.btnModoOscuro.Click += new System.EventHandler(this.btnModoOscuro_Click);
             // 
+            // pbLogoInstituto
+            // 
+            this.pbLogoInstituto.BackgroundImage = global::MenuPrincipalForm.Properties.Resources.davinci01;
+            this.pbLogoInstituto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbLogoInstituto.Location = new System.Drawing.Point(437, 25);
+            this.pbLogoInstituto.Name = "pbLogoInstituto";
+            this.pbLogoInstituto.Size = new System.Drawing.Size(324, 90);
+            this.pbLogoInstituto.TabIndex = 11;
+            this.pbLogoInstituto.TabStop = false;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(800, 551);
+            this.Controls.Add(this.pbLogoInstituto);
             this.Controls.Add(this.btnModoOscuro);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnGuardarXML);
@@ -182,6 +195,7 @@ namespace MenuPrincipalForm
             this.Text = "Sampietro Franco TP3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogoInstituto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,5 +213,6 @@ namespace MenuPrincipalForm
         private System.Windows.Forms.Button btnGuardarXML;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnModoOscuro;
+        private System.Windows.Forms.PictureBox pbLogoInstituto;
     }
 }

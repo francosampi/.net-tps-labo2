@@ -1,22 +1,17 @@
 ﻿using Entidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MenuAgregarForm
 {
     public partial class frmMenuAlumno : Form, IAutenticacion
     {
-        Alumno alumno;
-        List<Curso> cursos;
-        FormAccion formAccion;
+        private Alumno alumno;
+        private List<Curso> cursos;
+        private readonly FormAccion formAccion;
 
         private bool nombreValidado = false;
         private bool mailValidado = false;
@@ -64,7 +59,7 @@ namespace MenuAgregarForm
                     cbTipoDePago.SelectedItem = this.alumno.tipoDePago.ToString();
                     cbCurso.SelectedItem = this.alumno.curso.ToString();
                 }
-                catch(Exception)
+                catch(NullReferenceException)
                 {
                     this.DialogResult = DialogResult.Abort;
                 }
@@ -75,19 +70,12 @@ namespace MenuAgregarForm
         {
             if (nombreValidado && mailValidado && abonadoValidado)
             {
-                try
-                {
-                    this.alumno.nombre = tbNombre.Text;
-                    this.alumno.mail = tbMail.Text;
-                    this.alumno.totalAbonado = Decimal.ToDouble(nupAbonado.Value);
-                    this.alumno.curso = cursos[cbCurso.SelectedIndex];
+                this.alumno.nombre = tbNombre.Text;
+                this.alumno.mail = tbMail.Text;
+                this.alumno.totalAbonado = Decimal.ToDouble(nupAbonado.Value);
+                this.alumno.curso = cursos[cbCurso.SelectedIndex];
 
-                    this.DialogResult = DialogResult.OK;
-                }
-                catch(Exception)
-                {
-                    this.DialogResult = DialogResult.Abort;
-                }
+                this.DialogResult = DialogResult.OK;
             }
             else
             {
@@ -97,7 +85,7 @@ namespace MenuAgregarForm
 
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
-            if (this.validarNombre(@"^[a-zA-Z ]*$"))
+            if (this.validarNombre(@"^[a-zA-Zá-úÁ-Ú ]*$"))
             {
                 tbNombre.BackColor = colorError;
                 nombreValidado = false;

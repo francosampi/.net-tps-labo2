@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Excepciones;
 
 namespace Entidades
 {
@@ -38,6 +39,10 @@ namespace Entidades
             if (i != a)
             {
                 i.alumnos.Add(a);
+            }
+            else
+            {
+                throw new AlumnoInscriptoRepetidoException();
             }
             return i;
         }
@@ -97,6 +102,10 @@ namespace Entidades
             if (i != p)
             {
                 i.profesores.Add(p);
+            }
+            else
+            {
+                throw new ProfesorContratadoRepetidoException();
             }
             return i;
         }

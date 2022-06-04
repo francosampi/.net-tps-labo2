@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -10,6 +8,7 @@ using MenuAgregarForm;
 using MenuAgregarProfesorForm;
 using SerializadorXML;
 using SerializadorJSON;
+using Excepciones;
 
 namespace MenuPrincipalForm
 {
@@ -17,10 +16,10 @@ namespace MenuPrincipalForm
     {
         private Instituto instituto;
         private int listadoIndex;
-        bool huboCambios;
-        string nombreArchivoListaAlumnos = "ListaDeAlumnos";
-        string nombreArchivoListaProfesores = "ListaDeProfesores";
-        string nombreArchivoListaClases = "ListaDeClases";
+        private bool huboCambios;
+        private string nombreArchivoListaAlumnos = "ListaDeAlumnos";
+        private string nombreArchivoListaProfesores = "ListaDeProfesores";
+        private string nombreArchivoListaClases = "ListaDeClases";
         private int[] configuracion = new int[2];
 
         /// <summary>
@@ -98,7 +97,7 @@ namespace MenuPrincipalForm
                     lb.Items.Add(item).ToString();
                 }
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
                 tbDetalles.Text = ex.Message;
             }
@@ -221,64 +220,60 @@ namespace MenuPrincipalForm
         /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            DialogResult resultado;
+
             switch (this.listadoIndex)
             {
                 case 0:
                     Alumno alumnoNuevo = new Alumno();
 
-                    try
-                    {
-                        Form menuAlumno = new frmMenuAlumno(alumnoNuevo, this.instituto.cursos, FormAccion.Agregar);
-                        DialogResult resultado = menuAlumno.ShowDialog();
+                    Form menuAlumno = new frmMenuAlumno(alumnoNuevo, this.instituto.cursos, FormAccion.Agregar);
+                    resultado = menuAlumno.ShowDialog();
 
-                        if (resultado == DialogResult.OK)
+                    if (resultado == DialogResult.OK)
+                    {
+                        try
                         {
-                            if (this.instituto!=alumnoNuevo)
-                            {
-                                this.instituto.alumnos.Add(alumnoNuevo);
-                                cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
-                                this.huboCambios = true;
-                                MessageBox.Show("Se ha cargado al alumno correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Ya existe ese alumno en la base de datos", "Alumno repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            }
+                            this.instituto+=alumnoNuevo;
+                            cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
+                            this.huboCambios = true;
+                            MessageBox.Show("Se ha cargado al alumno correctamente", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch(AlumnoInscriptoRepetidoException)
+                        {
+                            MessageBox.Show("Ya existe ese alumno en la base de datos", "Alumno repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
-                    catch (Exception)
+                    else
                     {
-                        MessageBox.Show("Ocurrió un error al cargar al alumno", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ocurrió un error cargando al alumno", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                break;
+                    break;
                 case 1:
                     Profesor profesorNuevo = new Profesor();
 
-                    try
-                    {
-                        Form menuProfesor = new frmMenuProfesor(profesorNuevo, FormAccion.Agregar);
-                        DialogResult resultado = menuProfesor.ShowDialog();
+                    Form menuProfesor = new frmMenuProfesor(profesorNuevo, FormAccion.Agregar);
+                    resultado = menuProfesor.ShowDialog();
 
-                        if (resultado == DialogResult.OK)
+                    if (resultado == DialogResult.OK)
+                    {
+                        try
                         {
-                            if (this.instituto != profesorNuevo)
-                            {
-                                this.instituto.profesores.Add(profesorNuevo);
-                                cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
-                                this.huboCambios = true;
-                                MessageBox.Show("Se ha cargado al profesor correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                MessageBox.Show("Ya existe ese profesor en la base de datos", "Profesor repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            }
+                            this.instituto+=profesorNuevo;
+                            cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
+                            this.huboCambios = true;
+                            MessageBox.Show("Se ha cargado al profesor correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch(ProfesorContratadoRepetidoException)
+                        {
+                            MessageBox.Show("Ya existe ese profesor en la base de datos", "Profesor repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
-                    catch (Exception)
+                    else
                     {
-                        MessageBox.Show("Ocurrió un error al cargar al profesor", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Ocurrió un error cargando al profesor", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                break;
+                    break;
             }
         }
 
@@ -299,27 +294,20 @@ namespace MenuPrincipalForm
                         Alumno alumnoSeleccionado = (Alumno)this.lbListado.SelectedItem;
                         Alumno alumnoManejador = alumnoSeleccionado;
 
-                        try
-                        {
-                            Form menuAlumno = new frmMenuAlumno(alumnoManejador, this.instituto.cursos, FormAccion.Modificar);
-                            DialogResult resultado = menuAlumno.ShowDialog();
+                        Form menuAlumno = new frmMenuAlumno(alumnoManejador, this.instituto.cursos, FormAccion.Modificar);
+                        DialogResult resultado = menuAlumno.ShowDialog();
 
-                            if (resultado == DialogResult.OK)
-                            {
-                                alumnoSeleccionado = alumnoManejador;
-                                this.huboCambios = true;
-                                cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
-                                MessageBox.Show("Se ha modificado al alumno correctamente\n(" + alumnoSeleccionado.nombre + ")", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        catch (Exception)
+                        if (resultado == DialogResult.OK)
                         {
-                            MessageBox.Show("Ocurrió un error al modificar al alumno", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            alumnoSeleccionado = alumnoManejador;
+                            this.huboCambios = true;
+                            cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
+                            MessageBox.Show("Se ha modificado al alumno correctamente\n(" + alumnoSeleccionado.nombre + ")", "Alta exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
                 case 1:
@@ -328,27 +316,20 @@ namespace MenuPrincipalForm
                         Profesor profesorSeleccionado = (Profesor)this.lbListado.SelectedItem;
                         Profesor profesorManejador = profesorSeleccionado;
 
-                        try
-                        {
-                            Form menuProfesor = new frmMenuProfesor(profesorManejador, FormAccion.Modificar);
-                            DialogResult resultado = menuProfesor.ShowDialog();
+                        Form menuProfesor = new frmMenuProfesor(profesorManejador, FormAccion.Modificar);
+                        DialogResult resultado = menuProfesor.ShowDialog();
 
-                            if (resultado == DialogResult.OK)
-                            {
-                                profesorSeleccionado = profesorManejador;
-                                this.huboCambios = true;
-                                cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
-                                MessageBox.Show("Se ha modificado al profesor correctamente\n(" + profesorSeleccionado.nombre + ")", "Modificacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                        }
-                        catch (Exception)
+                        if (resultado == DialogResult.OK)
                         {
-                            MessageBox.Show("Ocurrió un error al modificar al profesor", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            profesorSeleccionado = profesorManejador;
+                            this.huboCambios = true;
+                            cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
+                            MessageBox.Show("Se ha modificado al profesor correctamente\n(" + profesorSeleccionado.nombre + ")", "Modificacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
             }
@@ -519,6 +500,7 @@ namespace MenuPrincipalForm
                 lbListado.BackColor = Color.DarkBlue;
                 lbListado.ForeColor = Color.White;
                 lblDetalles.ForeColor = Color.White;
+                pbLogoInstituto.BackgroundImage = Properties.Resources.davinci02;
                 btnModoOscuro.BackgroundImage = Properties.Resources.modoOscuro02;
             }
             else
@@ -535,6 +517,7 @@ namespace MenuPrincipalForm
                 lbListado.BackColor = SystemColors.Window;
                 lbListado.ForeColor = Color.Black;
                 lblDetalles.ForeColor = Color.Black;
+                pbLogoInstituto.BackgroundImage = Properties.Resources.davinci01;
                 btnModoOscuro.BackgroundImage = Properties.Resources.modoOscuro01;
             }
         }

@@ -9,6 +9,7 @@
       "MenuPrincipalForm/1.0.0": {
         "dependencies": {
           "Entidades": "1.0.0",
+          "Excepciones": "1.0.0",
           "MenuAgregarAlumnoForm": "1.0.0",
           "MenuAgregarProfesorForm": "1.0.0",
           "SerializadorJSON": "1.0.0",
@@ -19,6 +20,9 @@
         }
       },
       "Entidades/1.0.0": {
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
         "runtime": {
           "Entidades.dll": {}
         }

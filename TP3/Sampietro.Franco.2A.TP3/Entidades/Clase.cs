@@ -35,7 +35,6 @@ namespace Entidades
         public string Ficha()
         {
             return "Materia dada: " + this.curso.ToString() + Environment.NewLine +
-                "Profesor: " + this.profesor.ToString() + Environment.NewLine +
                 "Dias: " + this.dias.ToString() + Environment.NewLine +
                 "Horario: " + this.horario;
         }
@@ -100,6 +99,12 @@ namespace Entidades
             return false;
         }
 
+        /// <summary>
+        /// Chequear si el alumno no se encuentra en la clase
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
         public static bool operator !=(Clase c, Alumno a)
         {
             return !(c == a);

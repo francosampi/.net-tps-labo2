@@ -4,11 +4,23 @@
     "net5.0-windows7.0": {
       "Entidades/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Entidades.dll": {}
         },
         "runtime": {
           "bin/placeholder/Entidades.dll": {}
+        }
+      },
+      "Excepciones/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Excepciones.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Excepciones.dll": {}
         }
       }
     }
@@ -18,6 +30,11 @@
       "type": "project",
       "path": "../Entidades/Entidades.csproj",
       "msbuildProject": "../Entidades/Entidades.csproj"
+    },
+    "Excepciones/1.0.0": {
+      "type": "project",
+      "path": "../Excepciones/Excepciones.csproj",
+      "msbuildProject": "../Excepciones/Excepciones.csproj"
     }
   },
   "projectFileDependencyGroups": {

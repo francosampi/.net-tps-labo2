@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 
@@ -14,12 +8,12 @@ namespace MenuAgregarProfesorForm
 {
     public partial class frmMenuProfesor : Form, IAutenticacion
     {
-        Profesor profesor;
-        FormAccion formAccion;
+        private Profesor profesor;
+        readonly FormAccion formAccion;
         private bool nombreValidado = false;
         private bool mailValidado = false;
-        Color colorDefault = SystemColors.Window;
-        Color colorError = Color.Red;
+        readonly Color colorDefault = SystemColors.Window;
+        readonly Color colorError = Color.Red;
 
         public frmMenuProfesor()
         {
@@ -46,7 +40,7 @@ namespace MenuAgregarProfesorForm
                     tbNombre.Text = this.profesor.nombre;
                     tbMail.Text = this.profesor.mail;
                 }
-                catch (Exception)
+                catch (NullReferenceException)
                 {
                     this.DialogResult = DialogResult.Abort;
                 }
@@ -60,7 +54,7 @@ namespace MenuAgregarProfesorForm
         /// <param name="e"></param>
         private void tbNombre_TextChanged(object sender, EventArgs e)
         {
-            if (this.validarNombre(@"^[a-zA-Z ]*$"))
+            if (this.validarNombre(@"^[a-zA-Zá-úÁ-Ú ]*$"))
             {
                 tbNombre.BackColor = colorError;
                 nombreValidado = false;
@@ -95,17 +89,10 @@ namespace MenuAgregarProfesorForm
         {
             if (nombreValidado && mailValidado)
             {
-                try
-                {
-                    this.profesor.nombre = tbNombre.Text;
-                    this.profesor.mail = tbMail.Text;
+                this.profesor.nombre = tbNombre.Text;
+                this.profesor.mail = tbMail.Text;
 
-                    this.DialogResult = DialogResult.OK;
-                }
-                catch (Exception)
-                {
-                    this.DialogResult = DialogResult.Abort;
-                }
+                this.DialogResult = DialogResult.OK;
             }
             else
             {

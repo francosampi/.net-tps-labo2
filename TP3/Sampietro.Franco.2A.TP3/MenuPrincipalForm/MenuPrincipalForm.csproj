@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj" />
+    <ProjectReference Include="..\Excepciones\Excepciones.csproj" />
     <ProjectReference Include="..\MenuAgregarForm\MenuAgregarAlumnoForm.csproj" />
     <ProjectReference Include="..\MenuAgregarProfesorForm\MenuAgregarProfesorForm.csproj" />
     <ProjectReference Include="..\SerializadorJSON\SerializadorJSON.csproj" />

@@ -63,6 +63,26 @@ namespace MenuPrincipalForm.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap davinci01 {
+            get {
+                object obj = ResourceManager.GetObject("davinci01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap davinci02 {
+            get {
+                object obj = ResourceManager.GetObject("davinci02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap modoOscuro01 {
             get {
                 object obj = ResourceManager.GetObject("modoOscuro01", resourceCulture);
