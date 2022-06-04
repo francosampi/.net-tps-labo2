@@ -20,6 +20,7 @@ namespace MenuPrincipalForm
         private string nombreArchivoListaAlumnos = "ListaDeAlumnos";
         private string nombreArchivoListaProfesores = "ListaDeProfesores";
         private string nombreArchivoListaClases = "ListaDeClases";
+        private string nombreArchivoConfiguracion = "configuracion";
         private int[] configuracion = new int[2];
 
         /// <summary>
@@ -342,17 +343,24 @@ namespace MenuPrincipalForm
         /// <param name="e"></param>
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            switch (this.listadoIndex)
+            try
             {
-                case 0:
-                    removerElementoDeLista<Alumno>(this.instituto.alumnos, "alumno");
-                    break;
-                case 1:
-                    removerElementoDeLista<Profesor>(this.instituto.profesores, "profesor");
-                    break;
-                case 2:
-                    removerElementoDeLista<Clase>(this.instituto.clases, "clase");
-                    break;
+                switch (this.listadoIndex)
+                {
+                    case 0:
+                        removerElementoDeLista<Alumno>(this.instituto.alumnos, "alumno");
+                        break;
+                    case 1:
+                        removerElementoDeLista<Profesor>(this.instituto.profesores, "profesor");
+                        break;
+                    case 2:
+                        removerElementoDeLista<Clase>(this.instituto.clases, "clase");
+                        break;
+                }
+            }
+            catch(ListaVaciaException)
+            {
+                MessageBox.Show("No se puede remover de una lista vacía", "Lista vacia", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -388,34 +396,27 @@ namespace MenuPrincipalForm
         {
             if (lista.Count>0)
             {
-                try
+                T entidadSeleccionada;
+                entidadSeleccionada = (T)this.lbListado.SelectedItem;
+
+                DialogResult resultado = MessageBox.Show("¿Desea remover este " + entidadString + "?"
+                    + Environment.NewLine + entidadSeleccionada.ToString(),
+                    "Remover elemento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
                 {
-                    T entidadSeleccionada;
-                    entidadSeleccionada = (T)this.lbListado.SelectedItem;
-
-                    DialogResult resultado = MessageBox.Show("¿Desea remover este " + entidadString + "?"
-                        + Environment.NewLine + entidadSeleccionada.ToString(),
-                        "Remover elemento", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                    if (resultado == DialogResult.Yes)
+                    if (lista.Contains(entidadSeleccionada))
                     {
-                        if (lista.Contains(entidadSeleccionada))
-                        {
-                            lista.Remove(entidadSeleccionada);
-                            cargarEnListBox<T>(lbListado, lista);
-                            this.huboCambios = true;
-                            MessageBox.Show("Se ha removido al/la "+entidadString+" correctamente", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        lista.Remove(entidadSeleccionada);
+                        cargarEnListBox<T>(lbListado, lista);
+                        this.huboCambios = true;
+                        MessageBox.Show("Se ha removido al/la "+entidadString+" correctamente", "Baja exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Ocurrió un error al remover al/la " + entidadString, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                throw new ListaVaciaException();
             }
         }
 
@@ -427,12 +428,13 @@ namespace MenuPrincipalForm
         /// <param name="nombreArchivo"></param>
         private void guardarListaEntidadesXML<T>(List<T> lista, string nombreArchivo) where T : class
         {
-            if (ClaseSerializadoraXML.serializarXML<T>(lista, nombreArchivo))
+            try
             {
-                MessageBox.Show("Se ha guardado el archivo "+nombreArchivo+".xml", "Guardado exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ClaseSerializadoraXML.serializarXML<T>(lista, nombreArchivo);
+                MessageBox.Show("Se ha guardado el archivo " + nombreArchivo + ".xml", "Guardado exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.huboCambios = false;
             }
-            else
+            catch(ArchivoException)
             {
                 MessageBox.Show("Ocurrio un error guardando el archivo " + nombreArchivo + ".xml", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -452,7 +454,14 @@ namespace MenuPrincipalForm
             }
             else
             {
-                ClaseSerializadoraJSON.serializarArregloJSON<int[]>(this.configuracion, "configuracion");
+                try
+                {
+                    ClaseSerializadoraJSON.serializarArregloJSON<int[]>(this.configuracion, nombreArchivoConfiguracion);
+                }
+                catch(ArchivoException)
+                {
+                    MessageBox.Show("Ocurrio un error abriendo el archivo " + this.nombreArchivoConfiguracion, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

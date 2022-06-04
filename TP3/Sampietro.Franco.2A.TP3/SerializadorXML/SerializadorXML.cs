@@ -9,7 +9,7 @@ namespace SerializadorXML
 {
     public static class ClaseSerializadoraXML
     {
-        public static bool serializarXML<T>(List<T> lista, string nombreArchivo) where T : class
+        public static void serializarXML<T>(List<T> lista, string nombreArchivo) where T : class
         {
             try
             {
@@ -18,11 +18,10 @@ namespace SerializadorXML
                     XmlSerializer serializador = new XmlSerializer(typeof(List<T>));
                     serializador.Serialize(writer, lista);
                 }
-                return true;
             }
             catch (ArchivoException)
             {
-                throw new ArchivoException("No se pudo guardar el archivo");
+                throw new ArchivoException();
             }
         }
 
@@ -40,7 +39,7 @@ namespace SerializadorXML
             }
             catch (ArchivoException)
             {
-                throw new ArchivoException("No se pudo leer el archivo");
+                throw new ArchivoException();
             }
             return listaDatosXML;
         }

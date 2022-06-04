@@ -7,7 +7,7 @@ namespace SerializadorJSON
 {
     public static class ClaseSerializadoraJSON
     {
-        public static bool serializarArregloJSON<T>(T dato, string nombreArchivo)
+        public static void serializarArregloJSON<T>(T dato, string nombreArchivo)
         {
             try
             {
@@ -15,12 +15,10 @@ namespace SerializadorJSON
                 string nombreArchivoConFormato = path + nombreArchivo + ".json";
                 string datoAJSon = JsonSerializer.Serialize(dato);
                 File.WriteAllText(nombreArchivoConFormato, datoAJSon);
-
-                return true;
             }
             catch(ArchivoException)
             {
-                throw new ArchivoException("No se pudo serializar JSON");
+                throw new ArchivoException();
             }
         }
 
@@ -39,7 +37,7 @@ namespace SerializadorJSON
             }
             catch(ArchivoException)
             {
-                throw new ArchivoException("No se pudo deserializar JSON");
+                throw new ArchivoException();
             }
         }
     }
