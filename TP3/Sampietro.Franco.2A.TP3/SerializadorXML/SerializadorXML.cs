@@ -10,14 +10,13 @@ namespace SerializadorXML
 {
     public static class ClaseSerializadoraXML
     {
-        public static void serializarXML<T>(List<T> lista, string nombreArchivo) where T : class
+        public static void serializarXML<T>(List<T> lista, string nombreArchivo, string path) where T : class
         {
-            string path = "..\\..\\..\\..\\";
-            string nombreArchivoConFormato = path + nombreArchivo + ".xml";
+            string nombreArchivoConFormato = nombreArchivo + ".xml";
 
-            if (File.Exists(nombreArchivoConFormato))
+            if (Directory.Exists(path))
             {
-                using (XmlTextWriter writer = new XmlTextWriter(nombreArchivoConFormato, Encoding.UTF8))
+                using (XmlTextWriter writer = new XmlTextWriter(path+nombreArchivoConFormato, Encoding.UTF8))
                 {
                     XmlSerializer serializador = new XmlSerializer(typeof(List<T>));
                     serializador.Serialize(writer, lista);
@@ -25,20 +24,18 @@ namespace SerializadorXML
             }
             else
             {
-                throw new ArchivoException();
+                throw new ArchivoException(nombreArchivoConFormato);
             }
         }
 
-        public static List<T> deserializarXML<T>(string nombreArchivo)
+        public static List<T> deserializarXML<T>(string nombreArchivo, string path)
         {
             List<T> listaDatosXML = new List<T>();
+            string nombreArchivoConFormato = nombreArchivo + ".xml";
 
-            string path = "..\\..\\..\\..\\";
-            string nombreArchivoConFormato = path + nombreArchivo + ".xml";
-
-            if (File.Exists(nombreArchivoConFormato))
+            if (Directory.Exists(path))
             {
-                using (XmlTextReader reader = new XmlTextReader(nombreArchivoConFormato))
+                using (XmlTextReader reader = new XmlTextReader(path+nombreArchivoConFormato))
                 {
                     XmlSerializer serializador = new XmlSerializer(typeof(List<T>));
                     listaDatosXML = (List<T>)serializador.Deserialize(reader);
@@ -46,7 +43,7 @@ namespace SerializadorXML
             }
             else
             {
-                throw new ArchivoException();
+                throw new ArchivoException(nombreArchivoConFormato);
             }
             return listaDatosXML;
         }

@@ -8,7 +8,6 @@ namespace Entidades
 {
     public class Clase
     {
-        public Profesor profesor;
         public Curso curso;
         public List<Alumno> alumnos;
         public Dias dias;
@@ -18,9 +17,8 @@ namespace Entidades
         {
         }
 
-        public Clase(Profesor profesor, Curso curso, Dias dias, Horario horario)
+        public Clase(Curso curso, Dias dias, Horario horario)
         {
-            this.profesor = profesor;
             this.curso = curso;
             this.dias = dias;
             this.horario = horario;

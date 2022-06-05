@@ -7,30 +7,28 @@ namespace SerializadorJSON
 {
     public static class ClaseSerializadoraJSON
     {
-        public static void serializarArregloJSON<T>(T dato, string nombreArchivo)
+        public static void serializarArregloJSON<T>(T dato, string nombreArchivo, string path)
         {
-            string path = "..\\..\\..\\..\\";
-            string nombreArchivoConFormato = path + nombreArchivo + ".json";
+            string nombreArchivoConFormato = nombreArchivo + ".json";
 
-            if (File.Exists(nombreArchivoConFormato))
+            if (Directory.Exists(path))
             {
                 string datoAJSon = JsonSerializer.Serialize(dato);
-                File.WriteAllText(nombreArchivoConFormato, datoAJSon);
+                File.WriteAllText(path+nombreArchivoConFormato, datoAJSon);
             }
             else
             {
-                throw new ArchivoException();
+                throw new ArchivoException(nombreArchivoConFormato);
             }
         }
 
-        public static T deserializarJSON<T>(string nombreArchivo)
+        public static T deserializarJSON<T>(string nombreArchivo, string path)
         {
-            string path = "..\\..\\..\\..\\";
-            string nombreArchivoConFormato = path + nombreArchivo + ".json";
+            string nombreArchivoConFormato = nombreArchivo + ".json";
 
-            if (File.Exists(nombreArchivoConFormato))
+            if (Directory.Exists(path))
             {
-                using (StreamReader sr = new StreamReader(nombreArchivoConFormato))
+                using (StreamReader sr = new StreamReader(path+nombreArchivoConFormato))
                 {
                     string JSONString = sr.ReadToEnd();
                     return (T)JsonSerializer.Deserialize(JSONString, typeof(T));
@@ -38,7 +36,7 @@ namespace SerializadorJSON
             }
             else
             {
-                throw new ArchivoException();
+                throw new ArchivoException(nombreArchivoConFormato);
             }
         }
     }

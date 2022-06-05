@@ -34,7 +34,7 @@ public enum Dias
     Martes,
     Miercoles,
     Jueves,
-    Sabados
+    Viernes
 }
 public enum Horario
 {

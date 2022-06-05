@@ -1,0 +1,5 @@
+Lunes: Programacion de Videojuegos (Turno: Mañana)
+Martes: Dibujo de Cómics (Turno: Mañana)
+Miercoles: Diseño 3D en Blender (Turno: Tarde)
+Jueves: Diseño Gráfico (Turno: Mañana)
+Viernes: Programacion Web (Turno: Tarde)

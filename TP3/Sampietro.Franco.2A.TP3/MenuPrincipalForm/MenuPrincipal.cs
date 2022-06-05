@@ -9,6 +9,8 @@ using MenuAgregarProfesorForm;
 using SerializadorXML;
 using SerializadorJSON;
 using Excepciones;
+using System.Text;
+using System.IO;
 
 namespace MenuPrincipalForm
 {
@@ -17,11 +19,12 @@ namespace MenuPrincipalForm
         private Instituto instituto;
         private int listadoIndex;
         private bool huboCambios;
-        private string nombreArchivoListaAlumnos = "ListaDeAlumnos";
-        private string nombreArchivoListaProfesores = "ListaDeProfesores";
-        private string nombreArchivoListaClases = "ListaDeClases";
-        private string nombreArchivoConfiguracion = "configuracion";
-        private int[] configuracion = new int[2];
+        private readonly string path = "..\\..\\..\\..\\Archivos\\";
+        private readonly string nombreArchivoListaAlumnos = "ListaDeAlumnos";
+        private readonly string nombreArchivoListaProfesores = "ListaDeProfesores";
+        private readonly string nombreArchivoListaClases = "CronogramaDeClases";
+        private readonly string nombreArchivoConfiguracion = "configuracion";
+        private int[] configuracion = new int[] {0, -1};
 
         /// <summary>
         /// Inicializar instituto con nombre, cargar cursos disponibles, y traer de los archivos xml: alumnos, profesores y clases que se dan.
@@ -44,16 +47,27 @@ namespace MenuPrincipalForm
             this.instituto.cursos.Add(cr4);
             this.instituto.cursos.Add(cr5);
 
+            Clase cl1 = new Clase(cr1, Dias.Lunes, Horario.Mañana);
+            Clase cl2 = new Clase(cr2, Dias.Martes, Horario.Mañana);
+            Clase cl3 = new Clase(cr3, Dias.Miercoles, Horario.Tarde);
+            Clase cl4 = new Clase(cr4, Dias.Jueves, Horario.Mañana);
+            Clase cl5 = new Clase(cr5, Dias.Viernes, Horario.Tarde);
+
+            this.instituto.clases.Add(cl1);
+            this.instituto.clases.Add(cl2);
+            this.instituto.clases.Add(cl3);
+            this.instituto.clases.Add(cl4);
+            this.instituto.clases.Add(cl5);
+
             try
             {
-                this.instituto.alumnos = ClaseSerializadoraXML.deserializarXML<Alumno>(nombreArchivoListaAlumnos);
-                this.instituto.profesores = ClaseSerializadoraXML.deserializarXML<Profesor>(nombreArchivoListaProfesores);
-                this.instituto.clases = ClaseSerializadoraXML.deserializarXML<Clase>(nombreArchivoListaClases);
-                this.configuracion = ClaseSerializadoraJSON.deserializarJSON<int[]>("configuracion");
+                this.instituto.alumnos = ClaseSerializadoraXML.deserializarXML<Alumno>(this.nombreArchivoListaAlumnos, this.path);
+                this.instituto.profesores = ClaseSerializadoraXML.deserializarXML<Profesor>(this.nombreArchivoListaProfesores, this.path);
+                this.configuracion = ClaseSerializadoraJSON.deserializarJSON<int[]>(this.nombreArchivoConfiguracion, this.path);
             }
-            catch(ArchivoException)
+            catch(ArchivoException e)
             {
-                MessageBox.Show("Ocurrio un error abriendo el archivo", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrio un error abriendo el archivo "+e.Message, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -156,18 +170,21 @@ namespace MenuPrincipalForm
                         btnAgregar.Enabled = true;
                         btnModificar.Enabled = true;
                         btnRemover.Enabled = true;
+                        btnGuardarXML.Text = "Guardar XML";
                         break;
                     case 1:
                         escribirDetalleProfesor(tbDetalles);
                         btnAgregar.Enabled = true;
                         btnModificar.Enabled = true;
                         btnRemover.Enabled = true;
+                        btnGuardarXML.Text = "Guardar XML";
                         break;
                     case 2:
                         escribirDetalleClase(tbDetalles);
                         btnAgregar.Enabled = false;
                         btnModificar.Enabled = false;
                         btnRemover.Enabled = false;
+                        btnGuardarXML.Text = "Guardar cronograma de clases";
                         break;
                 }
                 this.configuracion[0] = this.listadoIndex;
@@ -377,7 +394,12 @@ namespace MenuPrincipalForm
                     guardarListaEntidadesXML<Profesor>(this.instituto.profesores, nombreArchivoListaProfesores);
                     break;
                 case 2:
-                    guardarListaEntidadesXML<Clase>(this.instituto.clases, nombreArchivoListaClases);
+                    StringBuilder sb = new StringBuilder();
+                    foreach (Clase clase in this.instituto.clases)
+                    {
+                        sb.AppendLine(clase.dias.ToString() + ": " + clase.ToString());
+                    }
+                    File.WriteAllText(this.path + nombreArchivoListaClases+".txt", sb.ToString());
                     break;
             }
         }
@@ -427,7 +449,7 @@ namespace MenuPrincipalForm
         {
             try
             {
-                ClaseSerializadoraXML.serializarXML<T>(lista, nombreArchivo);
+                ClaseSerializadoraXML.serializarXML<T>(lista, nombreArchivo, this.path);
                 MessageBox.Show("Se ha guardado el archivo " + nombreArchivo + ".xml", "Guardado exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.huboCambios = false;
             }
@@ -453,7 +475,7 @@ namespace MenuPrincipalForm
             {
                 try
                 {
-                    ClaseSerializadoraJSON.serializarArregloJSON<int[]>(this.configuracion, nombreArchivoConfiguracion);
+                    ClaseSerializadoraJSON.serializarArregloJSON<int[]>(this.configuracion, this.nombreArchivoConfiguracion, this.path);
                 }
                 catch(ArchivoException)
                 {
