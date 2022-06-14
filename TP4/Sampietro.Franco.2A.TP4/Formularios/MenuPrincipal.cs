@@ -11,6 +11,7 @@ using SerializadorJSON;
 using Excepciones;
 using System.Text;
 using System.IO;
+using Formularios;
 
 namespace MenuPrincipalForm
 {
@@ -64,12 +65,6 @@ namespace MenuPrincipalForm
             this.instituto.clases.Add(cl3);
             this.instituto.clases.Add(cl4);
             this.instituto.clases.Add(cl5);
-
-            //this.instituto.profesores.Add(p1);
-            //this.instituto.profesores.Add(p2);
-            //this.instituto.profesores.Add(p3);
-            //this.instituto.profesores.Add(p4);
-            //this.instituto.profesores.Add(p5);
 
             try
             {
@@ -179,23 +174,14 @@ namespace MenuPrincipalForm
                 {
                     case 0:
                         escribirDetalleAlumno(tbDetalles);
-                        btnAgregar.Enabled = true;
-                        btnModificar.Enabled = true;
-                        btnRemover.Enabled = true;
                         btnGuardarXML.Text = "Guardar XML";
                         break;
                     case 1:
                         escribirDetalleProfesor(tbDetalles);
-                        btnAgregar.Enabled = true;
-                        btnModificar.Enabled = true;
-                        btnRemover.Enabled = true;
                         btnGuardarXML.Text = "Guardar XML";
                         break;
                     case 2:
                         escribirDetalleClase(tbDetalles);
-                        btnAgregar.Enabled = false;
-                        btnModificar.Enabled = false;
-                        btnRemover.Enabled = false;
                         btnGuardarXML.Text = "Guardar cronograma de clases";
                         break;
                 }
@@ -224,19 +210,6 @@ namespace MenuPrincipalForm
             }
         }
 
-        private void escribirDetalleClase(TextBox tb)
-        {
-            Clase claseSeleccionada;
-            claseSeleccionada = (Clase)this.lbListado.SelectedItem;
-
-            if (claseSeleccionada is not null)
-            {
-                string infoClase = claseSeleccionada.Ficha();
-
-                tb.Text = infoClase;
-            }
-        }
-
         private void escribirDetalleProfesor(TextBox tb)
         {
             Profesor profesorSeleccionado;
@@ -247,6 +220,19 @@ namespace MenuPrincipalForm
                 string infoProfesor = profesorSeleccionado.Ficha();
 
                 tb.Text = infoProfesor;
+            }
+        }
+
+        private void escribirDetalleClase(TextBox tb)
+        {
+            Clase claseSeleccionada;
+            claseSeleccionada = (Clase)this.lbListado.SelectedItem;
+
+            if (claseSeleccionada is not null)
+            {
+                string infoClase = claseSeleccionada.Ficha();
+
+                tb.Text = infoClase;
             }
         }
 
@@ -301,6 +287,27 @@ namespace MenuPrincipalForm
                         catch(ProfesorContratadoRepetidoException)
                         {
                             MessageBox.Show("Ya existe ese profesor en la base de datos", "Profesor repetido", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                    break;
+                case 2:
+                    Clase claseNueva = new Clase();
+
+                    Form menuClase = new frmMenuClase(claseNueva, this.instituto.profesores, FormAccion.Agregar);
+                    resultado = menuClase.ShowDialog();
+
+                    if (resultado == DialogResult.OK)
+                    {
+                        try
+                        {
+                            this.instituto+=claseNueva;
+                            cargarEnListBox<Clase>(lbListado, this.instituto.clases);
+                            this.huboCambios = true;
+                            MessageBox.Show("Se ha cargado la clase correctamente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch(ClaseRepetidaException)
+                        {
+                            MessageBox.Show("Ya existe esa clase en la base de datos", "Clase repetida", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
                     break;
@@ -362,6 +369,28 @@ namespace MenuPrincipalForm
                         MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     break;
+                case 2:
+                    if (this.instituto.clases.Count > 0)
+                    {
+                        Clase claseSeleccionada = (Clase)this.lbListado.SelectedItem;
+                        Clase claseManejadora = claseSeleccionada;
+
+                        Form menuClase = new frmMenuClase(claseManejadora, this.instituto.profesores, FormAccion.Modificar);
+                        DialogResult resultado = menuClase.ShowDialog();
+
+                        if (resultado == DialogResult.OK)
+                        {
+                            claseSeleccionada = claseManejadora;
+                            this.huboCambios = true;
+                            cargarEnListBox<Clase>(lbListado, this.instituto.clases);
+                            MessageBox.Show("Se ha modificado la clase correctamente\n(" + claseSeleccionada.profesor.curso.ToString() + ")", "Modificacion exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encuentran elementos en la lista", "Lista vacía", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    break;
             }
         }
 
@@ -381,6 +410,9 @@ namespace MenuPrincipalForm
                         break;
                     case 1:
                         removerElementoDeLista<Profesor>(this.instituto.profesores, "profesor");
+                        break;
+                    case 2:
+                        removerElementoDeLista<Clase>(this.instituto.clases, "clase");
                         break;
                 }
             }

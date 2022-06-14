@@ -60,3 +60,4 @@ C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debu
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debug\net5.0-windows\SerializadorXML.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.csproj.CopyComplete
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.genruntimeconfig.cache
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.frmMenuClase.resources

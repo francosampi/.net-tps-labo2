@@ -158,5 +158,68 @@ namespace Entidades
         {
             return this.nombre;
         }
+
+        /// <summary>
+        /// Agregar clase al Instituto, si es posible
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static Instituto operator +(Instituto i, Clase c)
+        {
+            if (i != c)
+            {
+                i.clases.Add(c);
+            }
+            else
+            {
+                throw new ClaseRepetidaException();
+            }
+            return i;
+        }
+
+        /// <summary>
+        /// Remover clase del Instituto, si es posible
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static Instituto operator -(Instituto i, Clase c)
+        {
+            if (i == c)
+            {
+                i.clases.Remove(c);
+            }
+            return i;
+        }
+
+        /// <summary>
+        /// Chequear si la clase se encuentra en el instituto
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static bool operator ==(Instituto i, Clase c)
+        {
+            foreach (Clase clase in i.clases)
+            {
+                if (clase == c)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Chequear si la clase no se encuentra en el instituto
+        /// </summary>
+        /// <param name="c"></param>
+        /// <param name="a"></param>
+        /// <returns></returns>
+        public static bool operator !=(Instituto i, Clase c)
+        {
+            return !(i == c);
+        }
     }
 }

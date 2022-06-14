@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AlumnoInscriptoRepetidoException.cs" />
     <Compile Include="ArchivoException.cs" />
+    <Compile Include="ClaseRepetidaException.cs" />
     <Compile Include="ListaVaciaException.cs" />
     <Compile Include="ProfesorContratadoRepetidoException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

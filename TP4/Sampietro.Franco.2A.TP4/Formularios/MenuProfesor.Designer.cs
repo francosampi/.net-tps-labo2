@@ -99,7 +99,7 @@ namespace MenuAgregarProfesorForm
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMenuProfesor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sampietro Franco TP3 (Agregar)";
+            this.Text = "Editar profesor";
             this.Load += new System.EventHandler(this.frmMenuProfesor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -4,3 +4,9 @@ C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Excepciones\obj\Debu
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Excepciones\obj\Debug\Excepciones.dll
 C:\Users\franc\Desktop\PROG\TPS\TP3\Sampietro.Franco.2A.TP3\Excepciones\obj\Debug\Excepciones.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Excepciones\bin\Debug\Excepciones.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Excepciones\bin\Debug\Excepciones.pdb
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Excepciones\obj\Debug\Excepciones.csproj.AssemblyReference.cache
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Excepciones\obj\Debug\Excepciones.csproj.CoreCompileInputs.cache
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Excepciones\obj\Debug\Excepciones.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Excepciones\obj\Debug\Excepciones.pdb

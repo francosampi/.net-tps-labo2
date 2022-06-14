@@ -188,7 +188,7 @@ namespace MenuAgregarForm
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMenuAlumno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sampietro Franco TP3 (Agregar)";
+            this.Text = "Editar alumno";
             this.Load += new System.EventHandler(this.frmAgregar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nupAbonado)).EndInit();
             this.ResumeLayout(false);

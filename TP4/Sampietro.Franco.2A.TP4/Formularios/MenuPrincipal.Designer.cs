@@ -152,7 +152,7 @@ namespace MenuPrincipalForm
             // 
             // btnModoOscuro
             // 
-            this.btnModoOscuro.BackgroundImage = Formularios.Properties.Resources.modoOscuro01;
+            this.btnModoOscuro.BackgroundImage = global::Formularios.Properties.Resources.modoOscuro01;
             this.btnModoOscuro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnModoOscuro.Location = new System.Drawing.Point(756, 507);
             this.btnModoOscuro.Name = "btnModoOscuro";
@@ -163,7 +163,7 @@ namespace MenuPrincipalForm
             // 
             // pbLogoInstituto
             // 
-            this.pbLogoInstituto.BackgroundImage = Formularios.Properties.Resources.davinci01;
+            this.pbLogoInstituto.BackgroundImage = global::Formularios.Properties.Resources.davinci01;
             this.pbLogoInstituto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLogoInstituto.Location = new System.Drawing.Point(437, 25);
             this.pbLogoInstituto.Name = "pbLogoInstituto";
@@ -192,7 +192,7 @@ namespace MenuPrincipalForm
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Sampietro Franco TP3";
+            this.Text = "Menu principal";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInstituto)).EndInit();

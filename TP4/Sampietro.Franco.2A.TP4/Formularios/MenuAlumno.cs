@@ -16,8 +16,8 @@ namespace MenuAgregarForm
         private bool nombreValidado = false;
         private bool mailValidado = false;
         private bool abonadoValidado = false;
-        readonly Color colorDefault = SystemColors.Window;
-        readonly Color colorError = Color.Red;
+        private readonly Color colorDefault = SystemColors.Window;
+        private readonly Color colorError = Color.Red;
 
         public frmMenuAlumno()
         {

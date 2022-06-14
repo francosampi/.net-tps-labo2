@@ -12,6 +12,7 @@ namespace Entidades
         public List<Alumno> alumnos;
         public Dias dias;
         public Horario horario;
+        public string puntoEncuentro;
 
         public Clase()
         {
@@ -27,7 +28,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return this.profesor.curso.ToString()+" (Turno: "+this.horario.ToString()+")";
+            return this.profesor.curso.ToString()+", T. "+this.horario.ToString()+" (Docente: "+this.profesor.ToString()+")";
         }
 
         public string Ficha()
