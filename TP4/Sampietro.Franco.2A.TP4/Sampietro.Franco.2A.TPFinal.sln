@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{22CDBB81-A1CF-4C10-984F-04404667BA7E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializadorXML", "SerializadorXML\SerializadorXML.csproj", "{90B9B744-51AE-4FE1-BC43-B8E04200A391}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Excepciones", "Excepciones\Excepciones.csproj", "{6100522B-3AA4-4C05-ADB0-095639A9EEAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerializadorJSON", "SerializadorJSON\SerializadorJSON.csproj", "{16A22D58-0166-4FA4-8C91-E581BE3C5086}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTesting", "UnitTesting\UnitTesting.csproj", "{108561BF-1573-4946-837B-8AA716CDC8DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Formularios", "Formularios\Formularios.csproj", "{B91B7755-F958-4C3C-A9FC-DD70F9BBF76F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22CDBB81-A1CF-4C10-984F-04404667BA7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CDBB81-A1CF-4C10-984F-04404667BA7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22CDBB81-A1CF-4C10-984F-04404667BA7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CDBB81-A1CF-4C10-984F-04404667BA7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90B9B744-51AE-4FE1-BC43-B8E04200A391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90B9B744-51AE-4FE1-BC43-B8E04200A391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90B9B744-51AE-4FE1-BC43-B8E04200A391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90B9B744-51AE-4FE1-BC43-B8E04200A391}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6100522B-3AA4-4C05-ADB0-095639A9EEAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6100522B-3AA4-4C05-ADB0-095639A9EEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6100522B-3AA4-4C05-ADB0-095639A9EEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6100522B-3AA4-4C05-ADB0-095639A9EEAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16A22D58-0166-4FA4-8C91-E581BE3C5086}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16A22D58-0166-4FA4-8C91-E581BE3C5086}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16A22D58-0166-4FA4-8C91-E581BE3C5086}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16A22D58-0166-4FA4-8C91-E581BE3C5086}.Release|Any CPU.Build.0 = Release|Any CPU
+		{108561BF-1573-4946-837B-8AA716CDC8DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{108561BF-1573-4946-837B-8AA716CDC8DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{108561BF-1573-4946-837B-8AA716CDC8DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{108561BF-1573-4946-837B-8AA716CDC8DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91B7755-F958-4C3C-A9FC-DD70F9BBF76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91B7755-F958-4C3C-A9FC-DD70F9BBF76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91B7755-F958-4C3C-A9FC-DD70F9BBF76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91B7755-F958-4C3C-A9FC-DD70F9BBF76F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8F9BE3A4-01DA-4CB1-87CD-7859566E4C60}
+	EndGlobalSection
+EndGlobal

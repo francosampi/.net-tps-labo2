@@ -1,0 +1,155 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0-windows7.0": {
+      "Entidades/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Entidades.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entidades.dll": {}
+        }
+      },
+      "Excepciones/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Excepciones.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Excepciones.dll": {}
+        }
+      },
+      "SerializadorJSON/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SerializadorJSON.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SerializadorJSON.dll": {}
+        }
+      },
+      "SerializadorXML/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SerializadorXML.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SerializadorXML.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Entidades/1.0.0": {
+      "type": "project",
+      "path": "../Entidades/Entidades.csproj",
+      "msbuildProject": "../Entidades/Entidades.csproj"
+    },
+    "Excepciones/1.0.0": {
+      "type": "project",
+      "path": "../Excepciones/Excepciones.csproj",
+      "msbuildProject": "../Excepciones/Excepciones.csproj"
+    },
+    "SerializadorJSON/1.0.0": {
+      "type": "project",
+      "path": "../SerializadorJSON/SerializadorJSON.csproj",
+      "msbuildProject": "../SerializadorJSON/SerializadorJSON.csproj"
+    },
+    "SerializadorXML/1.0.0": {
+      "type": "project",
+      "path": "../SerializadorXML/SerializadorXML.csproj",
+      "msbuildProject": "../SerializadorXML/SerializadorXML.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0-windows7.0": [
+      "Entidades >= 1.0.0",
+      "Excepciones >= 1.0.0",
+      "SerializadorJSON >= 1.0.0",
+      "SerializadorXML >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\franc\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\Formularios\\Formularios.csproj",
+      "projectName": "Formularios",
+      "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\Formularios\\Formularios.csproj",
+      "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\Formularios\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\Entidades\\Entidades.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\Entidades\\Entidades.csproj"
+            },
+            "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj"
+            },
+            "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\SerializadorJSON\\SerializadorJSON.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\SerializadorJSON\\SerializadorJSON.csproj"
+            },
+            "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\SerializadorXML\\SerializadorXML.csproj": {
+              "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\TP4\\Sampietro.Franco.2A.TP4\\SerializadorXML\\SerializadorXML.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WindowsForms": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
