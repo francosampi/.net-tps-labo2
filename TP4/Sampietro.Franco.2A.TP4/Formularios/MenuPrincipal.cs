@@ -204,7 +204,7 @@ namespace MenuPrincipalForm
         /// <param name="entidad"></param>
         /// <param name="tb"></param>
         /// <param name="ficha"></param>
-        public void escribirDetalle<T>(T entidad, TextBox tb, delegadoFicha ficha)
+        public void escribirDetalle<T>(T entidad, TextBox tb, Func<string> ficha)
         {
             if (entidad is not null)
             { 
@@ -597,7 +597,8 @@ namespace MenuPrincipalForm
 
         private void btnPlanillaNotas_Click(object sender, EventArgs e)
         {
-            Form menuClase = new frmPlanillaNotas();
+            Form planillaNotas = new frmPlanillaNotas();
+            DialogResult resultado = planillaNotas.ShowDialog();
         }
     }
 }

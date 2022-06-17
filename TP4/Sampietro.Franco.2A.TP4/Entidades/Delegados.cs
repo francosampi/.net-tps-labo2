@@ -9,7 +9,6 @@ namespace Entidades
 {
     public class Delegados
     {
-        public delegate string delegadoFicha();
-        public delegate void delegadoDetalles(object entidad, TextBox tb, delegadoFicha ficha);
+        public delegate void delegadoDetalles(object entidad, TextBox tb, Func<string> recibirDeFicha);
     }
 }

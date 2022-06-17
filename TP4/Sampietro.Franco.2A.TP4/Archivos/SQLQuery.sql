@@ -8,9 +8,12 @@ id int IDENTITY(1,1) PRIMARY KEY,
 alumno varchar(20) not null,
 programaciondevideojuegos int,
 dibujodecomics int,
+disenografico int,
 disenoblender int,
 programacionweb int,
-promedio int,
 )
 
+delete notas
+
 select * from notas
+
