@@ -41,6 +41,7 @@ namespace MenuPrincipalForm
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnModoOscuro = new System.Windows.Forms.Button();
             this.pbLogoInstituto = new System.Windows.Forms.PictureBox();
+            this.btnPlanillaNotas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogoInstituto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@ namespace MenuPrincipalForm
             this.tbDetalles.Location = new System.Drawing.Point(437, 285);
             this.tbDetalles.Multiline = true;
             this.tbDetalles.Name = "tbDetalles";
-            this.tbDetalles.Size = new System.Drawing.Size(324, 162);
+            this.tbDetalles.Size = new System.Drawing.Size(324, 205);
             this.tbDetalles.TabIndex = 7;
             // 
             // lblDetalles
@@ -154,7 +155,7 @@ namespace MenuPrincipalForm
             // 
             this.btnModoOscuro.BackgroundImage = global::Formularios.Properties.Resources.modoOscuro01;
             this.btnModoOscuro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnModoOscuro.Location = new System.Drawing.Point(756, 507);
+            this.btnModoOscuro.Location = new System.Drawing.Point(729, 27);
             this.btnModoOscuro.Name = "btnModoOscuro";
             this.btnModoOscuro.Size = new System.Drawing.Size(32, 32);
             this.btnModoOscuro.TabIndex = 10;
@@ -165,11 +166,22 @@ namespace MenuPrincipalForm
             // 
             this.pbLogoInstituto.BackgroundImage = global::Formularios.Properties.Resources.davinci01;
             this.pbLogoInstituto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbLogoInstituto.Location = new System.Drawing.Point(437, 25);
+            this.pbLogoInstituto.Location = new System.Drawing.Point(437, 68);
             this.pbLogoInstituto.Name = "pbLogoInstituto";
             this.pbLogoInstituto.Size = new System.Drawing.Size(324, 90);
             this.pbLogoInstituto.TabIndex = 11;
             this.pbLogoInstituto.TabStop = false;
+            // 
+            // btnPlanillaNotas
+            // 
+            this.btnPlanillaNotas.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPlanillaNotas.Location = new System.Drawing.Point(437, 502);
+            this.btnPlanillaNotas.Name = "btnPlanillaNotas";
+            this.btnPlanillaNotas.Size = new System.Drawing.Size(324, 37);
+            this.btnPlanillaNotas.TabIndex = 12;
+            this.btnPlanillaNotas.Text = "Planilla de notas";
+            this.btnPlanillaNotas.UseVisualStyleBackColor = true;
+            this.btnPlanillaNotas.Click += new System.EventHandler(this.btnPlanillaNotas_Click);
             // 
             // MenuPrincipal
             // 
@@ -177,6 +189,7 @@ namespace MenuPrincipalForm
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(800, 551);
+            this.Controls.Add(this.btnPlanillaNotas);
             this.Controls.Add(this.pbLogoInstituto);
             this.Controls.Add(this.btnModoOscuro);
             this.Controls.Add(this.btnModificar);
@@ -214,5 +227,6 @@ namespace MenuPrincipalForm
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnModoOscuro;
         private System.Windows.Forms.PictureBox pbLogoInstituto;
+        private System.Windows.Forms.Button btnPlanillaNotas;
     }
 }

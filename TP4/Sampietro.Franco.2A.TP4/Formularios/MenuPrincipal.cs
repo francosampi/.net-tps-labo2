@@ -12,6 +12,7 @@ using Excepciones;
 using System.Text;
 using System.IO;
 using Formularios;
+using static Entidades.Delegados;
 
 namespace MenuPrincipalForm
 {
@@ -90,16 +91,13 @@ namespace MenuPrincipalForm
             switch(this.listadoIndex)
             {
                 case 0:
-                    btnAlumnos.Select();
-                    cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos);
+                    cargarEnListBox<Alumno>(lbListado, this.instituto.alumnos, btnAlumnos.Select);
                     break;
                 case 1:
-                    btnProfesores.Select();
-                    cargarEnListBox<Profesor>(lbListado, this.instituto.profesores);
+                    cargarEnListBox<Profesor>(lbListado, this.instituto.profesores, btnProfesores.Select);
                     break;
                 case 2:
-                    btnClases.Select();
-                    cargarEnListBox<Clase>(lbListado, this.instituto.clases);
+                    cargarEnListBox<Clase>(lbListado, this.instituto.clases, btnClases.Select);
                     break;
             }
             this.huboCambios = false;
@@ -138,6 +136,12 @@ namespace MenuPrincipalForm
             }
         }
 
+        private void cargarEnListBox<T>(ListBox lb, List<T> list, Action action) where T : class
+        {
+            cargarEnListBox(lb, list);
+            action.Invoke();
+        }
+
         /// <summary>
         /// click en los botones de arriba para cargar su lista en la listbox.
         /// </summary>
@@ -173,15 +177,15 @@ namespace MenuPrincipalForm
                 switch (this.listadoIndex)
                 {
                     case 0:
-                        escribirDetalleAlumno(tbDetalles);
-                        btnGuardarXML.Text = "Guardar XML";
+                        escribirDetalleAlumno(this.lbListado, this.tbDetalles, escribirDetalle);
+                        btnGuardarXML.Text = "Guardar Alumnos en XML";
                         break;
                     case 1:
-                        escribirDetalleProfesor(tbDetalles);
-                        btnGuardarXML.Text = "Guardar XML";
+                        escribirDetalleProfesor(this.lbListado, this.tbDetalles, escribirDetalle);
+                        btnGuardarXML.Text = "Guardar Profesores en XML";
                         break;
                     case 2:
-                        escribirDetalleClase(tbDetalles);
+                        escribirDetalleClase(this.lbListado, this.tbDetalles, escribirDetalle);
                         btnGuardarXML.Text = "Guardar cronograma de clases";
                         break;
                 }
@@ -194,46 +198,43 @@ namespace MenuPrincipalForm
         }
 
         /// <summary>
+        /// recibe un objeto y, si no es nulo, invoca su ficha de un delegado para guardarla en un textbox
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="entidad"></param>
+        /// <param name="tb"></param>
+        /// <param name="ficha"></param>
+        public void escribirDetalle<T>(T entidad, TextBox tb, delegadoFicha ficha)
+        {
+            if (entidad is not null)
+            { 
+                tb.Text = ficha.Invoke();
+            }
+        }
+
+        /// <summary>
         /// Escribir en textbox los detalles de cada entidad.
         /// </summary>
         /// <param name="tb"></param>
-        private void escribirDetalleAlumno(TextBox tb)
+        private void escribirDetalleAlumno(ListBox lb, TextBox tb, delegadoDetalles delegado)
         {
-            Alumno alumnoSeleccionado;
-            alumnoSeleccionado = (Alumno)this.lbListado.SelectedItem;
+            Alumno alumnoSeleccionado = (Alumno)lb.SelectedItem;
 
-            if (alumnoSeleccionado is not null)
-            {
-                string infoAlumno = alumnoSeleccionado.Ficha();
-
-                tb.Text = infoAlumno;
-            }
+            delegado(alumnoSeleccionado, tb, alumnoSeleccionado.Ficha);
         }
 
-        private void escribirDetalleProfesor(TextBox tb)
+        private void escribirDetalleProfesor(ListBox lb, TextBox tb, delegadoDetalles delegado)
         {
-            Profesor profesorSeleccionado;
-            profesorSeleccionado = (Profesor)this.lbListado.SelectedItem;
+            Profesor profesorSeleccionado = (Profesor)lb.SelectedItem;
 
-            if (profesorSeleccionado is not null)
-            {
-                string infoProfesor = profesorSeleccionado.Ficha();
-
-                tb.Text = infoProfesor;
-            }
+            delegado(profesorSeleccionado, tb, profesorSeleccionado.Ficha);
         }
 
-        private void escribirDetalleClase(TextBox tb)
+        private void escribirDetalleClase(ListBox lb, TextBox tb, delegadoDetalles delegado)
         {
-            Clase claseSeleccionada;
-            claseSeleccionada = (Clase)this.lbListado.SelectedItem;
+            Clase claseSeleccionada = (Clase)lb.SelectedItem;
 
-            if (claseSeleccionada is not null)
-            {
-                string infoClase = claseSeleccionada.Ficha();
-
-                tb.Text = infoClase;
-            }
+            delegado(claseSeleccionada, tb, claseSeleccionada.Ficha);
         }
 
 
@@ -592,6 +593,11 @@ namespace MenuPrincipalForm
                 pbLogoInstituto.BackgroundImage = Formularios.Properties.Resources.davinci01;
                 btnModoOscuro.BackgroundImage = Formularios.Properties.Resources.modoOscuro01;
             }
+        }
+
+        private void btnPlanillaNotas_Click(object sender, EventArgs e)
+        {
+            Form menuClase = new frmPlanillaNotas();
         }
     }
 }

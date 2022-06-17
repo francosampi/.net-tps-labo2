@@ -61,3 +61,10 @@ C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debu
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.csproj.CopyComplete
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.genruntimeconfig.cache
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.frmMenuClase.resources
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.frmPlanillaNotas.resources
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debug\net5.0-windows\System.Data.SqlClient.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debug\net5.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debug\net5.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debug\net5.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debug\net5.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\Formularios\bin\Debug\net5.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

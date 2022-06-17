@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Excepciones;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -62,6 +63,10 @@ namespace Entidades
             if (c!=a)
             {
                 c.alumnos.Add(a);
+            }
+            else
+            {
+                throw new AlumnoInscriptoRepetidoException();
             }
             return c;
         }

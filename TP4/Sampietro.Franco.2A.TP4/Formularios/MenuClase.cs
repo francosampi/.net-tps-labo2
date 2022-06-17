@@ -75,7 +75,7 @@ namespace Formularios
         private void cbDocente_SelectedIndexChanged(object sender, EventArgs e)
         {
             Profesor profesorSeleccionado = (Profesor)profesores[cbDocente.SelectedIndex];
-            tbCurso.Text= profesorSeleccionado.curso.ToString();
+            tbCurso.Text = profesorSeleccionado.curso.ToString();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
