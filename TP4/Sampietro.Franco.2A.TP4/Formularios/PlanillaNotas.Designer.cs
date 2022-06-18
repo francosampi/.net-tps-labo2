@@ -50,6 +50,7 @@ namespace Formularios
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
             this.btnLeer = new System.Windows.Forms.Button();
+            this.btnPromedio = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanilla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAgregarAPlanilla)).BeginInit();
             this.SuspendLayout();
@@ -201,7 +202,7 @@ namespace Formularios
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Cyan;
             this.btnModificar.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnModificar.Location = new System.Drawing.Point(332, 108);
+            this.btnModificar.Location = new System.Drawing.Point(307, 108);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(150, 37);
             this.btnModificar.TabIndex = 13;
@@ -212,7 +213,7 @@ namespace Formularios
             // 
             this.btnRemover.BackColor = System.Drawing.Color.OrangeRed;
             this.btnRemover.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRemover.Location = new System.Drawing.Point(488, 108);
+            this.btnRemover.Location = new System.Drawing.Point(463, 108);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(150, 37);
             this.btnRemover.TabIndex = 14;
@@ -225,17 +226,30 @@ namespace Formularios
             this.btnLeer.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLeer.Location = new System.Drawing.Point(176, 108);
             this.btnLeer.Name = "btnLeer";
-            this.btnLeer.Size = new System.Drawing.Size(150, 37);
+            this.btnLeer.Size = new System.Drawing.Size(125, 37);
             this.btnLeer.TabIndex = 15;
             this.btnLeer.Text = "Leer";
             this.btnLeer.UseVisualStyleBackColor = false;
             this.btnLeer.Click += new System.EventHandler(this.btnLeer_Click);
+            // 
+            // btnPromedio
+            // 
+            this.btnPromedio.BackColor = System.Drawing.Color.Fuchsia;
+            this.btnPromedio.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPromedio.Location = new System.Drawing.Point(616, 108);
+            this.btnPromedio.Name = "btnPromedio";
+            this.btnPromedio.Size = new System.Drawing.Size(150, 37);
+            this.btnPromedio.TabIndex = 16;
+            this.btnPromedio.Text = "Promedio";
+            this.btnPromedio.UseVisualStyleBackColor = false;
+            this.btnPromedio.Click += new System.EventHandler(this.btnPromedio_Click);
             // 
             // frmPlanillaNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 554);
+            this.Controls.Add(this.btnPromedio);
             this.Controls.Add(this.btnLeer);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnModificar);
@@ -277,5 +291,6 @@ namespace Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn addDisenoGrafico;
         private System.Windows.Forms.DataGridViewTextBoxColumn addDisenoEnBlender;
         private System.Windows.Forms.DataGridViewTextBoxColumn addProgramacionWeb;
+        private System.Windows.Forms.Button btnPromedio;
     }
 }
