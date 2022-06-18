@@ -74,6 +74,7 @@ namespace Formularios
             this.dgPlanilla.RowTemplate.Height = 25;
             this.dgPlanilla.Size = new System.Drawing.Size(746, 295);
             this.dgPlanilla.TabIndex = 0;
+            this.dgPlanilla.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPlanilla_CellClick);
             // 
             // id
             // 
@@ -219,6 +220,7 @@ namespace Formularios
             this.btnRemover.TabIndex = 14;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = false;
+            this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
             // btnLeer
             // 

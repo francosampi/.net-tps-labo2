@@ -13,7 +13,8 @@ disenoblender int,
 programacionweb int,
 )
 
-delete notas
+insert into notas values
+('Franco Sampietro', 7, 0, 0, 0, 9),
+('Santiago Arrascaeta', 8, 0, 0, 10, 7)
 
-select * from notas
-
+delete from notas where id in (19)
