@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,6 +18,7 @@ namespace Entidades
         {
             this.cadenaConexion = cadenaConexion;
             this.conexion = new SqlConnection(this.cadenaConexion);
+            this.comando = new SqlCommand();
         }
 
         /// <summary>
@@ -87,7 +85,6 @@ namespace Entidades
             {
                 try
                 {
-                    this.comando = new SqlCommand();
                     this.comando.CommandText = "SELECT * FROM notas";
                     this.comando.Connection = this.conexion;
                     this.conexion.Open();
@@ -100,9 +97,9 @@ namespace Entidades
                         string alumno = lector.GetString(1);
                         int programaciondevideojuegos = lector.GetInt32(2);
                         int dibujodecomics = lector.GetInt32(3);
-                        int disenografico = lector.GetInt32(3);
-                        int disenoblender = lector.GetInt32(4);
-                        int programacionweb = lector.GetInt32(5);
+                        int disenografico = lector.GetInt32(4);
+                        int disenoblender = lector.GetInt32(5);
+                        int programacionweb = lector.GetInt32(6);
 
                         string[] row = {
                             id.ToString(),
@@ -113,8 +110,6 @@ namespace Entidades
                             disenoblender.ToString(), 
                             programacionweb.ToString()
                         };
-                        //(id, alumno, programaciondevideojuegos, dibujodecomics, disenografico, disenoblender, programacionweb);
-
                         listaFilas.Add(row);
                     }
                 }
@@ -136,6 +131,12 @@ namespace Entidades
             return listaFilas;
         }
 
+        /// <summary>
+        /// actualizar alumno en la base de datos
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="celdas"></param>
+        /// <returns></returns>
         public bool EditarDeDB(string id, string[] celdas)
         {
             DialogResult dialogResult = MessageBox.Show("Actualizar alumno en id " + id, "Actualizar alumno de base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -150,6 +151,8 @@ namespace Entidades
                         "disenoblender = @disenoblender, " +
                         "programacionweb = @programacionweb " +
                         "WHERE id in (" + id + ")";
+                    this.comando.Connection = this.conexion;
+                    this.conexion.Open();
 
                     this.comando.Parameters.Clear();
                     this.comando.Parameters.AddWithValue("@alumno", celdas[1].Trim());
@@ -157,10 +160,7 @@ namespace Entidades
                     this.comando.Parameters.AddWithValue("@dibujodecomics", celdas[3].Trim());
                     this.comando.Parameters.AddWithValue("@disenografico", celdas[4].Trim());
                     this.comando.Parameters.AddWithValue("@disenoblender", celdas[5].Trim());
-                    this.comando.Parameters.AddWithValue("@programacionweb", celdas[6].Trim());
-
-                    this.comando.Connection = this.conexion;
-                    this.conexion.Open();
+                    this.comando.Parameters.AddWithValue("@programacionweb", celdas[6].Trim());                    
 
                     if (this.comando.ExecuteNonQuery() == 0)
                     {
@@ -185,6 +185,11 @@ namespace Entidades
             return true;
         }
 
+        /// <summary>
+        /// borrar alumno de la base de datos
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool BorrarDeDB(string id)
         {
             DialogResult dialogResult = MessageBox.Show("Eliminar alumno en id "+id, "Borrar alumno de base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

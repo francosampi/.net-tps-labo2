@@ -49,6 +49,7 @@
     <Compile Include="Enumerados.cs" />
     <Compile Include="IAutenticacion.cs" />
     <Compile Include="Instituto.cs" />
+    <Compile Include="MetodosExtension.cs" />
     <Compile Include="NotasDAO.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
