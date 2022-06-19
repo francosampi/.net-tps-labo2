@@ -214,3 +214,7 @@ C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\UnitTesting\obj\Debu
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\UnitTesting\obj\Debug\net5.0\ref\UnitTesting.dll
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\UnitTesting\obj\Debug\net5.0\UnitTesting.pdb
 C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\UnitTesting\obj\Debug\net5.0\UnitTesting.genruntimeconfig.cache
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\UnitTesting\bin\Debug\net5.0\System.Windows.Forms.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\UnitTesting\bin\Debug\net5.0\Accessibility.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\UnitTesting\bin\Debug\net5.0\System.Deployment.dll
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\UnitTesting\bin\Debug\net5.0\System.Runtime.Serialization.Formatters.Soap.dll
