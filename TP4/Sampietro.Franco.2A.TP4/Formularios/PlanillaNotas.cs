@@ -15,9 +15,10 @@ namespace Formularios
     public partial class frmPlanillaNotas : Form
     {
         private static NotasDAO notasDao;
+        private static string alumnoSinNombre = "[ALUMNO NUEVO]";
         private static event Action planillaRecienCargada;
         private static event Action planillaRecienEditada;
-        private static event Action<string, double> promedioGenerado;
+        private static event Action<string, string, double> promedioGenerado;
         private DataGridViewRow rowMain;
 
         public frmPlanillaNotas()
@@ -26,7 +27,7 @@ namespace Formularios
             notasDao = new NotasDAO(@"Server=localhost;Database=SistemaNotas;Trusted_Connection=True;");
             planillaRecienCargada = () => { btnLeer.Enabled = false; };
             planillaRecienEditada = () => { btnLeer.Enabled = true; };
-            promedioGenerado = (s,d) => { MessageBox.Show("El alumno '"+s+"' tiene de promedio un: "+d.ToString(), "Promedio", MessageBoxButtons.OK, MessageBoxIcon.Information); };
+            promedioGenerado = (s,s2,d) => { MessageBox.Show("El alumno '"+s+"' tiene de promedio un: "+d.ToString()+Environment.NewLine+s2, "Promedio", MessageBoxButtons.OK, MessageBoxIcon.Information); };
         }
 
         private void frmPlanillaNotas_Load(object sender, EventArgs e)
@@ -35,11 +36,12 @@ namespace Formularios
             dgAgregarAPlanilla.AllowUserToAddRows = false;
             dgAgregarAPlanilla.Rows.Add();
             this.rowMain = dgAgregarAPlanilla.Rows[0];
+            this.rowMain.Cells[1].Value=alumnoSinNombre;
         }
 
         private void btnGuardarBaseDatos_Click(object sender, EventArgs e)
         {
-            notasDao.GuardarEnBD(dgAgregarAPlanilla);
+            notasDao.GuardarEnBD(dgAgregarAPlanilla, Convert.ToString(this.rowMain.Cells[1].Value));
             planillaRecienEditada.Invoke();
         }
 
@@ -60,6 +62,7 @@ namespace Formularios
         {
             double promedio=0;
             double promedioIndice = 0;
+            string estado;
 
             try
             {
@@ -74,7 +77,8 @@ namespace Formularios
                     }
                 }
                 promedio /= promedioIndice;
-                promedioGenerado.Invoke(Convert.ToString(this.rowMain.Cells[1].Value), promedio);
+                estado = promedio >= 6 ? "[APROBADO]" : "[DESAPROBADO]";
+                promedioGenerado.Invoke(Convert.ToString(this.rowMain.Cells[1].Value), estado, promedio);
             }
             catch(Exception ex)
             {
@@ -98,13 +102,30 @@ namespace Formularios
             this.rowMain.Cells["addProgramacionWeb"].Value = dgPlanilla.CurrentRow.Cells["ProgramacionWeb"].Value;
         }
 
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            string[] celdasMain = new string[this.rowMain.Cells.Count];
+            for (int i=0; i<celdasMain.Length; i++)
+            {
+                celdasMain[i] = Convert.ToString(this.rowMain.Cells[i].Value);
+                MessageBox.Show(celdasMain[i], "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            }
+
+            if (notasDao.EditarDeDB(Convert.ToString(this.rowMain.Cells[0].Value), celdasMain))
+            {
+                planillaRecienEditada.Invoke();
+            }
+        }
+
         private void btnRemover_Click(object sender, EventArgs e)
         {
             if(notasDao.BorrarDeDB(Convert.ToString(this.rowMain.Cells[0].Value)))
             {
-                dgPlanilla.Rows.Remove(dgPlanilla.CurrentRow);
                 planillaRecienEditada.Invoke();
             }
         }
+
     }
 }

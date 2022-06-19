@@ -27,9 +27,9 @@ namespace Entidades
         /// Restaura la tabla en la base de datos con los cambios del datagrid
         /// </summary>
         /// <returns></returns>
-        public bool GuardarEnBD(DataGridView dg)
+        public bool GuardarEnBD(DataGridView dg, string nombre)
         {
-            DialogResult dialogResult = MessageBox.Show("Agregar alumno?", "Agregar alumno a la base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Agregar alumno '"+nombre+"'?", "Agregar alumno a la base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -134,6 +134,55 @@ namespace Entidades
             });
 
             return listaFilas;
+        }
+
+        public bool EditarDeDB(string id, string[] celdas)
+        {
+            DialogResult dialogResult = MessageBox.Show("Actualizar alumno en id " + id, "Actualizar alumno de base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                try
+                {
+                    this.comando.CommandText = "UPDATE notas SET alumno = @alumno, " +
+                        "programaciondevideojuegos = @programaciondevideojuegos, " +
+                        "dibujodecomics = @dibujodecomics, " +
+                        "disenografico = @disenografico, " +
+                        "disenoblender = @disenoblender, " +
+                        "programacionweb = @programacionweb " +
+                        "WHERE id in (" + id + ")";
+
+                    this.comando.Parameters.Clear();
+                    this.comando.Parameters.AddWithValue("@alumno", celdas[1].Trim());
+                    this.comando.Parameters.AddWithValue("@programaciondevideojuegos", celdas[2].Trim());
+                    this.comando.Parameters.AddWithValue("@dibujodecomics", celdas[3].Trim());
+                    this.comando.Parameters.AddWithValue("@disenografico", celdas[4].Trim());
+                    this.comando.Parameters.AddWithValue("@disenoblender", celdas[5].Trim());
+                    this.comando.Parameters.AddWithValue("@programacionweb", celdas[6].Trim());
+
+                    this.comando.Connection = this.conexion;
+                    this.conexion.Open();
+
+                    if (this.comando.ExecuteNonQuery() == 0)
+                    {
+                        MessageBox.Show("Sin columnas afectadas", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return false;
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+                finally
+                {
+                    if (this.conexion.State == ConnectionState.Open)
+                    {
+                        this.conexion.Close();
+                    }
+                }
+            }
+            return true;
         }
 
         public bool BorrarDeDB(string id)
