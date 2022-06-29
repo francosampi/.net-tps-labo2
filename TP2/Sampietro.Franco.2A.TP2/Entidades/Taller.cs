@@ -105,11 +105,12 @@ namespace Entidades
         /// <returns></returns>
         public static Taller operator -(Taller taller, Vehiculo vehiculo)
         {
-            for(int i=0; i<taller.vehiculos.Count; i++)
+            foreach (Vehiculo v in taller.vehiculos)
             {
-                if (taller.vehiculos[i] == vehiculo)
+                if (v == vehiculo)
                 {
-                    taller.vehiculos.RemoveAt(i);
+                    taller.vehiculos.Remove(v);
+                    break;
                 }
             }
             return taller;

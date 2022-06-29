@@ -1,0 +1,123 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\UnitTesting\\UnitTesting.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Entidades\\Entidades.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Entidades\\Entidades.csproj",
+        "projectName": "Entidades",
+        "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Entidades\\Entidades.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj": {
+                "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj": {
+      "restore": {
+        "projectUniqueName": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj",
+        "projectName": "Excepciones",
+        "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\UnitTesting\\UnitTesting.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\UnitTesting\\UnitTesting.csproj",
+        "projectName": "UnitTesting",
+        "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\UnitTesting\\UnitTesting.csproj",
+        "packagesPath": "C:\\Users\\franc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\UnitTesting\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\franc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Entidades\\Entidades.csproj"
+              },
+              "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj": {
+                "projectPath": "C:\\Users\\franc\\Desktop\\PROG\\TPS\\recuperatorio-fecha-finales\\TP4\\Sampietro.Franco.2A.TP4\\Excepciones\\Excepciones.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[2.2.10, )"
+            },
+            "MSTest.TestFramework": {
+              "target": "Package",
+              "version": "[2.2.10, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.2.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.409\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

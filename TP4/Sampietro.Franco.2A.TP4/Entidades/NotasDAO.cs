@@ -208,7 +208,7 @@ namespace Entidades
                     }
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     MessageBox.Show("Error al eliminar alumno en id " + id, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return false;

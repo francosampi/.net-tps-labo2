@@ -1,0 +1,106 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "MenuPrincipalForm/1.0.0": {
+        "dependencies": {
+          "Entidades": "1.0.0",
+          "Excepciones": "1.0.0",
+          "MenuAgregarAlumnoForm": "1.0.0",
+          "MenuAgregarProfesorForm": "1.0.0",
+          "SerializadorJSON": "1.0.0",
+          "SerializadorXML": "1.0.0"
+        },
+        "runtime": {
+          "MenuPrincipalForm.dll": {}
+        }
+      },
+      "Entidades/1.0.0": {
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
+        "runtime": {
+          "Entidades.dll": {}
+        }
+      },
+      "Excepciones/1.0.0": {
+        "runtime": {
+          "Excepciones.dll": {}
+        }
+      },
+      "MenuAgregarAlumnoForm/1.0.0": {
+        "dependencies": {
+          "Entidades": "1.0.0"
+        },
+        "runtime": {
+          "MenuAgregarAlumnoForm.dll": {}
+        }
+      },
+      "MenuAgregarProfesorForm/1.0.0": {
+        "dependencies": {
+          "Entidades": "1.0.0"
+        },
+        "runtime": {
+          "MenuAgregarProfesorForm.dll": {}
+        }
+      },
+      "SerializadorJSON/1.0.0": {
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
+        "runtime": {
+          "SerializadorJSON.dll": {}
+        }
+      },
+      "SerializadorXML/1.0.0": {
+        "dependencies": {
+          "Excepciones": "1.0.0"
+        },
+        "runtime": {
+          "SerializadorXML.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MenuPrincipalForm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Entidades/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Excepciones/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MenuAgregarAlumnoForm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MenuAgregarProfesorForm/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SerializadorJSON/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SerializadorXML/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

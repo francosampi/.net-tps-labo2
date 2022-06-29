@@ -1,0 +1,10 @@
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\Forms.csproj.AssemblyReference.cache
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\MenuAgregarForm.frmMenuAlumno.resources
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\MenuPrincipalForm.MenuPrincipal.resources
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\MenuAgregarProfesorForm.frmMenuProfesor.resources
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\Forms.Properties.Resources.resources
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\Forms.csproj.GenerateResource.cache
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\Forms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\Forms.AssemblyInfoInputs.cache
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\Forms.AssemblyInfo.cs
+C:\Users\franc\Desktop\PROG\TPS\TP4\Sampietro.Franco.2A.TP4\MenuPrincipalForm\obj\Debug\net5.0-windows\Forms.csproj.CoreCompileInputs.cache
