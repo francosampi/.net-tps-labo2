@@ -598,7 +598,7 @@ namespace MenuPrincipalForm
         private void btnPlanillaNotas_Click(object sender, EventArgs e)
         {
             Form planillaNotas = new frmPlanillaNotas();
-            DialogResult resultado = planillaNotas.ShowDialog();
+            planillaNotas.ShowDialog();
         }
     }
 }
