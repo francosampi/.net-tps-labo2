@@ -39,20 +39,17 @@ namespace Formularios
             this.ProgramacionWeb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnGuardarBaseDatos = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.dgAgregarAPlanilla = new System.Windows.Forms.DataGridView();
-            this.addId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddAlumno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addProgramacionDeVideojuegos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addDibujoDeComics = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addDisenoGrafico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addDisenoEnBlender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addProgramacionWeb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnRemover = new System.Windows.Forms.Button();
-            this.btnLeer = new System.Windows.Forms.Button();
             this.btnPromedio = new System.Windows.Forms.Button();
+            this.tbId = new System.Windows.Forms.TextBox();
+            this.tbAlumno = new System.Windows.Forms.TextBox();
+            this.tbProgVj = new System.Windows.Forms.TextBox();
+            this.tbDibujo = new System.Windows.Forms.TextBox();
+            this.tbDisenoG = new System.Windows.Forms.TextBox();
+            this.tbDisenoB = new System.Windows.Forms.TextBox();
+            this.tbProgW = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanilla)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAgregarAPlanilla)).BeginInit();
             this.SuspendLayout();
             // 
             // dgPlanilla
@@ -143,67 +140,11 @@ namespace Formularios
             this.btnCerrar.UseVisualStyleBackColor = true;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // dgAgregarAPlanilla
-            // 
-            this.dgAgregarAPlanilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAgregarAPlanilla.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.addId,
-            this.AddAlumno,
-            this.addProgramacionDeVideojuegos,
-            this.addDibujoDeComics,
-            this.addDisenoGrafico,
-            this.addDisenoEnBlender,
-            this.addProgramacionWeb});
-            this.dgAgregarAPlanilla.Location = new System.Drawing.Point(20, 23);
-            this.dgAgregarAPlanilla.MultiSelect = false;
-            this.dgAgregarAPlanilla.Name = "dgAgregarAPlanilla";
-            this.dgAgregarAPlanilla.RowTemplate.Height = 25;
-            this.dgAgregarAPlanilla.Size = new System.Drawing.Size(746, 79);
-            this.dgAgregarAPlanilla.TabIndex = 12;
-            // 
-            // addId
-            // 
-            this.addId.HeaderText = "id";
-            this.addId.Name = "addId";
-            this.addId.ReadOnly = true;
-            this.addId.Width = 40;
-            // 
-            // AddAlumno
-            // 
-            this.AddAlumno.HeaderText = "Alumno";
-            this.AddAlumno.Name = "AddAlumno";
-            this.AddAlumno.Width = 160;
-            // 
-            // addProgramacionDeVideojuegos
-            // 
-            this.addProgramacionDeVideojuegos.HeaderText = "Programacion de videojuegos";
-            this.addProgramacionDeVideojuegos.Name = "addProgramacionDeVideojuegos";
-            // 
-            // addDibujoDeComics
-            // 
-            this.addDibujoDeComics.HeaderText = "Dibujo de comics";
-            this.addDibujoDeComics.Name = "addDibujoDeComics";
-            // 
-            // addDisenoGrafico
-            // 
-            this.addDisenoGrafico.HeaderText = "Diseño Gráfico";
-            this.addDisenoGrafico.Name = "addDisenoGrafico";
-            // 
-            // addDisenoEnBlender
-            // 
-            this.addDisenoEnBlender.HeaderText = "Diseño 3D en Blender";
-            this.addDisenoEnBlender.Name = "addDisenoEnBlender";
-            // 
-            // addProgramacionWeb
-            // 
-            this.addProgramacionWeb.HeaderText = "Programacion Web";
-            this.addProgramacionWeb.Name = "addProgramacionWeb";
-            // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.Cyan;
             this.btnModificar.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnModificar.Location = new System.Drawing.Point(307, 108);
+            this.btnModificar.Location = new System.Drawing.Point(214, 108);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(150, 37);
             this.btnModificar.TabIndex = 13;
@@ -215,25 +156,13 @@ namespace Formularios
             // 
             this.btnRemover.BackColor = System.Drawing.Color.OrangeRed;
             this.btnRemover.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRemover.Location = new System.Drawing.Point(463, 108);
+            this.btnRemover.Location = new System.Drawing.Point(415, 108);
             this.btnRemover.Name = "btnRemover";
             this.btnRemover.Size = new System.Drawing.Size(150, 37);
             this.btnRemover.TabIndex = 14;
             this.btnRemover.Text = "Remover";
             this.btnRemover.UseVisualStyleBackColor = false;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
-            // 
-            // btnLeer
-            // 
-            this.btnLeer.BackColor = System.Drawing.Color.Gold;
-            this.btnLeer.Font = new System.Drawing.Font("Baskerville Old Face", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLeer.Location = new System.Drawing.Point(176, 108);
-            this.btnLeer.Name = "btnLeer";
-            this.btnLeer.Size = new System.Drawing.Size(125, 37);
-            this.btnLeer.TabIndex = 15;
-            this.btnLeer.Text = "Leer";
-            this.btnLeer.UseVisualStyleBackColor = false;
-            this.btnLeer.Click += new System.EventHandler(this.btnLeer_Click);
             // 
             // btnPromedio
             // 
@@ -247,16 +176,77 @@ namespace Formularios
             this.btnPromedio.UseVisualStyleBackColor = false;
             this.btnPromedio.Click += new System.EventHandler(this.btnPromedio_Click);
             // 
+            // tbId
+            // 
+            this.tbId.Location = new System.Drawing.Point(59, 38);
+            this.tbId.Name = "tbId";
+            this.tbId.PlaceholderText = "Id";
+            this.tbId.Size = new System.Drawing.Size(43, 23);
+            this.tbId.TabIndex = 17;
+            // 
+            // tbAlumno
+            // 
+            this.tbAlumno.Location = new System.Drawing.Point(102, 38);
+            this.tbAlumno.Name = "tbAlumno";
+            this.tbAlumno.PlaceholderText = "Alumno";
+            this.tbAlumno.Size = new System.Drawing.Size(160, 23);
+            this.tbAlumno.TabIndex = 18;
+            // 
+            // tbProgVj
+            // 
+            this.tbProgVj.Location = new System.Drawing.Point(263, 38);
+            this.tbProgVj.Name = "tbProgVj";
+            this.tbProgVj.PlaceholderText = "Materia 1";
+            this.tbProgVj.Size = new System.Drawing.Size(96, 23);
+            this.tbProgVj.TabIndex = 19;
+            // 
+            // tbDibujo
+            // 
+            this.tbDibujo.Location = new System.Drawing.Point(359, 38);
+            this.tbDibujo.Name = "tbDibujo";
+            this.tbDibujo.PlaceholderText = "Materia 2";
+            this.tbDibujo.Size = new System.Drawing.Size(100, 23);
+            this.tbDibujo.TabIndex = 20;
+            // 
+            // tbDisenoG
+            // 
+            this.tbDisenoG.Location = new System.Drawing.Point(459, 38);
+            this.tbDisenoG.Name = "tbDisenoG";
+            this.tbDisenoG.PlaceholderText = "Materia 3";
+            this.tbDisenoG.Size = new System.Drawing.Size(101, 23);
+            this.tbDisenoG.TabIndex = 21;
+            // 
+            // tbDisenoB
+            // 
+            this.tbDisenoB.Location = new System.Drawing.Point(560, 38);
+            this.tbDisenoB.Name = "tbDisenoB";
+            this.tbDisenoB.PlaceholderText = "Materia 4";
+            this.tbDisenoB.Size = new System.Drawing.Size(100, 23);
+            this.tbDisenoB.TabIndex = 22;
+            // 
+            // tbProgW
+            // 
+            this.tbProgW.Location = new System.Drawing.Point(660, 38);
+            this.tbProgW.Name = "tbProgW";
+            this.tbProgW.PlaceholderText = "Materia 5";
+            this.tbProgW.Size = new System.Drawing.Size(100, 23);
+            this.tbProgW.TabIndex = 23;
+            // 
             // frmPlanillaNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 554);
+            this.Controls.Add(this.tbProgW);
+            this.Controls.Add(this.tbDisenoB);
+            this.Controls.Add(this.tbDisenoG);
+            this.Controls.Add(this.tbDibujo);
+            this.Controls.Add(this.tbProgVj);
+            this.Controls.Add(this.tbAlumno);
+            this.Controls.Add(this.tbId);
             this.Controls.Add(this.btnPromedio);
-            this.Controls.Add(this.btnLeer);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.dgAgregarAPlanilla);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnGuardarBaseDatos);
             this.Controls.Add(this.dgPlanilla);
@@ -266,8 +256,8 @@ namespace Formularios
             this.Text = "Planilla de notas";
             this.Load += new System.EventHandler(this.frmPlanillaNotas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgPlanilla)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAgregarAPlanilla)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -276,10 +266,8 @@ namespace Formularios
         private System.Windows.Forms.DataGridView dgPlanilla;
         private System.Windows.Forms.Button btnGuardarBaseDatos;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.DataGridView dgAgregarAPlanilla;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnRemover;
-        private System.Windows.Forms.Button btnLeer;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Alumno;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProgramacionDeVideojuegos;
@@ -287,13 +275,13 @@ namespace Formularios
         private System.Windows.Forms.DataGridViewTextBoxColumn DisenoGrafico;
         private System.Windows.Forms.DataGridViewTextBoxColumn DisenoEnBlender;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProgramacionWeb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AddAlumno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addProgramacionDeVideojuegos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addDibujoDeComics;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addDisenoGrafico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addDisenoEnBlender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addProgramacionWeb;
         private System.Windows.Forms.Button btnPromedio;
+        private System.Windows.Forms.TextBox tbId;
+        private System.Windows.Forms.TextBox tbAlumno;
+        private System.Windows.Forms.TextBox tbProgVj;
+        private System.Windows.Forms.TextBox tbDibujo;
+        private System.Windows.Forms.TextBox tbDisenoG;
+        private System.Windows.Forms.TextBox tbDisenoB;
+        private System.Windows.Forms.TextBox tbProgW;
     }
 }

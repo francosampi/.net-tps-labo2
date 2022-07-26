@@ -9,9 +9,9 @@ namespace Entidades
 {
     public static class MetodosExtension
     {
-        public static bool soloDigitosEnCelda(this DataGridViewRow row, int columnIndex)
+        public static bool soloDigitosEnTextBox(this TextBox tb)
         {
-            foreach (char c in Convert.ToString(row.Cells[columnIndex].Value))
+            foreach (char c in Convert.ToString(tb.Text))
             {
                 if (c < '0' || c > '9')
                 {

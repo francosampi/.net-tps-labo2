@@ -1,3 +1,5 @@
+Correcciones:
+
 Test unitarios agrega el namespace Windows.FOrms?
 NotasDao tiene todos sus atributos públicos? Y el principio de encapsulamiento?
 El connection string se pasa como argumento desde la vista??
