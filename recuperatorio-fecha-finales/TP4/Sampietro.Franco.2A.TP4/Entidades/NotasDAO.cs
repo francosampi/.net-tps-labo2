@@ -27,6 +27,7 @@ namespace Entidades
         public bool GuardarEnBD(TextBox[] tbDatos, string nombre)
         {
             DialogResult dialogResult = MessageBox.Show("Agregar alumno '"+nombre+"'?", "Agregar alumno a la base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           
             if (dialogResult == DialogResult.Yes)
             {
                 try
@@ -37,12 +38,12 @@ namespace Entidades
                     this.conexion.Open();
 
                     this.comando.Parameters.Clear();
-                    this.comando.Parameters.AddWithValue("@alumno", Convert.ToString(tbDatos[0].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@programaciondevideojuegos", Convert.ToString(tbDatos[1].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@dibujodecomics", Convert.ToString(tbDatos[2].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@disenografico", Convert.ToString(tbDatos[3].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@disenoblender", Convert.ToString(tbDatos[4].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@programacionweb", Convert.ToString(tbDatos[5].Text).Trim());
+                    this.comando.Parameters.AddWithValue("@alumno", Convert.ToString(tbDatos[1].Text).Trim());
+                    this.comando.Parameters.AddWithValue("@programaciondevideojuegos", Convert.ToString(tbDatos[2].Text).Trim());
+                    this.comando.Parameters.AddWithValue("@dibujodecomics", Convert.ToString(tbDatos[3].Text).Trim());
+                    this.comando.Parameters.AddWithValue("@disenografico", Convert.ToString(tbDatos[4].Text).Trim());
+                    this.comando.Parameters.AddWithValue("@disenoblender", Convert.ToString(tbDatos[5].Text).Trim());
+                    this.comando.Parameters.AddWithValue("@programacionweb", Convert.ToString(tbDatos[6].Text).Trim());
 
                     if (this.comando.ExecuteNonQuery() == 0)
                     {
@@ -171,6 +172,10 @@ namespace Entidades
                     }
                 }
             }
+            else
+            {
+                return false;
+            }
             return true;
         }
 
@@ -207,6 +212,10 @@ namespace Entidades
                         this.conexion.Close();
                     }
                 }
+            }
+            else
+            {
+                return false;
             }
             return true;
         }

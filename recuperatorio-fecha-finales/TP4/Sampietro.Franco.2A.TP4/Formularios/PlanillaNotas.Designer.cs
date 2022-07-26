@@ -181,6 +181,7 @@ namespace Formularios
             this.tbId.Location = new System.Drawing.Point(59, 38);
             this.tbId.Name = "tbId";
             this.tbId.PlaceholderText = "Id";
+            this.tbId.ReadOnly = true;
             this.tbId.Size = new System.Drawing.Size(43, 23);
             this.tbId.TabIndex = 17;
             // 

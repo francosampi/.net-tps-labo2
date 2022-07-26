@@ -189,17 +189,10 @@ namespace Formularios
         {
             try
             {
-                dgPlanilla.Rows.Clear();
                 List<string[]> listaFilas = await notasDao.LeerEnBD();
 
+                dgPlanilla.Rows.Clear();
                 listaFilas.ForEach(row => dgPlanilla.Rows.Add(row));
-                //tbAlumno.Text = listaFilas[0];
-                //tbProgVj.Text = listaFilas[1];
-                //tbDibujo.Text = listaFilas[2];
-                //tbDisenoG.Text = listaFilas[3];
-                //tbDisenoB.Text = listaFilas[4];
-                //tbProgW.Text = listaFilas[5];
-
                 planillaAbierta.Invoke();
             }
             catch(Exception)
