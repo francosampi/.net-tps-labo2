@@ -524,7 +524,7 @@ namespace MenuPrincipalForm
                 }
                 catch(ArchivoException)
                 {
-                    MessageBox.Show("Ocurrio un error abriendo el archivo " + this.nombreArchivoConfiguracion, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocurrio un error guardando el archivo " + this.nombreArchivoConfiguracion, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

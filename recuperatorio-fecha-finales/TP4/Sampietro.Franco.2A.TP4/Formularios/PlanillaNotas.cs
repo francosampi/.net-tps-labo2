@@ -11,14 +11,12 @@ namespace Formularios
         private static string alumnoSinNombre = "[ALUMNO NUEVO]";
         private static event Action planillaAbierta;
         private static event Action<string, string, double> promedioGenerado;
-        private static int tbDatosSize = 7;
         private TextBox[] tbDatos;
 
         public frmPlanillaNotas()
         {
             InitializeComponent();
             notasDao = new NotasDAO();
-            tbDatos = new TextBox[tbDatosSize];
             planillaAbierta += () => { btnModificar.Enabled = true;};
             planillaAbierta += () => { btnRemover.Enabled = true;};
             planillaAbierta += () => { btnPromedio.Enabled = true;};
@@ -27,15 +25,7 @@ namespace Formularios
 
         private void frmPlanillaNotas_Load(object sender, EventArgs e)
         {
-            this.tbDatos[0] = tbId;
-            this.tbDatos[1] = tbAlumno;
-            this.tbDatos[2] = tbProgVj;
-            this.tbDatos[3] = tbDibujo;
-            this.tbDatos[4] = tbDisenoG;
-            this.tbDatos[5] = tbDisenoB;
-            this.tbDatos[6] = tbProgW;
             dgPlanilla.AllowUserToAddRows = false;
-            tbAlumno.PlaceholderText = alumnoSinNombre;
             btnModificar.Enabled = false;
             btnRemover.Enabled = false;
             btnPromedio.Enabled = false;
@@ -49,15 +39,24 @@ namespace Formularios
         /// <param name="e"></param>
         private void btnGuardarBaseDatos_Click(object sender, EventArgs e)
         {
-            if (ValidarDatosPrincipalNotas() && notasDao.GuardarEnBD(tbDatos, Convert.ToString(tbDatos[0].Text)))
+            int[] notasDefecto = { 0, 0, 0, 0, 0, 0 };
+
+            PlanillaAlumno pAl = new PlanillaAlumno("Sin nombre", notasDefecto);
+            Form frm = new PlanillaNotasAlumno(pAl);
+
+            if(frm.ShowDialog()==DialogResult.OK)
             {
-                ActualizarPlanilla();
-                MessageBox.Show("Alta realizada", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (notasDao.GuardarEnBD(pAl))
+                {
+                    ActualizarPlanilla();
+                    MessageBox.Show("Alta realizada", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar en Base de datos", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
-            else
-            {
-                MessageBox.Show("Error al guardar en Base de datos", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+            
         }
 
         /// <summary>
@@ -71,28 +70,25 @@ namespace Formularios
             double promedioIndice = 0;
             string estado;
 
-            if (ValidarDatosPrincipalNotas())
+            try
             {
-                try
+                for (int i = 2; i < 7; i++)
                 {
-                    for (int i = 2; i < tbDatosSize; i++)
-                    {
-                        double nota = Convert.ToDouble(this.tbDatos[i].Text);
+                    double nota = Convert.ToDouble(dgPlanilla.CurrentRow.Cells[i].Value.ToString());
 
-                        if (nota > 0)
-                        {
-                            promedio += Convert.ToDouble(this.tbDatos[i].Text);
-                            promedioIndice++;
-                        }
+                    if (nota > 0)
+                    {
+                        promedio += nota;
+                        promedioIndice++;
                     }
-                    promedio /= promedioIndice;
-                    estado = promedio >= 6 ? "[APROBADO]" : "[DESAPROBADO]";
-                    promedioGenerado.Invoke(Convert.ToString(this.tbDatos[1].Text), estado, promedio);
                 }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Ocurrio un error: "+ex.Message, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                promedio /= promedioIndice;
+                estado = promedio >= 6 ? "[APROBADO]" : "[DESAPROBADO]";
+                promedioGenerado.Invoke(Convert.ToString(dgPlanilla.CurrentRow.Cells[1].Value), estado, promedio);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Ocurrio un error: "+ex.Message, "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -107,35 +103,27 @@ namespace Formularios
         }
 
         /// <summary>
-        /// traspasar de datos de una fila a la principal
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dgPlanilla_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            for (int i = 0; i < tbDatosSize; i++)
-            {
-                this.tbDatos[i].Text = dgPlanilla.CurrentRow.Cells[i].Value.ToString();
-            }
-        }
-
-        /// <summary>
         /// modificar alumno
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (ValidarDatosPrincipalNotas())
+            int[] notasAlumno = new int[] {
+                Convert.ToInt32(dgPlanilla.CurrentRow.Cells[2].Value),
+                Convert.ToInt32(dgPlanilla.CurrentRow.Cells[3].Value),
+                Convert.ToInt32(dgPlanilla.CurrentRow.Cells[4].Value),
+                Convert.ToInt32(dgPlanilla.CurrentRow.Cells[5].Value),
+                Convert.ToInt32(dgPlanilla.CurrentRow.Cells[6].Value)
+            };
+
+            PlanillaAlumno pAl = new PlanillaAlumno(dgPlanilla.CurrentRow.Cells[1].Value.ToString(), notasAlumno);
+
+            Form frm = new PlanillaNotasAlumno(dgPlanilla.CurrentRow.Cells[0].Value.ToString(), pAl);
+
+            if (frm.ShowDialog() == DialogResult.OK)
             {
-                string[] celdasMain = new string[tbDatosSize];
-
-                for (int i = 0; i < celdasMain.Length; i++)
-                {
-                    celdasMain[i] = Convert.ToString(this.tbDatos[i].Text);
-                }
-
-                if (notasDao.EditarDeDB(Convert.ToString(this.tbDatos[0].Text), celdasMain))
+                if (notasDao.EditarDeDB(dgPlanilla.CurrentRow.Cells[0].Value.ToString(), pAl))
                 {
                     ActualizarPlanilla();
                     MessageBox.Show("Modificacion realizada", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -154,7 +142,7 @@ namespace Formularios
         /// <param name="e"></param>
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            if(notasDao.BorrarDeDB(Convert.ToString(this.tbDatos[0].Text)))
+            if(notasDao.BorrarDeDB(Convert.ToString(dgPlanilla.CurrentRow.Cells[0].Value)))
             {
                 ActualizarPlanilla();
                 MessageBox.Show("Baja realizada", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -163,23 +151,6 @@ namespace Formularios
             {
                 MessageBox.Show("Error al eliminar alumno", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        /// <summary>
-        /// chequea que las celdas correspondiente a las notas solo contengan valores numericos
-        /// </summary>
-        /// <returns></returns>
-        private bool ValidarDatosPrincipalNotas()
-        {
-            for (int i = 2; i < tbDatosSize; i++)
-            {
-                if (!soloDigitosEnDatosPrincipales())
-                {
-                    MessageBox.Show("Las notas no permiten caracteres especiales", "Promedio", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-            return true;
         }
 
         /// <summary>
@@ -194,24 +165,12 @@ namespace Formularios
                 dgPlanilla.Rows.Clear();
                 listaFilas.ForEach(row => dgPlanilla.Rows.Add(row));
                 planillaAbierta.Invoke();
+                dgPlanilla.ClearSelection();
             }
             catch(Exception)
             {
                 MessageBox.Show("Error al cargar la planilla", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-        }
-
-        /// <summary>
-        /// validar en el form de datos principales que solo hayan digitos
-        /// </summary>
-        /// <returns></returns>
-        private bool soloDigitosEnDatosPrincipales()
-        {
-            return tbDibujo.soloDigitosEnTextBox() &&
-                tbDisenoB.soloDigitosEnTextBox() &&
-                tbDisenoG.soloDigitosEnTextBox() &&
-                tbProgVj.soloDigitosEnTextBox() &&
-                tbProgW.soloDigitosEnTextBox();
         }
     }
 }

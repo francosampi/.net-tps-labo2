@@ -24,9 +24,9 @@ namespace Entidades
         /// Restaura la tabla en la base de datos con los cambios del datagrid
         /// </summary>
         /// <returns></returns>
-        public bool GuardarEnBD(TextBox[] tbDatos, string nombre)
+        public bool GuardarEnBD(PlanillaAlumno pAl)
         {
-            DialogResult dialogResult = MessageBox.Show("Agregar alumno '"+nombre+"'?", "Agregar alumno a la base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("Agregar alumno '"+ pAl.nombreAlumno + "'?", "Agregar alumno a la base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
            
             if (dialogResult == DialogResult.Yes)
             {
@@ -38,12 +38,12 @@ namespace Entidades
                     this.conexion.Open();
 
                     this.comando.Parameters.Clear();
-                    this.comando.Parameters.AddWithValue("@alumno", Convert.ToString(tbDatos[1].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@programaciondevideojuegos", Convert.ToString(tbDatos[2].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@dibujodecomics", Convert.ToString(tbDatos[3].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@disenografico", Convert.ToString(tbDatos[4].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@disenoblender", Convert.ToString(tbDatos[5].Text).Trim());
-                    this.comando.Parameters.AddWithValue("@programacionweb", Convert.ToString(tbDatos[6].Text).Trim());
+                    this.comando.Parameters.AddWithValue("@alumno", pAl.nombreAlumno.Trim());
+                    this.comando.Parameters.AddWithValue("@programaciondevideojuegos", Convert.ToString(pAl.notas[0]).Trim());
+                    this.comando.Parameters.AddWithValue("@dibujodecomics", Convert.ToString(pAl.notas[1]).Trim());
+                    this.comando.Parameters.AddWithValue("@disenografico", Convert.ToString(pAl.notas[2]).Trim());
+                    this.comando.Parameters.AddWithValue("@disenoblender", Convert.ToString(pAl.notas[3]).Trim());
+                    this.comando.Parameters.AddWithValue("@programacionweb", Convert.ToString(pAl.notas[4]).Trim());
 
                     if (this.comando.ExecuteNonQuery() == 0)
                     {
@@ -130,7 +130,7 @@ namespace Entidades
         /// <param name="id"></param>
         /// <param name="celdas"></param>
         /// <returns></returns>
-        public bool EditarDeDB(string id, string[] celdas)
+        public bool EditarDeDB(string id, PlanillaAlumno pAl)
         {
             DialogResult dialogResult = MessageBox.Show("Actualizar alumno en id " + id, "Actualizar alumno de base de datos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
@@ -148,12 +148,12 @@ namespace Entidades
                     this.conexion.Open();
 
                     this.comando.Parameters.Clear();
-                    this.comando.Parameters.AddWithValue("@alumno", celdas[1].Trim());
-                    this.comando.Parameters.AddWithValue("@programaciondevideojuegos", celdas[2].Trim());
-                    this.comando.Parameters.AddWithValue("@dibujodecomics", celdas[3].Trim());
-                    this.comando.Parameters.AddWithValue("@disenografico", celdas[4].Trim());
-                    this.comando.Parameters.AddWithValue("@disenoblender", celdas[5].Trim());
-                    this.comando.Parameters.AddWithValue("@programacionweb", celdas[6].Trim());                    
+                    this.comando.Parameters.AddWithValue("@alumno", pAl.nombreAlumno.Trim());
+                    this.comando.Parameters.AddWithValue("@programaciondevideojuegos", Convert.ToString(pAl.notas[0]).Trim());
+                    this.comando.Parameters.AddWithValue("@dibujodecomics", Convert.ToString(pAl.notas[1]).Trim());
+                    this.comando.Parameters.AddWithValue("@disenografico", Convert.ToString(pAl.notas[2]).Trim());
+                    this.comando.Parameters.AddWithValue("@disenoblender", Convert.ToString(pAl.notas[3]).Trim());
+                    this.comando.Parameters.AddWithValue("@programacionweb", Convert.ToString(pAl.notas[4]).Trim());                    
 
                     if (this.comando.ExecuteNonQuery() == 0)
                     {

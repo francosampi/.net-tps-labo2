@@ -73,6 +73,8 @@ namespace MenuAgregarForm
                 this.alumno.nombre = tbNombre.Text;
                 this.alumno.mail = tbMail.Text;
                 this.alumno.totalAbonado = Decimal.ToDouble(nupAbonado.Value);
+                this.alumno.nacionalidad = cbNacionalidad.SelectedIndex==0 ? Nacionalidad.Argentina : Nacionalidad.Extranjera;
+                this.alumno.tipoDePago = cbTipoDePago.SelectedIndex == 0 ? TipoDePago.Transferencia : TipoDePago.Tarjeta;
                 this.alumno.curso = cursos[cbCurso.SelectedIndex];
 
                 this.DialogResult = DialogResult.OK;

@@ -51,6 +51,7 @@
     <Compile Include="Instituto.cs" />
     <Compile Include="MetodosExtension.cs" />
     <Compile Include="NotasDAO.cs" />
+    <Compile Include="PlanillaAlumno.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

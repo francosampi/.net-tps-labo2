@@ -107,3 +107,4 @@ C:\Users\franc\Desktop\PROG\TPS\recuperatorio-fecha-finales\TP4\Sampietro.Franco
 C:\Users\franc\Desktop\PROG\TPS\recuperatorio-fecha-finales\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\ref\Formularios.dll
 C:\Users\franc\Desktop\PROG\TPS\recuperatorio-fecha-finales\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.pdb
 C:\Users\franc\Desktop\PROG\TPS\recuperatorio-fecha-finales\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.genruntimeconfig.cache
+C:\Users\franc\Desktop\PROG\TPS\recuperatorio-fecha-finales\TP4\Sampietro.Franco.2A.TP4\Formularios\obj\Debug\net5.0-windows\Formularios.PlanillaNotasAlumno.resources
