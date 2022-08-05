@@ -8,10 +8,8 @@ namespace Formularios
     public partial class frmPlanillaNotas : Form
     {
         private static NotasDAO notasDao;
-        private static string alumnoSinNombre = "[ALUMNO NUEVO]";
         private static event Action planillaAbierta;
         private static event Action<string, string, double> promedioGenerado;
-        private TextBox[] tbDatos;
 
         public frmPlanillaNotas()
         {
@@ -56,7 +54,6 @@ namespace Formularios
                     MessageBox.Show("Error al guardar en Base de datos", "Ouch!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            
         }
 
         /// <summary>

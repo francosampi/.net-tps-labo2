@@ -57,10 +57,21 @@ namespace Formularios
                 tbProgW.soloDigitosEnTextBox();
         }
 
+        /// <summary>
+        /// agregar alumno y sus notas a la base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (SoloDigitosEnNotas())
             {
+                pAl.nombreAlumno = tbAlumno.Text;
+                pAl.notas[0] = Convert.ToInt32(tbProgVj.Text);
+                pAl.notas[1] = Convert.ToInt32(tbDibujo.Text);
+                pAl.notas[2] = Convert.ToInt32(tbDisenoG.Text);
+                pAl.notas[3] = Convert.ToInt32(tbDisenoB.Text);
+                pAl.notas[4] = Convert.ToInt32(tbProgW.Text);
                 this.DialogResult = DialogResult.OK;
             }
             else
@@ -69,6 +80,11 @@ namespace Formularios
             }
         }
 
+        /// <summary>
+        /// cancelar carga de notas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
